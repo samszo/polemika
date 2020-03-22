@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Réseau de forces</title>
+    <script src='js/d3.v5.min.js'></script>
+    <script src='js/reseau.js'></script>
+    <style>
+    #vdataviz{
+        background-color: grey;
+    }
+    </style>
+<body>
+<div id='dataviz'></div>
+</body>
+
+<script>
+//
+d3.select('#dataviz').style('width',window.innerWidth).style('height',window.innerHeight);
+
+//url simple
+var urlData = "data/m_fruit 1.json";
+
+//url dynamique
+//ex : http://localhost/polemika/reseau.html?cpt=a_zone%201
+var cpt = getParamUrl('cpt');
+if(cpt)
+    urlData = "http://localhost/jdc/public/generateur/omk?q=getConceptReseau&cpt="+cpt;
+
+//construction du réseau
+var r = new reseau({'idCont':'dataviz','width':window.innerWidth,'height':window.innerHeight,'dataUrl':urlData})
+
+function getParamUrl (sVar) {
+  return unescape(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + escape(sVar).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
+}
+
+
+</script>
+</html>
