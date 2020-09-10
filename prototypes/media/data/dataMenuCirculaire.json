@@ -1,0 +1,3063 @@
+[
+    {
+        "@context":"http:\/\/polemika.univ-paris8.fr\/omk\/api-context",
+        "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5745",
+        "@type":[
+            "o:Item",
+            "plmk:Monde"
+        ],
+        "o:id":5745,
+        "o:is_public":true,
+        "o:owner":{
+            "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/users\/1",
+            "o:id":1
+        },
+        "o:resource_class":{
+            "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/resource_classes\/133",
+            "o:id":133
+        },
+        "o:resource_template":{
+            "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/resource_templates\/5",
+            "o:id":5
+        },
+        "o:thumbnail":null,
+        "o:title":"Monde Inspir\u00e9",
+        "o:created":{
+            "@value":"2020-07-02T08:48:39+00:00",
+            "@type":"http:\/\/www.w3.org\/2001\/XMLSchema#dateTime"
+        },
+        "o:modified":{
+            "@value":"2020-07-15T13:47:15+00:00",
+            "@type":"http:\/\/www.w3.org\/2001\/XMLSchema#dateTime"
+        },
+        "o:media":[
+            
+        ],
+        "o:item_set":[
+            
+        ],
+        "dcterms:title":[
+            {
+                "type":"literal",
+                "property_id":1,
+                "property_label":"Title",
+                "is_public":true,
+                "@value":"Monde Inspir\u00e9"
+            }
+        ],
+        "plmk:echelleMacro":[
+            {
+                "type":"resource",
+                "property_id":223,
+                "property_label":"Echelle Macro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5910",
+                "value_resource_id":5910,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"L\u0027universel est dans chaque objet authentique, dans chaque individu, le g\u00e9n\u00e9ral est reconnaissable dans le particulier"
+            }
+        ],
+        "plmk:echelleMeso":[
+            {
+                "type":"resource",
+                "property_id":222,
+                "property_label":"Echelle Meso",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5911",
+                "value_resource_id":5911,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"le mod\u00e8le du groupe est un collectif de taille limit\u00e9, qui \u00e9tablit ses propres r\u00e8gles"
+            }
+        ],
+        "plmk:echelleMicro":[
+            {
+                "type":"resource",
+                "property_id":221,
+                "property_label":"Echelle Micro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5747",
+                "value_resource_id":5747,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Une recherche d\u0027\u00e9l\u00e9vation spirituelle individuelle pr\u00e9vaut"
+            },
+            {
+                "type":"resource",
+                "property_id":221,
+                "property_label":"Echelle Micro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5746",
+                "value_resource_id":5746,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Chaque individu est unique"
+            }
+        ],
+        "plmk:fonctionRapportGrandeur":[
+            {
+                "type":"resource",
+                "property_id":227,
+                "property_label":"Fonctionnement des rapports de grandeur",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5912",
+                "value_resource_id":5912,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Le plus pauvre acc\u00e8de \u00e0 un degr\u00e9 spirituel sup\u00e9rieur"
+            }
+        ],
+        "plmk:rapportOrdre":[
+            {
+                "type":"resource",
+                "property_id":225,
+                "property_label":"Rapport \u00e0 l\u0027ordre et au conformisme",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5915",
+                "value_resource_id":5915,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Les \u00e9motions et leur expression sont valoris\u00e9es"
+            },
+            {
+                "type":"resource",
+                "property_id":225,
+                "property_label":"Rapport \u00e0 l\u0027ordre et au conformisme",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5914",
+                "value_resource_id":5914,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Refus de la r\u00e9gulation classiquement organis\u00e9e dans un \u00e9tat, par la police, la loi, \u00e9tablissement de fonctionnement communautaires de petite taille, de type autogestion, avec autod\u00e9termination des r\u00e8gles du vivre ensemble"
+            },
+            {
+                "type":"resource",
+                "property_id":225,
+                "property_label":"Rapport \u00e0 l\u0027ordre et au conformisme",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5913",
+                "value_resource_id":5913,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Renvoie \u00e0 refus des statuts l\u00e9gitimes \u00e9tablis selon d\u0027autres ordres (un monsieur ing\u00e9nieur, objectivement reconnu intelligent pourra \u00eatre m\u00e9pris\u00e9\/ offrir des fleurs coup\u00e9es est mal vu)"
+            }
+        ],
+        "plmk:rapportTechnique":[
+            {
+                "type":"resource",
+                "property_id":224,
+                "property_label":"Rapport \u00e0 la technique",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5923",
+                "value_resource_id":5923,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Les v\u00e9rit\u00e9s scientifique sont oppos\u00e9es aux intuitions (monde de la croyance), \u00e0 la connaissance spontan\u00e9e, empirique, aux co\u00efncidences qui sont des signes de l\u0027existence d\u0027une absence de ma\u00eetrise vue comme positive"
+            },
+            {
+                "type":"resource",
+                "property_id":224,
+                "property_label":"Rapport \u00e0 la technique",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5922",
+                "value_resource_id":5922,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"L\u0027objet parfait a des d\u00e9fauts"
+            },
+            {
+                "type":"resource",
+                "property_id":224,
+                "property_label":"Rapport \u00e0 la technique",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5921",
+                "value_resource_id":5921,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"La perfection est li\u00e9e \u00e0 l\u0027authentique, et pas \u00e0 un objet fabriqu\u00e9 en s\u00e9rie (oppos\u00e9 \u00e0 la logique du monde industriel)"
+            },
+            {
+                "type":"resource",
+                "property_id":224,
+                "property_label":"Rapport \u00e0 la technique",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5920",
+                "value_resource_id":5920,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"L\u0027irrationnel, le bizarre, l\u0027artisanat, l\u0027authenticit\u00e9, l\u0027insolite sont valoris\u00e9s"
+            },
+            {
+                "type":"resource",
+                "property_id":224,
+                "property_label":"Rapport \u00e0 la technique",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5919",
+                "value_resource_id":5919,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Les habitudes et la stabilit\u00e9 sont d\u00e9valoris\u00e9s, l\u0027utilit\u00e9, la raison et la mesure sont d\u00e9valoris\u00e9s"
+            },
+            {
+                "type":"resource",
+                "property_id":224,
+                "property_label":"Rapport \u00e0 la technique",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5918",
+                "value_resource_id":5918,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Le fatalisme (en forme de croyance), le hasard est comme cultiv\u00e9 (l\u0027art de la rencontre fortuite), impr\u00e9vu est valoris\u00e9"
+            },
+            {
+                "type":"resource",
+                "property_id":224,
+                "property_label":"Rapport \u00e0 la technique",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5917",
+                "value_resource_id":5917,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Refus de la pr\u00e9visibilit\u00e9 li\u00e9e \u00e0 la ma\u00eetrise de la technique (comme dans le monde industriel)"
+            },
+            {
+                "type":"resource",
+                "property_id":224,
+                "property_label":"Rapport \u00e0 la technique",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5916",
+                "value_resource_id":5916,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Renvoie au refus des d\u00e9terminismes sociologiques"
+            }
+        ],
+        "plmk:rapportGrandeur":[
+            {
+                "type":"resource",
+                "property_id":226,
+                "property_label":"Rapport aux signes de grandeur",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5924",
+                "value_resource_id":5924,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Le rapport \u00e0 l\u0027argent, aux objets mat\u00e9riels, aux signes ext\u00e9rieurs de richesse est antagoniste : le plus pauvre acc\u00e8de \u00e0 un degr\u00e9 spirituel sup\u00e9rieur (ce qui rappelle une logique de croyance\/sectaire)"
+            }
+        ],
+        "plmk:valeurNegative":[
+            {
+                "type":"resource",
+                "property_id":231,
+                "property_label":"Valeurs n\u00e9gatives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5928",
+                "value_resource_id":5928,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Efficacit\u00e9 des efforts (l\u0027important n\u0027est pas le r\u00e9sultat, mais le cheminement)"
+            },
+            {
+                "type":"resource",
+                "property_id":231,
+                "property_label":"Valeurs n\u00e9gatives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5927",
+                "value_resource_id":5927,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Rentabilit\u00e9"
+            },
+            {
+                "type":"resource",
+                "property_id":231,
+                "property_label":"Valeurs n\u00e9gatives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5926",
+                "value_resource_id":5926,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Culture du r\u00e9sultat"
+            },
+            {
+                "type":"resource",
+                "property_id":231,
+                "property_label":"Valeurs n\u00e9gatives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5925",
+                "value_resource_id":5925,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"position sociale, statut professionnel"
+            }
+        ],
+        "plmk:valeurPositive":[
+            {
+                "type":"resource",
+                "property_id":229,
+                "property_label":"Valeurs positives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5748",
+                "value_resource_id":5748,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"humilit\u00e9"
+            },
+            {
+                "type":"resource",
+                "property_id":229,
+                "property_label":"Valeurs positives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5935",
+                "value_resource_id":5935,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Cr\u00e9ativit\u00e9"
+            },
+            {
+                "type":"resource",
+                "property_id":229,
+                "property_label":"Valeurs positives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5934",
+                "value_resource_id":5934,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Chaleur"
+            },
+            {
+                "type":"resource",
+                "property_id":229,
+                "property_label":"Valeurs positives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5933",
+                "value_resource_id":5933,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Originalit\u00e9"
+            },
+            {
+                "type":"resource",
+                "property_id":229,
+                "property_label":"Valeurs positives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5932",
+                "value_resource_id":5932,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Sinc\u00e9rit\u00e9"
+            },
+            {
+                "type":"resource",
+                "property_id":229,
+                "property_label":"Valeurs positives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5931",
+                "value_resource_id":5931,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Gratuit\u00e9"
+            },
+            {
+                "type":"resource",
+                "property_id":229,
+                "property_label":"Valeurs positives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5930",
+                "value_resource_id":5930,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"L\u0027universel pr\u00e9sent dans le d\u00e9tail produit des g\u00e9n\u00e9ralisation qui produisent une exp\u00e9rience du monde commune"
+            },
+            {
+                "type":"resource",
+                "property_id":229,
+                "property_label":"Valeurs positives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5929",
+                "value_resource_id":5929,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"La singularit\u00e9"
+            }
+        ]
+    },
+    {
+        "@context":"http:\/\/polemika.univ-paris8.fr\/omk\/api-context",
+        "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5749",
+        "@type":[
+            "o:Item",
+            "plmk:Monde"
+        ],
+        "o:id":5749,
+        "o:is_public":true,
+        "o:owner":{
+            "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/users\/3",
+            "o:id":3
+        },
+        "o:resource_class":{
+            "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/resource_classes\/133",
+            "o:id":133
+        },
+        "o:resource_template":{
+            "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/resource_templates\/5",
+            "o:id":5
+        },
+        "o:thumbnail":null,
+        "o:title":"Monde domestique",
+        "o:created":{
+            "@value":"2020-07-02T10:15:31+00:00",
+            "@type":"http:\/\/www.w3.org\/2001\/XMLSchema#dateTime"
+        },
+        "o:modified":{
+            "@value":"2020-07-15T13:10:47+00:00",
+            "@type":"http:\/\/www.w3.org\/2001\/XMLSchema#dateTime"
+        },
+        "o:media":[
+            
+        ],
+        "o:item_set":[
+            
+        ],
+        "dcterms:title":[
+            {
+                "type":"literal",
+                "property_id":1,
+                "property_label":"Title",
+                "is_public":true,
+                "@value":"Monde domestique"
+            }
+        ],
+        "plmk:echelleMacro":[
+            {
+                "type":"resource",
+                "property_id":223,
+                "property_label":"Echelle Macro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5758",
+                "value_resource_id":5758,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Respect de l\u0027ordre \u00e9tabli"
+            },
+            {
+                "type":"resource",
+                "property_id":223,
+                "property_label":"Echelle Macro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5759",
+                "value_resource_id":5759,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Les insitutions classiques ne sont pas remises en cause"
+            },
+            {
+                "type":"resource",
+                "property_id":223,
+                "property_label":"Echelle Macro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5760",
+                "value_resource_id":5760,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Opposition \u00e0 toute forme d\u0027innovation politique"
+            }
+        ],
+        "plmk:echelleMeso":[
+            {
+                "type":"resource",
+                "property_id":222,
+                "property_label":"Echelle Meso",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5761",
+                "value_resource_id":5761,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"La cellule du collectif de r\u00e9f\u00e9rence est la famille."
+            }
+        ],
+        "plmk:echelleMicro":[
+            {
+                "type":"resource",
+                "property_id":221,
+                "property_label":"Echelle Micro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5750",
+                "value_resource_id":5750,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"La singularit\u00e9 d\u0027un individu est mal vue"
+            },
+            {
+                "type":"resource",
+                "property_id":221,
+                "property_label":"Echelle Micro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5751",
+                "value_resource_id":5751,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Un individu est ench\u00e2ss\u00e9 dans des cha\u00eenes d\u0027interd\u00e9pendances, \u00e0 ce titre les \u0022grands\u0022 ont besoin des \u0022petits\u0022 pour pouvoir \u00eatre vus comme grands."
+            }
+        ],
+        "plmk:fonctionRapportGrandeur":[
+            {
+                "type":"resource",
+                "property_id":227,
+                "property_label":"Fonctionnement des rapports de grandeur",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5895",
+                "value_resource_id":5895,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Importance des syst\u00e8mes de repr\u00e9sentation et des mondanit\u00e9s (\u0022Nous recevons ce soir pour le d\u00eener\u0022)"
+            },
+            {
+                "type":"resource",
+                "property_id":227,
+                "property_label":"Fonctionnement des rapports de grandeur",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5894",
+                "value_resource_id":5894,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"R\u00e9gulation des rapports sociaux et de l\u0027ordre social par l\u0027autorit\u00e9 conf\u00e9r\u00e9e par le statut (chef de famille\/ responsable de\u2026)"
+            }
+        ],
+        "plmk:rapportOrdre":[
+            {
+                "type":"resource",
+                "property_id":225,
+                "property_label":"Rapport \u00e0 l\u0027ordre et au conformisme",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5897",
+                "value_resource_id":5897,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Patriarcat, autorit\u00e9, figure du chef valoris\u00e9s et r\u00e8glent le fonctionnement des rapports sociaux"
+            },
+            {
+                "type":"resource",
+                "property_id":225,
+                "property_label":"Rapport \u00e0 l\u0027ordre et au conformisme",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5896",
+                "value_resource_id":5896,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Respect de la tradition, transmission h\u00e9r\u00e9ditaire des titres comme dans la noblesse"
+            }
+        ],
+        "plmk:rapportTechnique":[
+            {
+                "type":"resource",
+                "property_id":224,
+                "property_label":"Rapport \u00e0 la technique",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5762",
+                "value_resource_id":5762,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Poids des habitudes (R\u00e8gles la vie de famille?)"
+            }
+        ],
+        "plmk:rapportGrandeur":[
+            {
+                "type":"resource",
+                "property_id":226,
+                "property_label":"Rapport aux signes de grandeur",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5899",
+                "value_resource_id":5899,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Les signes de distinction sont valoris\u00e9s (m\u00e9daille, blason, titre honorifiques, labels...), ils confirment l\u0027ordre social \u00e9tabli."
+            },
+            {
+                "type":"resource",
+                "property_id":226,
+                "property_label":"Rapport aux signes de grandeur",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5898",
+                "value_resource_id":5898,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Signes ext\u00e9rieurs de richesse sont valoris\u00e9s (une grosse voiture\/ une grande maison) et vus comme n\u00e9cessaires, ils ont une fonction pour que les individus qui fonctionnent dans cet univers puissent se situer dans la hi\u00e9rarchie des rapports sociaux."
+            }
+        ],
+        "plmk:valeurNegative":[
+            {
+                "type":"resource",
+                "property_id":231,
+                "property_label":"Valeurs n\u00e9gatives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5901",
+                "value_resource_id":5901,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"la singularisation"
+            },
+            {
+                "type":"resource",
+                "property_id":231,
+                "property_label":"Valeurs n\u00e9gatives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5900",
+                "value_resource_id":5900,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"L\u0027originalit\u00e9"
+            }
+        ],
+        "plmk:valeurPositive":[
+            {
+                "type":"resource",
+                "property_id":229,
+                "property_label":"Valeurs positives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5909",
+                "value_resource_id":5909,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Famille"
+            },
+            {
+                "type":"resource",
+                "property_id":229,
+                "property_label":"Valeurs positives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5908",
+                "value_resource_id":5908,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Dignit\u00e9"
+            },
+            {
+                "type":"resource",
+                "property_id":229,
+                "property_label":"Valeurs positives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5907",
+                "value_resource_id":5907,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Subordination aux chefs"
+            },
+            {
+                "type":"resource",
+                "property_id":229,
+                "property_label":"Valeurs positives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5906",
+                "value_resource_id":5906,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Ordre"
+            },
+            {
+                "type":"resource",
+                "property_id":229,
+                "property_label":"Valeurs positives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5905",
+                "value_resource_id":5905,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Education"
+            },
+            {
+                "type":"resource",
+                "property_id":229,
+                "property_label":"Valeurs positives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5904",
+                "value_resource_id":5904,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Stabilit\u00e9 des conduites"
+            },
+            {
+                "type":"resource",
+                "property_id":229,
+                "property_label":"Valeurs positives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5903",
+                "value_resource_id":5903,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Discr\u00e9tion"
+            },
+            {
+                "type":"resource",
+                "property_id":229,
+                "property_label":"Valeurs positives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5902",
+                "value_resource_id":5902,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Correction"
+            }
+        ]
+    },
+    {
+        "@context":"http:\/\/polemika.univ-paris8.fr\/omk\/api-context",
+        "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5752",
+        "@type":[
+            "o:Item",
+            "plmk:Monde"
+        ],
+        "o:id":5752,
+        "o:is_public":true,
+        "o:owner":{
+            "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/users\/3",
+            "o:id":3
+        },
+        "o:resource_class":{
+            "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/resource_classes\/133",
+            "o:id":133
+        },
+        "o:resource_template":{
+            "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/resource_templates\/5",
+            "o:id":5
+        },
+        "o:thumbnail":null,
+        "o:title":"Monde Opinion-Renomm\u00e9e",
+        "o:created":{
+            "@value":"2020-07-02T10:20:52+00:00",
+            "@type":"http:\/\/www.w3.org\/2001\/XMLSchema#dateTime"
+        },
+        "o:modified":{
+            "@value":"2020-07-08T13:41:14+00:00",
+            "@type":"http:\/\/www.w3.org\/2001\/XMLSchema#dateTime"
+        },
+        "o:media":[
+            
+        ],
+        "o:item_set":[
+            
+        ],
+        "dcterms:title":[
+            {
+                "type":"literal",
+                "property_id":1,
+                "property_label":"Title",
+                "is_public":true,
+                "@value":"Monde Opinion-Renomm\u00e9e"
+            }
+        ],
+        "plmk:echelleMacro":[
+            {
+                "type":"resource",
+                "property_id":223,
+                "property_label":"Echelle Macro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5824",
+                "value_resource_id":5824,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Renvoie aux m\u00e9dia people, presse people"
+            },
+            {
+                "type":"resource",
+                "property_id":223,
+                "property_label":"Echelle Macro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5823",
+                "value_resource_id":5823,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"La renomm\u00e9e"
+            },
+            {
+                "type":"resource",
+                "property_id":223,
+                "property_label":"Echelle Macro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5822",
+                "value_resource_id":5822,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"l\u0027adh\u00e9sion de l\u0027opinion publique conditionne le succ\u00e8s mais elle est volatile, soumise \u00e0 l\u0027agenda des m\u00e9dias, il y a donc besoin de renouvellement, de spectaculaire"
+            },
+            {
+                "type":"resource",
+                "property_id":223,
+                "property_label":"Echelle Macro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5821",
+                "value_resource_id":5821,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Echelle macro privil\u00e9gi\u00e9e : dans ce monde l\u00e0, on est grand quand on est une c\u00e9l\u00e9brit\u00e9, vue et connu, montr\u00e9 dans monde m\u00e9diatique"
+            }
+        ],
+        "plmk:echelleMeso":[
+            {
+                "type":"resource",
+                "property_id":222,
+                "property_label":"Echelle Meso",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5827",
+                "value_resource_id":5827,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Exemple de groupes sociaux :\nmonde de la publicit\u00e9, de la jetset"
+            },
+            {
+                "type":"resource",
+                "property_id":222,
+                "property_label":"Echelle Meso",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5826",
+                "value_resource_id":5826,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"La grandeur d\u0027un individu vient de l\u0027opinion des autres"
+            },
+            {
+                "type":"resource",
+                "property_id":222,
+                "property_label":"Echelle Meso",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5825",
+                "value_resource_id":5825,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Importance de la r\u00e9putation"
+            }
+        ],
+        "plmk:echelleMicro":[
+            {
+                "type":"resource",
+                "property_id":221,
+                "property_label":"Echelle Micro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5753",
+                "value_resource_id":5753,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Il faut se distinguer des autres."
+            },
+            {
+                "type":"resource",
+                "property_id":221,
+                "property_label":"Echelle Micro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5754",
+                "value_resource_id":5754,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"L\u0027amour propre fait la dignit\u00e9."
+            },
+            {
+                "type":"resource",
+                "property_id":221,
+                "property_label":"Echelle Micro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5755",
+                "value_resource_id":5755,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"La communication par contagion, par viralit\u00e9."
+            }
+        ],
+        "plmk:fonctionRapportGrandeur":[
+            {
+                "type":"resource",
+                "property_id":227,
+                "property_label":"Fonctionnement des rapports de grandeur",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5832",
+                "value_resource_id":5832,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Attirer l\u0027attention"
+            },
+            {
+                "type":"resource",
+                "property_id":227,
+                "property_label":"Fonctionnement des rapports de grandeur",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5831",
+                "value_resource_id":5831,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Identification du public aux personnalit\u00e9s c\u00e9l\u00e8bres\nrumeur, circulation virale de l\u0027information, r\u00e9p\u00e9tition des messages (publicit\u00e9)"
+            },
+            {
+                "type":"resource",
+                "property_id":227,
+                "property_label":"Fonctionnement des rapports de grandeur",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5830",
+                "value_resource_id":5830,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"La communication par contagion, par viralit\u00e9"
+            },
+            {
+                "type":"resource",
+                "property_id":227,
+                "property_label":"Fonctionnement des rapports de grandeur",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5829",
+                "value_resource_id":5829,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"L\u0027amour propre fait la dignit\u00e9"
+            },
+            {
+                "type":"resource",
+                "property_id":227,
+                "property_label":"Fonctionnement des rapports de grandeur",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5828",
+                "value_resource_id":5828,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Il faut se distinguer des autres"
+            },
+            {
+                "type":"resource",
+                "property_id":227,
+                "property_label":"Fonctionnement des rapports de grandeur",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5838",
+                "value_resource_id":5838,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Importance de la mode"
+            }
+        ],
+        "plmk:rapportOrdre":[
+            {
+                "type":"resource",
+                "property_id":225,
+                "property_label":"Rapport \u00e0 l\u0027ordre et au conformisme",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5837",
+                "value_resource_id":5837,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Respect des r\u00e8gles de biens\u00e9ance"
+            },
+            {
+                "type":"resource",
+                "property_id":225,
+                "property_label":"Rapport \u00e0 l\u0027ordre et au conformisme",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5836",
+                "value_resource_id":5836,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Exclusion des excentricit\u00e9s"
+            },
+            {
+                "type":"resource",
+                "property_id":225,
+                "property_label":"Rapport \u00e0 l\u0027ordre et au conformisme",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5835",
+                "value_resource_id":5835,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"la couverture m\u00e9diatique\nmonde de la publicit\u00e9\nla renomm\u00e9e fabrique les individus vus comme grands"
+            },
+            {
+                "type":"resource",
+                "property_id":225,
+                "property_label":"Rapport \u00e0 l\u0027ordre et au conformisme",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5834",
+                "value_resource_id":5834,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"le spectaculaire, la visibilit\u00e9, la popularit\u00e9 d\u0027abord"
+            }
+        ],
+        "plmk:rapportTechnique":[
+            {
+                "type":"resource",
+                "property_id":224,
+                "property_label":"Rapport \u00e0 la technique",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5841",
+                "value_resource_id":5841,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Technique des sondages d\u0027opinion"
+            },
+            {
+                "type":"resource",
+                "property_id":224,
+                "property_label":"Rapport \u00e0 la technique",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5840",
+                "value_resource_id":5840,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Image de marque"
+            },
+            {
+                "type":"resource",
+                "property_id":224,
+                "property_label":"Rapport \u00e0 la technique",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5839",
+                "value_resource_id":5839,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"produits de marques"
+            }
+        ],
+        "plmk:rapportGrandeur":[
+            {
+                "type":"resource",
+                "property_id":226,
+                "property_label":"Rapport aux signes de grandeur",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5843",
+                "value_resource_id":5843,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Le spectaculaire qui se construit sur les r\u00e9v\u00e9lations sur la vie priv\u00e9e, et l\u0027absence de secret"
+            },
+            {
+                "type":"resource",
+                "property_id":226,
+                "property_label":"Rapport aux signes de grandeur",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5842",
+                "value_resource_id":5842,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Le prestige est accord\u00e9 par rebond, par contagion par un la fr\u00e9quentation d\u0027un individu prestigieux, (\u00eatre vu en pr\u00e9sence d\u0027un \u00eatre populaire est valorisant)"
+            },
+            {
+                "type":"resource",
+                "property_id":226,
+                "property_label":"Rapport aux signes de grandeur",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5840",
+                "value_resource_id":5840,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Image de marque"
+            },
+            {
+                "type":"resource",
+                "property_id":226,
+                "property_label":"Rapport aux signes de grandeur",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5839",
+                "value_resource_id":5839,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"produits de marques"
+            }
+        ],
+        "plmk:valeurNegative":[
+            {
+                "type":"resource",
+                "property_id":231,
+                "property_label":"Valeurs n\u00e9gatives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5846",
+                "value_resource_id":5846,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Excentricit\u00e9"
+            }
+        ],
+        "plmk:valeurPositive":[
+            {
+                "type":"resource",
+                "property_id":229,
+                "property_label":"Valeurs positives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5847",
+                "value_resource_id":5847,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Notori\u00e9t\u00e9"
+            }
+        ]
+    },
+    {
+        "@context":"http:\/\/polemika.univ-paris8.fr\/omk\/api-context",
+        "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5756",
+        "@type":[
+            "o:Item",
+            "plmk:Monde"
+        ],
+        "o:id":5756,
+        "o:is_public":true,
+        "o:owner":{
+            "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/users\/3",
+            "o:id":3
+        },
+        "o:resource_class":{
+            "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/resource_classes\/133",
+            "o:id":133
+        },
+        "o:resource_template":{
+            "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/resource_templates\/5",
+            "o:id":5
+        },
+        "o:thumbnail":null,
+        "o:title":"Monde Civique",
+        "o:created":{
+            "@value":"2020-07-02T10:26:36+00:00",
+            "@type":"http:\/\/www.w3.org\/2001\/XMLSchema#dateTime"
+        },
+        "o:modified":{
+            "@value":"2020-07-08T10:45:49+00:00",
+            "@type":"http:\/\/www.w3.org\/2001\/XMLSchema#dateTime"
+        },
+        "o:media":[
+            
+        ],
+        "o:item_set":[
+            
+        ],
+        "dcterms:title":[
+            {
+                "type":"literal",
+                "property_id":1,
+                "property_label":"Title",
+                "is_public":true,
+                "@value":"Monde Civique"
+            }
+        ],
+        "plmk:echelleMacro":[
+            {
+                "type":"resource",
+                "property_id":223,
+                "property_label":"Echelle Macro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5778",
+                "value_resource_id":5778,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"La lutte"
+            },
+            {
+                "type":"resource",
+                "property_id":223,
+                "property_label":"Echelle Macro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5777",
+                "value_resource_id":5777,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Figure du syndicat"
+            },
+            {
+                "type":"resource",
+                "property_id":223,
+                "property_label":"Echelle Macro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5776",
+                "value_resource_id":5776,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Les communs"
+            },
+            {
+                "type":"resource",
+                "property_id":223,
+                "property_label":"Echelle Macro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5775",
+                "value_resource_id":5775,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Espace public"
+            },
+            {
+                "type":"resource",
+                "property_id":223,
+                "property_label":"Echelle Macro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5774",
+                "value_resource_id":5774,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Institutions"
+            }
+        ],
+        "plmk:echelleMeso":[
+            {
+                "type":"resource",
+                "property_id":222,
+                "property_label":"Echelle Meso",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5785",
+                "value_resource_id":5785,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"L\u0027adh\u00e9sion \u00e0 un mouvement"
+            },
+            {
+                "type":"resource",
+                "property_id":222,
+                "property_label":"Echelle Meso",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5784",
+                "value_resource_id":5784,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Figure du mouvement"
+            },
+            {
+                "type":"resource",
+                "property_id":222,
+                "property_label":"Echelle Meso",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5783",
+                "value_resource_id":5783,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Figure du monde associatif"
+            },
+            {
+                "type":"resource",
+                "property_id":222,
+                "property_label":"Echelle Meso",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5782",
+                "value_resource_id":5782,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Importance des r\u00f4les"
+            },
+            {
+                "type":"resource",
+                "property_id":222,
+                "property_label":"Echelle Meso",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5781",
+                "value_resource_id":5781,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Le collectif est plus que la somme des individus qui le composent"
+            },
+            {
+                "type":"resource",
+                "property_id":222,
+                "property_label":"Echelle Meso",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5780",
+                "value_resource_id":5780,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"R\u00e9union- union des forces"
+            },
+            {
+                "type":"resource",
+                "property_id":222,
+                "property_label":"Echelle Meso",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5779",
+                "value_resource_id":5779,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Structure du collectif"
+            }
+        ],
+        "plmk:echelleMicro":[
+            {
+                "type":"resource",
+                "property_id":221,
+                "property_label":"Echelle Micro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5757",
+                "value_resource_id":5757,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"L\u0027individu appartient \u00e0 un collectif, qui agit dans l\u0027espace public."
+            },
+            {
+                "type":"resource",
+                "property_id":221,
+                "property_label":"Echelle Micro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5771",
+                "value_resource_id":5771,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Le porte-parole"
+            },
+            {
+                "type":"resource",
+                "property_id":221,
+                "property_label":"Echelle Micro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5770",
+                "value_resource_id":5770,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"le militant"
+            },
+            {
+                "type":"resource",
+                "property_id":221,
+                "property_label":"Echelle Micro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5769",
+                "value_resource_id":5769,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"les adh\u00e9rents"
+            },
+            {
+                "type":"resource",
+                "property_id":221,
+                "property_label":"Echelle Micro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5768",
+                "value_resource_id":5768,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"individu qui est repr\u00e9sent\u00e9"
+            },
+            {
+                "type":"resource",
+                "property_id":221,
+                "property_label":"Echelle Micro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5767",
+                "value_resource_id":5767,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"L\u0027individu porteur d\u0027initiative"
+            },
+            {
+                "type":"resource",
+                "property_id":221,
+                "property_label":"Echelle Micro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5766",
+                "value_resource_id":5766,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"L\u0027\u00e9lu"
+            },
+            {
+                "type":"resource",
+                "property_id":221,
+                "property_label":"Echelle Micro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5765",
+                "value_resource_id":5765,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Le d\u00e9l\u00e9gu\u00e9"
+            },
+            {
+                "type":"resource",
+                "property_id":221,
+                "property_label":"Echelle Micro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5764",
+                "value_resource_id":5764,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Le titulaire"
+            }
+        ],
+        "plmk:fonctionRapportGrandeur":[
+            {
+                "type":"resource",
+                "property_id":227,
+                "property_label":"Fonctionnement des rapports de grandeur",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5790",
+                "value_resource_id":5790,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Les rapports sont r\u00e9gis par des droits et obligations"
+            },
+            {
+                "type":"resource",
+                "property_id":227,
+                "property_label":"Fonctionnement des rapports de grandeur",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5789",
+                "value_resource_id":5789,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Solidarit\u00e9 au sein du mouvement"
+            },
+            {
+                "type":"resource",
+                "property_id":227,
+                "property_label":"Fonctionnement des rapports de grandeur",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5788",
+                "value_resource_id":5788,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"La place et le r\u00f4le social"
+            },
+            {
+                "type":"resource",
+                "property_id":227,
+                "property_label":"Fonctionnement des rapports de grandeur",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5787",
+                "value_resource_id":5787,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Renvoie \u00e0 la sociologie des organisations"
+            }
+        ],
+        "plmk:rapportOrdre":[
+            {
+                "type":"resource",
+                "property_id":225,
+                "property_label":"Rapport \u00e0 l\u0027ordre et au conformisme",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5794",
+                "value_resource_id":5794,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"La logique est celle de la l\u00e9galit\u00e9"
+            },
+            {
+                "type":"resource",
+                "property_id":225,
+                "property_label":"Rapport \u00e0 l\u0027ordre et au conformisme",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5793",
+                "value_resource_id":5793,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Mobilisation (derri\u00e8re un projet syndical, politique, associatif)"
+            },
+            {
+                "type":"resource",
+                "property_id":225,
+                "property_label":"Rapport \u00e0 l\u0027ordre et au conformisme",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5792",
+                "value_resource_id":5792,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Les principes sont la loi, la l\u00e9galit\u00e9, le d\u00e9bat d\u00e9mocratique"
+            },
+            {
+                "type":"resource",
+                "property_id":225,
+                "property_label":"Rapport \u00e0 l\u0027ordre et au conformisme",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5791",
+                "value_resource_id":5791,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Int\u00e9r\u00eat g\u00e9n\u00e9ral pr\u00e9vaut"
+            }
+        ],
+        "plmk:rapportTechnique":[
+            {
+                "type":"resource",
+                "property_id":224,
+                "property_label":"Rapport \u00e0 la technique",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5795",
+                "value_resource_id":5795,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Principe du vote, de la d\u00e9l\u00e9gation"
+            },
+            {
+                "type":"resource",
+                "property_id":224,
+                "property_label":"Rapport \u00e0 la technique",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5805",
+                "value_resource_id":5805,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Les \u00e9lections"
+            },
+            {
+                "type":"resource",
+                "property_id":224,
+                "property_label":"Rapport \u00e0 la technique",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5804",
+                "value_resource_id":5804,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Les permanences"
+            },
+            {
+                "type":"resource",
+                "property_id":224,
+                "property_label":"Rapport \u00e0 la technique",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5803",
+                "value_resource_id":5803,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"F\u00e9d\u00e9rations"
+            },
+            {
+                "type":"resource",
+                "property_id":224,
+                "property_label":"Rapport \u00e0 la technique",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5802",
+                "value_resource_id":5802,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Bureaux"
+            },
+            {
+                "type":"resource",
+                "property_id":224,
+                "property_label":"Rapport \u00e0 la technique",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5801",
+                "value_resource_id":5801,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Le mandat"
+            },
+            {
+                "type":"resource",
+                "property_id":224,
+                "property_label":"Rapport \u00e0 la technique",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5800",
+                "value_resource_id":5800,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Gestion administrative et des administr\u00e9s"
+            },
+            {
+                "type":"resource",
+                "property_id":224,
+                "property_label":"Rapport \u00e0 la technique",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5799",
+                "value_resource_id":5799,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Proc\u00e8s verbal"
+            },
+            {
+                "type":"resource",
+                "property_id":224,
+                "property_label":"Rapport \u00e0 la technique",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5798",
+                "value_resource_id":5798,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Formalit\u00e9s"
+            },
+            {
+                "type":"resource",
+                "property_id":224,
+                "property_label":"Rapport \u00e0 la technique",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5797",
+                "value_resource_id":5797,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Cotisation"
+            },
+            {
+                "type":"resource",
+                "property_id":224,
+                "property_label":"Rapport \u00e0 la technique",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5796",
+                "value_resource_id":5796,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Circonscription"
+            }
+        ],
+        "plmk:rapportGrandeur":[
+            {
+                "type":"resource",
+                "property_id":226,
+                "property_label":"Rapport aux signes de grandeur",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5810",
+                "value_resource_id":5810,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Ils tirent leur autorit\u00e9 de leur statut de repr\u00e9sentant de quelque chose"
+            },
+            {
+                "type":"resource",
+                "property_id":226,
+                "property_label":"Rapport aux signes de grandeur",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5809",
+                "value_resource_id":5809,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"ils ont de la l\u00e9gitimit\u00e9, des pr\u00e9rogatives, un mandat"
+            },
+            {
+                "type":"resource",
+                "property_id":226,
+                "property_label":"Rapport aux signes de grandeur",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5808",
+                "value_resource_id":5808,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Ils sont habilit\u00e9s"
+            },
+            {
+                "type":"resource",
+                "property_id":226,
+                "property_label":"Rapport aux signes de grandeur",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5807",
+                "value_resource_id":5807,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Ils des responsabilit\u00e9s"
+            },
+            {
+                "type":"resource",
+                "property_id":226,
+                "property_label":"Rapport aux signes de grandeur",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5806",
+                "value_resource_id":5806,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"ceux qui sont grands sont :\nrepr\u00e9sentants\n\u00e9lus\nd\u00e9l\u00e9gu\u00e9s"
+            }
+        ],
+        "plmk:valeurNegative":[
+            {
+                "type":"resource",
+                "property_id":231,
+                "property_label":"Valeurs n\u00e9gatives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5815",
+                "value_resource_id":5815,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Isolement"
+            },
+            {
+                "type":"resource",
+                "property_id":231,
+                "property_label":"Valeurs n\u00e9gatives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5814",
+                "value_resource_id":5814,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Int\u00e9r\u00eat particulier"
+            },
+            {
+                "type":"resource",
+                "property_id":231,
+                "property_label":"Valeurs n\u00e9gatives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5813",
+                "value_resource_id":5813,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Individualisme"
+            },
+            {
+                "type":"resource",
+                "property_id":231,
+                "property_label":"Valeurs n\u00e9gatives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5812",
+                "value_resource_id":5812,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Division"
+            },
+            {
+                "type":"resource",
+                "property_id":231,
+                "property_label":"Valeurs n\u00e9gatives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5811",
+                "value_resource_id":5811,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Chaos"
+            }
+        ],
+        "plmk:valeurPositive":[
+            {
+                "type":"resource",
+                "property_id":229,
+                "property_label":"Valeurs positives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5820",
+                "value_resource_id":5820,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"N\u00e9gociation"
+            },
+            {
+                "type":"resource",
+                "property_id":229,
+                "property_label":"Valeurs positives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5819",
+                "value_resource_id":5819,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Concertation"
+            },
+            {
+                "type":"resource",
+                "property_id":229,
+                "property_label":"Valeurs positives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5818",
+                "value_resource_id":5818,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Organisation"
+            },
+            {
+                "type":"resource",
+                "property_id":229,
+                "property_label":"Valeurs positives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5817",
+                "value_resource_id":5817,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Responsabilit\u00e9"
+            },
+            {
+                "type":"resource",
+                "property_id":229,
+                "property_label":"Valeurs positives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5816",
+                "value_resource_id":5816,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Initiative"
+            }
+        ]
+    },
+    {
+        "@context":"http:\/\/polemika.univ-paris8.fr\/omk\/api-context",
+        "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5772",
+        "@type":[
+            "o:Item",
+            "plmk:Monde"
+        ],
+        "o:id":5772,
+        "o:is_public":true,
+        "o:owner":{
+            "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/users\/3",
+            "o:id":3
+        },
+        "o:resource_class":{
+            "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/resource_classes\/133",
+            "o:id":133
+        },
+        "o:resource_template":{
+            "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/resource_templates\/5",
+            "o:id":5
+        },
+        "o:thumbnail":null,
+        "o:title":"Monde Marchand",
+        "o:created":{
+            "@value":"2020-07-08T09:24:06+00:00",
+            "@type":"http:\/\/www.w3.org\/2001\/XMLSchema#dateTime"
+        },
+        "o:modified":{
+            "@value":"2020-07-15T12:06:54+00:00",
+            "@type":"http:\/\/www.w3.org\/2001\/XMLSchema#dateTime"
+        },
+        "o:media":[
+            
+        ],
+        "o:item_set":[
+            
+        ],
+        "dcterms:title":[
+            {
+                "type":"literal",
+                "property_id":1,
+                "property_label":"Title",
+                "is_public":true,
+                "@value":"Monde Marchand"
+            }
+        ],
+        "plmk:echelleMacro":[
+            {
+                "type":"resource",
+                "property_id":223,
+                "property_label":"Echelle Macro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5856",
+                "value_resource_id":5856,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Lib\u00e9ralisme"
+            },
+            {
+                "type":"resource",
+                "property_id":223,
+                "property_label":"Echelle Macro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5855",
+                "value_resource_id":5855,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Publicit\u00e9"
+            },
+            {
+                "type":"resource",
+                "property_id":223,
+                "property_label":"Echelle Macro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5854",
+                "value_resource_id":5854,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Monnaie"
+            },
+            {
+                "type":"resource",
+                "property_id":223,
+                "property_label":"Echelle Macro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5853",
+                "value_resource_id":5853,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Commissions"
+            },
+            {
+                "type":"resource",
+                "property_id":223,
+                "property_label":"Echelle Macro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5852",
+                "value_resource_id":5852,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"R\u00e9sultats"
+            },
+            {
+                "type":"resource",
+                "property_id":223,
+                "property_label":"Echelle Macro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5851",
+                "value_resource_id":5851,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"B\u00e9n\u00e9fices"
+            },
+            {
+                "type":"resource",
+                "property_id":223,
+                "property_label":"Echelle Macro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5850",
+                "value_resource_id":5850,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"La concurrence"
+            },
+            {
+                "type":"resource",
+                "property_id":223,
+                "property_label":"Echelle Macro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5849",
+                "value_resource_id":5849,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Le march\u00e9"
+            },
+            {
+                "type":"resource",
+                "property_id":223,
+                "property_label":"Echelle Macro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5848",
+                "value_resource_id":5848,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Business"
+            }
+        ],
+        "plmk:echelleMeso":[
+            {
+                "type":"resource",
+                "property_id":222,
+                "property_label":"Echelle Meso",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5866",
+                "value_resource_id":5866,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"N\u00e9gociant"
+            },
+            {
+                "type":"resource",
+                "property_id":222,
+                "property_label":"Echelle Meso",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5865",
+                "value_resource_id":5865,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"n\u00e9gociation"
+            },
+            {
+                "type":"resource",
+                "property_id":222,
+                "property_label":"Echelle Meso",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5864",
+                "value_resource_id":5864,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Transaction bancaire"
+            },
+            {
+                "type":"resource",
+                "property_id":222,
+                "property_label":"Echelle Meso",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5863",
+                "value_resource_id":5863,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Honoraires"
+            },
+            {
+                "type":"resource",
+                "property_id":222,
+                "property_label":"Echelle Meso",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5862",
+                "value_resource_id":5862,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Cachet"
+            },
+            {
+                "type":"resource",
+                "property_id":222,
+                "property_label":"Echelle Meso",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5861",
+                "value_resource_id":5861,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Rechercher du profit"
+            },
+            {
+                "type":"resource",
+                "property_id":222,
+                "property_label":"Echelle Meso",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5860",
+                "value_resource_id":5860,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Faire des affaires"
+            },
+            {
+                "type":"resource",
+                "property_id":222,
+                "property_label":"Echelle Meso",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5859",
+                "value_resource_id":5859,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"La rivalit\u00e9"
+            },
+            {
+                "type":"resource",
+                "property_id":222,
+                "property_label":"Echelle Meso",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5858",
+                "value_resource_id":5858,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"La comp\u00e9tition"
+            },
+            {
+                "type":"resource",
+                "property_id":222,
+                "property_label":"Echelle Meso",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5857",
+                "value_resource_id":5857,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Le commerce"
+            }
+        ],
+        "plmk:echelleMicro":[
+            {
+                "type":"resource",
+                "property_id":221,
+                "property_label":"Echelle Micro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5868",
+                "value_resource_id":5868,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"D\u00e9sir de poss\u00e9der"
+            },
+            {
+                "type":"resource",
+                "property_id":221,
+                "property_label":"Echelle Micro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5867",
+                "value_resource_id":5867,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Biens marchands"
+            },
+            {
+                "type":"resource",
+                "property_id":221,
+                "property_label":"Echelle Micro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5877",
+                "value_resource_id":5877,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Passer un contrat, conclure une vente"
+            },
+            {
+                "type":"resource",
+                "property_id":221,
+                "property_label":"Echelle Micro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5876",
+                "value_resource_id":5876,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Argent"
+            },
+            {
+                "type":"resource",
+                "property_id":221,
+                "property_label":"Echelle Micro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5875",
+                "value_resource_id":5875,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Homme d\u0027affaire"
+            },
+            {
+                "type":"resource",
+                "property_id":221,
+                "property_label":"Echelle Micro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5874",
+                "value_resource_id":5874,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Vendeur"
+            },
+            {
+                "type":"resource",
+                "property_id":221,
+                "property_label":"Echelle Micro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5873",
+                "value_resource_id":5873,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Acheteur"
+            },
+            {
+                "type":"resource",
+                "property_id":221,
+                "property_label":"Echelle Micro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5872",
+                "value_resource_id":5872,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"La valeur"
+            },
+            {
+                "type":"resource",
+                "property_id":221,
+                "property_label":"Echelle Micro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5871",
+                "value_resource_id":5871,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"La vente"
+            },
+            {
+                "type":"resource",
+                "property_id":221,
+                "property_label":"Echelle Micro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5870",
+                "value_resource_id":5870,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Le prix"
+            },
+            {
+                "type":"resource",
+                "property_id":221,
+                "property_label":"Echelle Micro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5869",
+                "value_resource_id":5869,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Propri\u00e9t\u00e9 priv\u00e9e"
+            }
+        ],
+        "plmk:fonctionRapportGrandeur":[
+            {
+                "type":"resource",
+                "property_id":227,
+                "property_label":"Fonctionnement des rapports de grandeur",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5882",
+                "value_resource_id":5882,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Les grands sont ceux qui gagnent"
+            },
+            {
+                "type":"resource",
+                "property_id":227,
+                "property_label":"Fonctionnement des rapports de grandeur",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5881",
+                "value_resource_id":5881,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Points, avantages"
+            },
+            {
+                "type":"resource",
+                "property_id":227,
+                "property_label":"Fonctionnement des rapports de grandeur",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5880",
+                "value_resource_id":5880,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Comp\u00e9tition"
+            },
+            {
+                "type":"resource",
+                "property_id":227,
+                "property_label":"Fonctionnement des rapports de grandeur",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5879",
+                "value_resource_id":5879,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Rivalit\u00e9"
+            },
+            {
+                "type":"resource",
+                "property_id":227,
+                "property_label":"Fonctionnement des rapports de grandeur",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5878",
+                "value_resource_id":5878,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Opportunit\u00e9"
+            }
+        ],
+        "plmk:rapportOrdre":[
+            {
+                "type":"resource",
+                "property_id":225,
+                "property_label":"Rapport \u00e0 l\u0027ordre et au conformisme",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5883",
+                "value_resource_id":5883,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Strat\u00e9gies de diff\u00e9renciation sur un march\u00e9"
+            }
+        ],
+        "plmk:rapportTechnique":[
+            {
+                "type":"resource",
+                "property_id":224,
+                "property_label":"Rapport \u00e0 la technique",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5884",
+                "value_resource_id":5884,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Technique de vente, de n\u00e9gociation\ntransaction bancaire"
+            }
+        ],
+        "plmk:rapportGrandeur":[
+            {
+                "type":"resource",
+                "property_id":226,
+                "property_label":"Rapport aux signes de grandeur",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5885",
+                "value_resource_id":5885,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"La valeur"
+            }
+        ],
+        "plmk:valeurNegative":[
+            {
+                "type":"resource",
+                "property_id":231,
+                "property_label":"Valeurs n\u00e9gatives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5887",
+                "value_resource_id":5887,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Pauvret\u00e9"
+            },
+            {
+                "type":"resource",
+                "property_id":231,
+                "property_label":"Valeurs n\u00e9gatives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5886",
+                "value_resource_id":5886,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Perdre"
+            }
+        ],
+        "plmk:valeurPositive":[
+            {
+                "type":"resource",
+                "property_id":229,
+                "property_label":"Valeurs positives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5893",
+                "value_resource_id":5893,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"La richesse"
+            },
+            {
+                "type":"resource",
+                "property_id":229,
+                "property_label":"Valeurs positives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5892",
+                "value_resource_id":5892,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Gagner"
+            },
+            {
+                "type":"resource",
+                "property_id":229,
+                "property_label":"Valeurs positives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5891",
+                "value_resource_id":5891,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Achat-vente"
+            },
+            {
+                "type":"resource",
+                "property_id":229,
+                "property_label":"Valeurs positives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5890",
+                "value_resource_id":5890,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Transaction"
+            },
+            {
+                "type":"resource",
+                "property_id":229,
+                "property_label":"Valeurs positives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5889",
+                "value_resource_id":5889,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Art de n\u00e9gocier"
+            },
+            {
+                "type":"resource",
+                "property_id":229,
+                "property_label":"Valeurs positives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5888",
+                "value_resource_id":5888,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Faire des affaires"
+            }
+        ]
+    },
+    {
+        "@context":"http:\/\/polemika.univ-paris8.fr\/omk\/api-context",
+        "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5773",
+        "@type":[
+            "o:Item",
+            "plmk:Monde"
+        ],
+        "o:id":5773,
+        "o:is_public":true,
+        "o:owner":{
+            "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/users\/3",
+            "o:id":3
+        },
+        "o:resource_class":{
+            "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/resource_classes\/133",
+            "o:id":133
+        },
+        "o:resource_template":{
+            "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/resource_templates\/5",
+            "o:id":5
+        },
+        "o:thumbnail":null,
+        "o:title":"Monde Industriel",
+        "o:created":{
+            "@value":"2020-07-08T09:35:44+00:00",
+            "@type":"http:\/\/www.w3.org\/2001\/XMLSchema#dateTime"
+        },
+        "o:modified":{
+            "@value":"2020-07-16T10:31:33+00:00",
+            "@type":"http:\/\/www.w3.org\/2001\/XMLSchema#dateTime"
+        },
+        "o:media":[
+            
+        ],
+        "o:item_set":[
+            
+        ],
+        "dcterms:title":[
+            {
+                "type":"literal",
+                "property_id":1,
+                "property_label":"Title",
+                "is_public":true,
+                "@value":"Monde Industriel"
+            }
+        ],
+        "plmk:echelleMacro":[
+            {
+                "type":"resource",
+                "property_id":223,
+                "property_label":"Echelle Macro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5938",
+                "value_resource_id":5938,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Syst\u00e8me structure-fonction"
+            },
+            {
+                "type":"resource",
+                "property_id":223,
+                "property_label":"Echelle Macro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5937",
+                "value_resource_id":5937,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Facteurs de production"
+            },
+            {
+                "type":"resource",
+                "property_id":223,
+                "property_label":"Echelle Macro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5936",
+                "value_resource_id":5936,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Preuve scientifique"
+            }
+        ],
+        "plmk:echelleMeso":[
+            {
+                "type":"resource",
+                "property_id":222,
+                "property_label":"Echelle Meso",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5943",
+                "value_resource_id":5943,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Investissement"
+            },
+            {
+                "type":"resource",
+                "property_id":222,
+                "property_label":"Echelle Meso",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5942",
+                "value_resource_id":5942,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Organisation scientifique du travail (OST)"
+            },
+            {
+                "type":"resource",
+                "property_id":222,
+                "property_label":"Echelle Meso",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5941",
+                "value_resource_id":5941,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Engrenages"
+            },
+            {
+                "type":"resource",
+                "property_id":222,
+                "property_label":"Echelle Meso",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5940",
+                "value_resource_id":5940,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Mat\u00e9riel de production"
+            },
+            {
+                "type":"resource",
+                "property_id":222,
+                "property_label":"Echelle Meso",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5939",
+                "value_resource_id":5939,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Usine"
+            }
+        ],
+        "plmk:echelleMicro":[
+            {
+                "type":"resource",
+                "property_id":221,
+                "property_label":"Echelle Micro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5952",
+                "value_resource_id":5952,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"T\u00e2ches"
+            },
+            {
+                "type":"resource",
+                "property_id":221,
+                "property_label":"Echelle Micro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5951",
+                "value_resource_id":5951,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Fournisseurs"
+            },
+            {
+                "type":"resource",
+                "property_id":221,
+                "property_label":"Echelle Micro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5950",
+                "value_resource_id":5950,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Machines"
+            },
+            {
+                "type":"resource",
+                "property_id":221,
+                "property_label":"Echelle Micro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5949",
+                "value_resource_id":5949,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Objets techniques"
+            },
+            {
+                "type":"resource",
+                "property_id":221,
+                "property_label":"Echelle Micro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5948",
+                "value_resource_id":5948,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Qualification"
+            },
+            {
+                "type":"resource",
+                "property_id":221,
+                "property_label":"Echelle Micro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5947",
+                "value_resource_id":5947,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Expert"
+            },
+            {
+                "type":"resource",
+                "property_id":221,
+                "property_label":"Echelle Micro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5946",
+                "value_resource_id":5946,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Ing\u00e9nieur"
+            },
+            {
+                "type":"resource",
+                "property_id":221,
+                "property_label":"Echelle Micro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5945",
+                "value_resource_id":5945,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Ouvrier"
+            },
+            {
+                "type":"resource",
+                "property_id":221,
+                "property_label":"Echelle Micro",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5944",
+                "value_resource_id":5944,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Op\u00e9rateur"
+            }
+        ],
+        "plmk:fonctionRapportGrandeur":[
+            {
+                "type":"resource",
+                "property_id":227,
+                "property_label":"Fonctionnement des rapports de grandeur",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5956",
+                "value_resource_id":5956,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Rationnalisation"
+            },
+            {
+                "type":"resource",
+                "property_id":227,
+                "property_label":"Fonctionnement des rapports de grandeur",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5955",
+                "value_resource_id":5955,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Pr\u00e9visibilit\u00e9 des effets"
+            },
+            {
+                "type":"resource",
+                "property_id":227,
+                "property_label":"Fonctionnement des rapports de grandeur",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5954",
+                "value_resource_id":5954,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Productivit\u00e9"
+            },
+            {
+                "type":"resource",
+                "property_id":227,
+                "property_label":"Fonctionnement des rapports de grandeur",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5958",
+                "value_resource_id":5958,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Attitude professionnelle"
+            },
+            {
+                "type":"resource",
+                "property_id":227,
+                "property_label":"Fonctionnement des rapports de grandeur",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5957",
+                "value_resource_id":5957,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Optimisation"
+            }
+        ],
+        "plmk:rapportOrdre":[
+            {
+                "type":"resource",
+                "property_id":225,
+                "property_label":"Rapport \u00e0 l\u0027ordre et au conformisme",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5968",
+                "value_resource_id":5968,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Recherche de ma\u00eetrise des risques"
+            },
+            {
+                "type":"resource",
+                "property_id":225,
+                "property_label":"Rapport \u00e0 l\u0027ordre et au conformisme",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5967",
+                "value_resource_id":5967,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Performance"
+            },
+            {
+                "type":"resource",
+                "property_id":225,
+                "property_label":"Rapport \u00e0 l\u0027ordre et au conformisme",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5966",
+                "value_resource_id":5966,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Efficacit\u00e9"
+            },
+            {
+                "type":"resource",
+                "property_id":225,
+                "property_label":"Rapport \u00e0 l\u0027ordre et au conformisme",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5965",
+                "value_resource_id":5965,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Rationalisation des moyens"
+            },
+            {
+                "type":"resource",
+                "property_id":225,
+                "property_label":"Rapport \u00e0 l\u0027ordre et au conformisme",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5964",
+                "value_resource_id":5964,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Fabrication"
+            },
+            {
+                "type":"resource",
+                "property_id":225,
+                "property_label":"Rapport \u00e0 l\u0027ordre et au conformisme",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5963",
+                "value_resource_id":5963,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Production"
+            },
+            {
+                "type":"resource",
+                "property_id":225,
+                "property_label":"Rapport \u00e0 l\u0027ordre et au conformisme",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5962",
+                "value_resource_id":5962,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Plannification"
+            },
+            {
+                "type":"resource",
+                "property_id":225,
+                "property_label":"Rapport \u00e0 l\u0027ordre et au conformisme",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5961",
+                "value_resource_id":5961,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"M\u00e9canismes, outils, m\u00e9thodes"
+            },
+            {
+                "type":"resource",
+                "property_id":225,
+                "property_label":"Rapport \u00e0 l\u0027ordre et au conformisme",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5960",
+                "value_resource_id":5960,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Fiabilit\u00e9"
+            },
+            {
+                "type":"resource",
+                "property_id":225,
+                "property_label":"Rapport \u00e0 l\u0027ordre et au conformisme",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5959",
+                "value_resource_id":5959,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Pr\u00e9cision"
+            },
+            {
+                "type":"resource",
+                "property_id":225,
+                "property_label":"Rapport \u00e0 l\u0027ordre et au conformisme",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5957",
+                "value_resource_id":5957,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Optimisation"
+            },
+            {
+                "type":"resource",
+                "property_id":225,
+                "property_label":"Rapport \u00e0 l\u0027ordre et au conformisme",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5955",
+                "value_resource_id":5955,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Pr\u00e9visibilit\u00e9 des effets"
+            }
+        ],
+        "plmk:rapportTechnique":[
+            {
+                "type":"resource",
+                "property_id":224,
+                "property_label":"Rapport \u00e0 la technique",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5970",
+                "value_resource_id":5970,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Retour sur Investissement (ROI)"
+            },
+            {
+                "type":"resource",
+                "property_id":224,
+                "property_label":"Rapport \u00e0 la technique",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5969",
+                "value_resource_id":5969,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Principale dimension de ce monde, le rapport \u00e0 la technique, par la m\u00e9diation de la technique est le rapport au monde, instrumental, d\u00e9finitoire de ce monde"
+            },
+            {
+                "type":"resource",
+                "property_id":224,
+                "property_label":"Rapport \u00e0 la technique",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5942",
+                "value_resource_id":5942,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Organisation scientifique du travail (OST)"
+            }
+        ],
+        "plmk:valeurNegative":[
+            {
+                "type":"resource",
+                "property_id":231,
+                "property_label":"Valeurs n\u00e9gatives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5981",
+                "value_resource_id":5981,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Risque"
+            },
+            {
+                "type":"resource",
+                "property_id":231,
+                "property_label":"Valeurs n\u00e9gatives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5980",
+                "value_resource_id":5980,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Incidents"
+            },
+            {
+                "type":"resource",
+                "property_id":231,
+                "property_label":"Valeurs n\u00e9gatives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5979",
+                "value_resource_id":5979,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Al\u00e9atoire"
+            },
+            {
+                "type":"resource",
+                "property_id":231,
+                "property_label":"Valeurs n\u00e9gatives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5978",
+                "value_resource_id":5978,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"al\u00e9as"
+            },
+            {
+                "type":"resource",
+                "property_id":231,
+                "property_label":"Valeurs n\u00e9gatives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5977",
+                "value_resource_id":5977,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Gaspillage"
+            },
+            {
+                "type":"resource",
+                "property_id":231,
+                "property_label":"Valeurs n\u00e9gatives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5976",
+                "value_resource_id":5976,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"D\u00e9motivation"
+            },
+            {
+                "type":"resource",
+                "property_id":231,
+                "property_label":"Valeurs n\u00e9gatives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5975",
+                "value_resource_id":5975,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"d\u00e9qualification"
+            },
+            {
+                "type":"resource",
+                "property_id":231,
+                "property_label":"Valeurs n\u00e9gatives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5974",
+                "value_resource_id":5974,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Handicap"
+            },
+            {
+                "type":"resource",
+                "property_id":231,
+                "property_label":"Valeurs n\u00e9gatives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5973",
+                "value_resource_id":5973,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Ch\u00f4mage"
+            },
+            {
+                "type":"resource",
+                "property_id":231,
+                "property_label":"Valeurs n\u00e9gatives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5972",
+                "value_resource_id":5972,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Turn-over"
+            },
+            {
+                "type":"resource",
+                "property_id":231,
+                "property_label":"Valeurs n\u00e9gatives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5971",
+                "value_resource_id":5971,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Absent\u00e9isme"
+            }
+        ],
+        "plmk:valeurPositive":[
+            {
+                "type":"resource",
+                "property_id":229,
+                "property_label":"Valeurs positives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5994",
+                "value_resource_id":5994,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Grilles"
+            },
+            {
+                "type":"resource",
+                "property_id":229,
+                "property_label":"Valeurs positives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5993",
+                "value_resource_id":5993,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Cadrages"
+            },
+            {
+                "type":"resource",
+                "property_id":229,
+                "property_label":"Valeurs positives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5992",
+                "value_resource_id":5992,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Organigrammes"
+            },
+            {
+                "type":"resource",
+                "property_id":229,
+                "property_label":"Valeurs positives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5991",
+                "value_resource_id":5991,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Sch\u00e9mas"
+            },
+            {
+                "type":"resource",
+                "property_id":229,
+                "property_label":"Valeurs positives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5990",
+                "value_resource_id":5990,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Inventaires"
+            },
+            {
+                "type":"resource",
+                "property_id":229,
+                "property_label":"Valeurs positives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5989",
+                "value_resource_id":5989,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Listes"
+            },
+            {
+                "type":"resource",
+                "property_id":229,
+                "property_label":"Valeurs positives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5988",
+                "value_resource_id":5988,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Maitrise"
+            },
+            {
+                "type":"resource",
+                "property_id":229,
+                "property_label":"Valeurs positives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5987",
+                "value_resource_id":5987,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Niveaux"
+            },
+            {
+                "type":"resource",
+                "property_id":229,
+                "property_label":"Valeurs positives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5986",
+                "value_resource_id":5986,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Indicateurs"
+            },
+            {
+                "type":"resource",
+                "property_id":229,
+                "property_label":"Valeurs positives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5985",
+                "value_resource_id":5985,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Tableaux de bords"
+            },
+            {
+                "type":"resource",
+                "property_id":229,
+                "property_label":"Valeurs positives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5984",
+                "value_resource_id":5984,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Mesures"
+            },
+            {
+                "type":"resource",
+                "property_id":229,
+                "property_label":"Valeurs positives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5983",
+                "value_resource_id":5983,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Productivit\u00e9"
+            },
+            {
+                "type":"resource",
+                "property_id":229,
+                "property_label":"Valeurs positives",
+                "is_public":true,
+                "@id":"http:\/\/polemika.univ-paris8.fr\/omk\/api\/items\/5982",
+                "value_resource_id":5982,
+                "value_resource_name":"items",
+                "url":null,
+                "display_title":"Standardisation"
+            }
+        ]
+    }
+]

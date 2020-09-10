@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        <title>
+            TEST POLEMIKA
+        </title>
+        <!-- Imports style basis -->
+        <link rel="icon" type="image/x-icon" href="media/images/favicon.ico"/>
+        <link rel="stylesheet" type="text/css" href="media/css/style.css"/>
+        <!-- start of web manifest -->
+        <link rel="manifest" href="manifest.json"/>
+		
+		<script src='media/js/jquery-1.9.1.js'></script>
+		<script src='media/js/jquery-migrate-1.0.0.js'></script>
+		<script src='media/js/d3.V5.min.js'></script>
+		<script src='media/js/reseau.js'></script>
+		<script src='media/js/menuSunburst.js'></script>
+		<script src='media/js/geoLoc.js'></script>
+		<script src='media/js/proto.js'></script>
+    </head>
+    <body data-mode="{{ MODE }}">
+        <div id="content">
+			<h1>
+				Interface Categorisation
+			</h1>
+			<div class="information" style="display:flex">
+				<div>
+					<img class="infoElt infoImg" src="" alt=""/>
+				</div>
+				<div>
+					<p class="infoElt infoText">
+					</p>
+				</div>
+			</div>
+			<div class="result">
+			</div>
+			<div class="protoMenu">
+				<div id='dataviz'>
+				</div>
+			</div>
+			<button class="ici">TEST AJAX</button>
+			<button class="la">TEST GET2</button>
+		
+        </div>
+    </body>
+	<!-- register service worker -->
+	<script>
+		if ('serviceWorker' in navigator) {
+			window.addEventListener('load', function() { 
+				navigator.serviceWorker.register('service-worker.js')
+					.then(function() { console.log("Service Worker Registered, Cheers to PWA Fire!"); });
+				}
+			);
+		}
+	</script>
+	<script>
+		$(".ici").unbind("click").bind("click", function() {
+			console.log("call ajax");
+			$.ajax({
+				type: 'GET',
+				url: "../omk/api/items?item_set_id=2",
+				dataType: 'json',
+				success: function(object) {
+					console.log("ajax response");
+					console.log(object);
+				},
+				data: {},
+				async: true
+			});			
+		});
+		$(".la").unbind("click").bind("click", function() {
+			console.log("call get");
+			$.get("../omk/api/items?item_set_id=2", function(data) { 
+				console.log("get response");
+				console.log(data);
+			});
+		});
+		/*
+		try {
+			var useProxy = false;
+			var proto = new Proto(useProxy);
+			console.log("get information to display ...");
+			var info = proto.getOneInformation();
+			console.log(info);
+			var $info = $(".information");
+			var $infoImg = $(".infoImg", $info);
+			var $infoText = $(".infoText", $info);
+			$infoImg.attr("src", info.imgUrl);
+			$infoText.text(info.texte);
+			// bind events on informations
+			console.log("bind events ...");
+			$infoImg.unbind("click").bind("click", function() {
+				proto.getResult().resource = $infoImg.attr("src");
+				proto.getCircularMenuData(function(menuData) {
+					$("#dataviz").empty();
+					var svgMenu = new menuSunburst({
+						'idCont':'dataviz',
+						'width':200,
+						'data' : menuData,
+						'callback' : function(p, $domElt) {
+							if (!p.children) {
+								$domElt.css("fill", "red");
+								proto.getResult().property = p.data.name;
+								proto.serializeResult(function(result) {
+									$(".result").text(JSON.stringify(result));
+								});
+							}
+						}
+					});
+				});
+			});
+			$infoText.unbind("mouseup").bind("mouseup", function() {
+				console.log("text mouseup");
+		        var selection = null;		        
+				var selection = window.getSelection()
+				var node = selection.focusNode.parentNode;
+				if (node == $infoText[0]) {
+					var text = selection.toString();
+					if (text !== '') {
+						console.log("text selection", text);
+						proto.getResult().resource = text;
+						proto.getCircularMenuData(function(menuData) {
+							$("#dataviz").empty();
+							var svgMenu = new menuSunburst({
+								'idCont':'dataviz',
+								'width':200,
+								'data' : menuData,
+								'callback' : function(p, $domElt) {
+									if (!p.children) {
+										$domElt.css("fill", "red");
+										proto.getResult().property = p.data.name;
+										proto.serializeResult(function(result) {
+											$(".result").text(JSON.stringify(result));
+										});
+									}
+								}
+							});
+						});
+					}
+				}
+			});
+		} catch(e) {
+			console.log("error", e);
+		}
+		*/
+	</script>
+	<!-- end of service worker -->	
+</html>

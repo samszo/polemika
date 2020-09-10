@@ -1,0 +1,24 @@
+.hidden {
+    display: none;
+}
+.pointer {
+    cursor: pointer;
+}
+
+#vdataviz{
+    background-color: grey;
+}
+
+.information .infoText {
+    font-size:1.5em
+}
+.information .infoElt {
+    margin:10px;
+    padding:10px;
+    border : 1px solid white;
+    cursor: pointer;
+}
+.information .infoElt:hover {
+    border : 1px solid black;
+    
+}
