@@ -8,9 +8,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Polemika - les olympiades de l'argumentation</title>
-        <!-- Imports style basis -->
         <link rel="icon" type="image/x-icon" href="media/images/favicon.ico" />
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900&display=swap" rel="stylesheet">
+		
+		<!-- Imports style -->
+        <link rel="stylesheet" href="media/css/fonts.googleapis.montserrat.css">
         <link rel="stylesheet" href="media/css/bootstrap.min.css" type="text/css">
         <link rel="stylesheet" href="media/css/font-awesome.min.css" type="text/css">
         <link rel="stylesheet" href="media/css/elegant-icons.css" type="text/css">
@@ -19,7 +20,9 @@
         <link rel="stylesheet" href="media/css/slicknav.min.css" type="text/css">
         <link rel="stylesheet" href="media/css/style.css" type="text/css">
         <link rel="stylesheet" href="media/css/magicCms-modal.css" type="text/css">
-        <link rel="stylesheet" type="text/css" href="media/css/custom-style.css">
+        <link rel="stylesheet" href="media/css/custom-style.css" type="text/css">
+		<!--<link rel="stylesheet" href="media/css/global.min.css" type="text/css">-->
+
         <!-- start of web manifest -->
         <link rel="manifest" href="media/js/manifest.json">
     </head>
@@ -221,13 +224,12 @@
             </div>
         </div>
     </body>
+	
     <script src="media/js/jquery-3.3.1.min.js"></script>
     <script src="media/js/bootstrap.min.js"></script>
     <script src="media/js/jquery.slicknav.js"></script>
     <script src="media/js/owl.carousel.min.js"></script>
     <script src="media/js/main.js"></script>
-    <!--<script src='media/js/jquery-1.9.1.js'></script>-->
-    <!--<script src='media/js/jquery-migrate-1.0.0.js'></script>-->
     <script src='media/js/orchestrator.js'></script>
     <script src='media/js/d3.V5.min.js'></script>
     <script src='media/js/reseau.js'></script>
@@ -239,6 +241,8 @@
     <script src='media/js/McButton.js'></script>
     <script src='media/js/McModal.js'></script>
     <script src='media/js/spin.min.js'></script>
+	<!--<script src='media/js/global.js'></script>-->
+	
     <!-- register service worker -->
     <script>
         if ('serviceWorker' in navigator) {
@@ -252,7 +256,7 @@
     <!-- end of service worker -->
     <script>
         try {
-        	var proto = new Proto(false);
+        	var proto = new Proto(true);
         	console.log("get information to display ...");
         	var params = proto.getGetParameters();
         	var info = proto.getOneInformation(params.info);
