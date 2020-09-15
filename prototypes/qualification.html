@@ -256,7 +256,8 @@
     <!-- end of service worker -->
     <script>
         try {
-        	var proto = new Proto(true);
+			var isLocal = false;
+        	var proto = new Proto(isLocal);
         	console.log("get information to display ...");
         	var params = proto.getGetParameters();
         	var info = proto.getOneInformation(params.info);
