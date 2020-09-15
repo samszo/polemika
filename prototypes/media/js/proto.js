@@ -213,7 +213,13 @@ class Proto {
         var self = this;
         self.geo.getPosition(function(coords) {
             self.resultData.geoLoc = coords;
-            var today = new Date();
+            var latitude = null;
+			var longitude = null;
+			if (coords) {
+				latitude = coords.latitude;
+				longitude = coords.longitude;
+			}
+			var today = new Date();
             self.resultData.date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
             if (self.resultData.resource.type == 'picture')
                 self.resultData.resource.omkId = self.resultData.info.media.omkId;
@@ -223,8 +229,8 @@ class Proto {
             var omkData = {
                 'dcterms:title' : "TODO",
                 'jdc:creationDate' : self.resultData.date,
-                'ma:locationLatitude' : coords.latitude,
-                'ma:locationLongitude' : coords.longitude,
+                'ma:locationLatitude' : latitude,
+                'ma:locationLongitude' : longitude,
                 'oa:hasSource' : [{
                     'type':'resource',
                     'value':self.resultData.resource
