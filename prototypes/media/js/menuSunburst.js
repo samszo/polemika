@@ -1,6 +1,7 @@
 var menu = null;
 class menuSunburst {
     constructor(params) {
+        this.titles = null;
         menu = this;
         var me = this;
         this.cont = d3.select("#"+params.idCont);
@@ -70,8 +71,8 @@ class menuSunburst {
 
     
             path.append("title")
-                    .text(d => `${d.ancestors().map(d => d.data.name).reverse().join("/")}\n${format(d.value)}`);
-    
+                    .text(d => `${d.ancestors().map(d => d.data.name).reverse().join("/")}\n${format(d.value)}`);            
+             
             label = g.append("g")
                     .attr("pointer-events", "none")
                     .attr("text-anchor", "middle")
@@ -83,7 +84,9 @@ class menuSunburst {
                     .attr("fill-opacity", d => +labelVisible(d.current))
                     .attr("transform", d => labelTransform(d.current))
                     .text(d => d.data.name);
-    
+            
+            wrap(label, 30);
+            
             parent = g.append("circle")
                     .datum(root)
                     .attr("r", radius)
@@ -115,11 +118,47 @@ class menuSunburst {
             }            
         }
 
+		function wrap(text, width) {
+		    text.each(function() {
+		        var text = d3.select(this),
+		            words = text.text().split(/\s+/).reverse(),
+		            word,
+		            line = [],
+		            lineNumber = 1,
+		            lineHeight = 1.1, // ems
+		            y = text.attr("y"),
+		            dy = parseFloat(text.attr("dy")),
+		            tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em");
+		        var firstSpan = tspan;
+		        while (word = words.pop()) {
+		            line.push(word);
+		            tspan.text(line.join(" "));
+		            if (tspan.node().getComputedTextLength() > width) {
+		                if (line.length == 1) {
+		                	tspan.text(line.join(" "));
+		                	line = []
+		                	if (words.length > 0) {
+			                	tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", "1em");
+			                	lineNumber++;
+		                	}
+		                } else {
+			                line.pop();
+			                tspan.text(line.join(" "));
+			                line = [word];
+			                tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", "1em").text(word);
+			                lineNumber++;
+		                }
+		            }
+		        }
+		        firstSpan.attr("dy", (-0.5*(lineNumber-1)+0.25) + "em");
+		    });
+		}
+
         function clicked(p) {
 
             //vérifie si une fonction est définie
             if(p.data.fct)fctExecute(p);
-
+            
             if (menu.callback) {
                 menu.callback(p, $(this));
             }

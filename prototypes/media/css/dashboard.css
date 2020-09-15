@@ -1,0 +1,23 @@
+.dashboard .module h4 {
+    display: none;
+}
+.dashboard .grp-module h4 {
+    display: none;
+}
+.module .module {
+    border-top-color: #E0E0E0 !important;
+}
+
+/* Hide the app name from breadcrumb */
+#breadcrumbs a:nth-child(2) {
+    display: none;
+}
+
+/* Hide the extra separator, tricky */
+#breadcrumbs a:first-child {
+    margin-right: -.65em;
+    padding-top: 0;
+    padding-bottom: 0;
+    background: inherit;
+    position: relative;
+}

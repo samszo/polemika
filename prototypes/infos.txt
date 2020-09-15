@@ -1,0 +1,6 @@
+python : 3
+virtual env : interfaceUser
+
+Pour lancer le serveur :
+workon interfaceUser
+python3 app.py

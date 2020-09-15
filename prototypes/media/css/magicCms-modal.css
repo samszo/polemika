@@ -1,0 +1,108 @@
+/*COMPRESSION*/
+/** Part of MagicCms
+ * @author Erwan Brottier - erwan@addictive-web.com - http://www.addictive-web.com
+ * @version 2.0
+ * @date 01/01/2020
+ * @category Thot web component
+ * @copyright (c) 2011-2020 Erwan Brottier */
+/* The Modal (background) */
+.mc-modal {    
+  border-radius: .3rem;
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 10000;
+  /*padding-top: 100px;*/ /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.mc-modal-title {
+    font-family: Barlow;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+    visibility: visible;
+    color: black;
+}
+
+/* Modal Content */
+.mc-modal .mc-modal-content {
+  position: relative;
+  background-color: #ffffff;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  max-width:80vh;
+  /*width: 80%;*/
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* The Close Button */
+.mc-modal .close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.mc-modal .close:hover,
+.mc-modal .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.mc-modal .mc-modal-header {
+    padding: 2px 16px;    
+    color: white;
+}
+
+.mc-modal .mc-modal-body {padding: 2px 16px;}
+
+.mc-modal .mc-modal-footer {
+    padding: 2px 16px;
+    color: white;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+.mc-modal .sep {
+    background: #ffffff;
+    color: #333333;
+    margin-top: 0;
+    padding-bottom: 10px;
+    padding-left: 20px;    
+    border-right: 1px solid #efefef;
+    border-bottom: 1px solid #efefef;
+    font-family: 'open_sansbold',Arial,sans-serif;
+    font-size: 13px;
+    color: #333333;
+    font-weight: normal;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+.mc-modal .buttons {
+    margin-bottom: 10px;
+}
+.mc-modal .buttons .but {
+    margin-left:10px;
+    cursor:pointer;
+}

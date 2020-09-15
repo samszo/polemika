@@ -1,0 +1,91 @@
+.hidden {
+    display: none;
+}
+.pointer {
+    cursor: pointer;
+}
+
+.header__logo a {
+	border-top:1px solid white;
+	border-bottom:1px solid white;
+}
+.offcanvas__logo a {
+	border-top:1px solid white;
+	border-bottom:1px solid white;
+	color:white;
+}
+.flex {
+	display: flex;
+}
+.flexCentered {
+	margin-left: auto;
+    margin-right: auto;
+}
+
+#vdataviz{
+    background-color: grey;
+}
+body {
+	background-color: #37A2B5;
+}
+.information .infoText {
+    font-size:1.5em;
+	color:white;
+}
+.information .infoElt {
+    margin:10px;
+    padding:10px;
+    border : 1px solid transparent;
+    cursor: pointer;
+}
+.information .infoElt:hover,
+.information .infoElt.selected {
+    border : 1px solid #37A2B5;    
+}
+.footer__text-widget p,
+.footer__text-widget ul li a,
+.footer__text-widget .footer__widget-info li,
+.footer__text-widget .footer__widget-info li span {
+    color:white;
+}
+footer__text-copyright p {
+    color: #2a2163 !important;
+    font-size: 10px !important;
+}
+.footer__text-copyright {
+    padding: 0px 0;
+    margin-top: 0px;
+}
+.blur {
+    -webkit-filter: blur(3px);
+    -moz-filter: blur(3px);
+    -o-filter: blur(3px);
+    -ms-filter: blur(3px);
+    filter: blur(3px);
+}
+.notblur {
+    -webkit-filter: none;
+    -moz-filter: none;
+    -o-filter: none;
+    -ms-filter: none;
+    filter: none;
+}
+
+.mc-modal {
+	background-color: rgba(88,88,88,0.5);
+    width: 100vw;
+    height: 100vh;	
+}
+.mc-modal .mc-modal-content {
+	background-color:transparent;
+	width: 100%;
+    height: 100%;
+	border:none;
+	box-shadow : none;
+}
+.mc-modal .mc-modal-header {
+	height: 28px;
+}
+.mc-modal .sep {
+	display:none;
+}

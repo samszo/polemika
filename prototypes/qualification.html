@@ -18,9 +18,10 @@
         <link rel="stylesheet" href="media/css/owl.carousel.min.css" type="text/css">
         <link rel="stylesheet" href="media/css/slicknav.min.css" type="text/css">
         <link rel="stylesheet" href="media/css/style.css" type="text/css">
+        <link rel="stylesheet" href="media/css/magicCms-modal.css" type="text/css">
         <link rel="stylesheet" type="text/css" href="media/css/custom-style.css">
         <!-- start of web manifest -->
-        <link rel="manifest" href="manifest.json">
+        <link rel="manifest" href="media/js/manifest.json">
     </head>
     <body>
         <div id="content">
@@ -38,8 +39,8 @@
                 </div>
                 <nav class="offcanvas__menu mobile-menu">
                     <ul>
-                        <li class="active"><a href="index.html">A propos</a></li>
-                        <li><a href="qualification.html">Olympiades</a></li>
+                        <li><a href="index.html">A propos</a></li>
+                        <li class="active"><a href="qualification.html">Olympiades</a></li>
                     </ul>
                 </nav>
                 <div id="mobile-menu-wrap"></div>
@@ -95,8 +96,8 @@
                         <div class="col-lg-9 col-md-9">
                             <nav class="header__menu">
                                 <ul>
-                                    <li class="active"><a href="index.html">A propos</a></li>
-                                    <li><a href="qualification.html">Olympiades</a></li>
+                                    <li><a href="index.html">A propos</a></li>
+                                    <li class="active"><a href="qualification.html">Olympiades</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -109,21 +110,24 @@
             <!-- Header End -->
             <!-- Hero Section Begin -->
             <section class="hero-section">
-                <div class="hero__slider owl-carousel">
-                    <div class="hero__item set-bg" data-setbg="media/images/hero/hero-1.png">
-                        <div class="container">
+                <div class="">
+                    <div class="hero__item set-bg" data-setbg="media/images/hero/hero-1.png" style="height: 945px;">
+                        <div class="container information">
                             <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="hero__text">
-                                        <h5>Eduquer à l'esprit critique avec l'IA</h5>
-                                        <h2>Les olympiades de l'argumentation</h2>
-                                        <a href="qualification.html" class="primary-btn">commencer maintenant</a>
-                                    </div>
+                                <div class="col-lg-6 col-md-12">
+                                    <img style="width:100%;" class="infoElt infoImg" src="" alt="" />
                                 </div>
-                                <div class="col-lg-6">
-                                    <div class="hero__img">
-                                        <img src="media/images/hero/hero-right.png" alt="">
-                                    </div>
+                                <div class="col-lg-6 col-md-12">
+                                    <p class="infoElt infoText">
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 flex">
+                                    <a href="#" class="primary-btn flexCentered boutonQualifier hidden">Qualifier</a>
+                                </div>
+                                <div class="col-lg-12">
+                                    <pre class="result"></pre>
                                 </div>
                             </div>
                         </div>
@@ -142,7 +146,7 @@
                                     <!--<div class="footer__logo">
                                         <a href="/">Polemika</a>
                                         </div>-->
-                                    <p>Polemika est Génération automatique Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                                         ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida viverra maecen
                                         lacus vel facilisis. 
                                     </p>
@@ -190,6 +194,32 @@
                 </div>
             </footer>
         </div>
+        <div class="mc-modal">
+            <!-- Modal content -->
+            <div class="mc-modal-content">
+                <div class="mc-modal-header">
+                    <span class="close">
+                    &times;
+                    </span>
+                    <div class="mc-modal-title">
+                        Modal Header
+                    </div>
+                </div>
+                <div class="sep"></div>
+                <div class="mc-modal-body">
+                    <p>
+                        Some text in the Modal Body
+                    </p>
+                    <p>
+                        Some other text...
+                    </p>
+                </div>
+                <div class="sep"></div>
+                <div class="mc-modal-footer flex_layout" style="display: flex;">
+                    <div class="buttons" style="margin-left: auto !important;"></div>
+                </div>
+            </div>
+        </div>
     </body>
     <script src="media/js/jquery-3.3.1.min.js"></script>
     <script src="media/js/bootstrap.min.js"></script>
@@ -204,15 +234,115 @@
     <script src='media/js/menuSunburst.js'></script>
     <script src='media/js/geoLoc.js'></script>
     <script src='media/js/proto.js'></script>
+    <script src='media/js/MagicObject.js'></script>
+    <script src='media/js/MagicNode.js'></script>
+    <script src='media/js/McButton.js'></script>
+    <script src='media/js/McModal.js'></script>
+    <script src='media/js/spin.min.js'></script>
     <!-- register service worker -->
     <script>
         if ('serviceWorker' in navigator) {
         	window.addEventListener('load', function() { 
-        		navigator.serviceWorker.register('service-worker.js')
+        		navigator.serviceWorker.register('/media/js/service-worker.js')
         			.then(function() { console.log("Service Worker Registered, Cheers to PWA Fire!"); });
         		}
         	);
         }
     </script>
     <!-- end of service worker -->
+    <script>
+        try {
+        	var proto = new Proto(false);
+        	console.log("get information to display ...");
+        	var params = proto.getGetParameters();
+        	var info = proto.getOneInformation(params.info);
+        	proto.getResult().info = info;
+        	console.log(info);
+        	var $info = $(".information");
+        	var $infoImg = $(".infoImg", $info);
+        	var $infoText = $(".infoText", $info);
+        	$infoImg.attr("src", info.media.imgUrl);
+        	$infoText.text(info.texte);
+        	
+        	var modal = null;
+        	var menuChange = function(p, $domElt) {
+        		if ($domElt.is("circle")) {
+        			proto.getResult().property.pop();
+        		} else if (!p.children) {
+					var initialColor = $domElt.css("fill");
+					var redColor = "rgb(255, 0, 0)";
+					$domElt.css("fill", redColor);
+					var count = 1;
+					var intervalId = setInterval(function() {
+						if ($domElt.css("fill") == redColor)
+							$domElt.css("fill", initialColor);
+						else
+							$domElt.css("fill", redColor);
+						if (count++ === 5) {
+							clearInterval(intervalId);
+							proto.getResult().property.push(p.data.omkId);
+							proto.serializeResult(function(omkData) {										    
+								//$(".result").text(JSON.stringify(omkData, undefined, 4));
+								console.log(JSON.stringify(omkData, undefined, 4));
+								modal.node.find("span.close").click();
+								$(".boutonQualifier").removeClass("hidden");
+								proto.deselectInfo();
+							});
+						}
+					}, 200);
+        		} else {
+        			proto.getResult().property.push(p.data.omkId);					
+        		}
+        	};
+        	
+        	var openMenu = function() {
+        		var $dataviz = $("body #dataviz");
+        		if ($dataviz.length == 0) {
+        			$dataviz = $("<div id='dataviz'></div>");
+        			$("body").append($dataviz);
+        		}
+        		var $content = $(".mc-modal-content");
+        		proto.getCircularMenuData(function(menuData) {
+        			$dataviz.empty();
+        			var svgMenu = new menuSunburst({
+        				'idCont':'dataviz',
+        				'width':200,
+        				'data' : menuData,
+        				'callback' : menuChange
+        			});
+        			modal = new McModal("", $dataviz, [
+        				{action : "cancel", callback : function(modalLock) {
+        					modalLock.resolve();
+        					$("body #content").removeClass("blur");
+        				}}
+        			]);
+        			$("body #content").addClass("blur");
+        			modal.show();
+        		});
+        	}
+        	// bind events on informations
+        	console.log("bind events ...");
+        	$infoImg.unbind("click").bind("click", function() {
+				proto.selectInfo($infoImg);
+        	});
+        	$infoText.unbind("mouseup").bind("mouseup", function() {
+                var selection = null;		        
+        		var selection = window.getSelection()
+        		var node = selection.focusNode.parentNode;
+        		if (node == $infoText[0]) {
+        			var text = selection.toString();
+        			$(".result").text("");
+        			if (text == '') {// whole text
+        				text = $infoText.text();
+        			}
+        			proto.selectInfo($infoText, text);
+        		}
+        	});
+			$(".boutonQualifier").unbind("click").bind("click", function() {
+				openMenu();
+			});
+        } catch(e) {
+        	console.log("error", e);
+        }
+    </script>
 </html>
