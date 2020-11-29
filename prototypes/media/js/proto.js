@@ -76,7 +76,7 @@ class Proto {
 		if (this.useLocal)
             url = "http://127.0.0.1:5000/media/data/dataMenuCirculaire.json";
         else
-            url = "../omk/api/items?resource_class_id=133";
+            url = "https://polemika.univ-paris8.fr/omk/api/items?resource_class_id=133";
 		$.getJSON(url, callback);
     }
 	getMediaData(mediaUrl) {
