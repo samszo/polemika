@@ -13,6 +13,11 @@ def hello():
 def qualification():
     return render_template("qualification.html")
 
+@app.route("/analyse.html")
+def analyse():
+    return render_template("analyse.html")
+
+
 @app.route("/testMinify.html")
 def testMinify():
     return render_template("testMinify.html")

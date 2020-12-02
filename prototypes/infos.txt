@@ -2,5 +2,7 @@ python : 3
 virtual env : interfaceUser
 
 Pour lancer le serveur :
-workon interfaceUser
+workon userInterface
+cd prototypes
 python3 app.py
+http://127.0.0.1:5000/index.html

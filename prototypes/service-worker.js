@@ -2,6 +2,7 @@
 console.log("service-worker is read");
 // after a service worker is installed and the user navigates to a different page or 
 // refreshes,the service worker will begin to receive fetch events
+/*
 self.addEventListener('fetch', function(event) {
     event.respondWith(caches.open('cache').then(function(cache) {
         return cache.match(event.request).then(function(response) {
@@ -45,7 +46,7 @@ self.addEventListener('fetch', function(event) {
         });
     }));
 });
-
+*/
 self.addEventListener('install', function(event) {
     // The promise that skipWaiting() returns can be safely ignored.
     self.skipWaiting();
