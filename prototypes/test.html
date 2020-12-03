@@ -10,7 +10,7 @@
         <title>Polemika - les olympiades de l'argumentation</title>
         <link rel="icon" type="image/x-icon" href="media/images/favicon.ico" />
 		
-		<!-- Imports style -->        
+		<!-- Imports style -->
         <link rel="stylesheet" href="media/css/fonts.googleapis.montserrat.css">
         <link rel="stylesheet" href="media/css/bootstrap.min.css" type="text/css">
         <link rel="stylesheet" href="media/css/font-awesome.min.css" type="text/css">
@@ -19,12 +19,12 @@
         <link rel="stylesheet" href="media/css/owl.carousel.min.css" type="text/css">
         <link rel="stylesheet" href="media/css/slicknav.min.css" type="text/css">
         <link rel="stylesheet" href="media/css/style.css" type="text/css">
-		<link rel="stylesheet" href="media/css/magicCms-modal.css" type="text/css">
+        <link rel="stylesheet" href="media/css/magicCms-modal.css" type="text/css">
         <link rel="stylesheet" href="media/css/custom-style.css" type="text/css">
 		<!--<link rel="stylesheet" href="media/css/global.min.css" type="text/css">-->
-		
+
         <!-- start of web manifest -->
-        <link rel="manifest" href="manifest.json">
+        <link rel="manifest" href="media/js/manifest.json">
     </head>
     <body>
         <div id="content">
@@ -42,9 +42,8 @@
                 </div>
                 <nav class="offcanvas__menu mobile-menu">
                     <ul>
-                        <li class="active"><a href="index.html">A propos</a></li>
-                        <li><a href="qualification.html">Olympiades</a></li>
-						<li><a href="analyse.html">Admin</a></li>
+                        <li><a href="index.html">A propos</a></li>
+                        <li class="active"><a href="qualification.html">Olympiades</a></li>
                     </ul>
                 </nav>
                 <div id="mobile-menu-wrap"></div>
@@ -100,9 +99,8 @@
                         <div class="col-lg-9 col-md-9">
                             <nav class="header__menu">
                                 <ul>
-                                    <li class="active"><a href="index.html">A propos</a></li>
-                                    <li><a href="qualification.html">Olympiades</a></li>
-									<li><a href="analyse.html">Admin</a></li>
+                                    <li><a href="index.html">A propos</a></li>
+                                    <li class="active"><a href="qualification.html">Olympiades</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -115,21 +113,25 @@
             <!-- Header End -->
             <!-- Hero Section Begin -->
             <section class="hero-section">
-                <div class="hero__slider owl-carousel">
-                    <div class="hero__item set-bg" data-setbg="media/images/hero/hero-1.png">
-                        <div class="container">
+                <div id="testMenu" style="z-index: 100000;height: 100vh;"></div>
+				<div class="">
+                    <div class="hero__item set-bg" data-setbg="media/images/hero/hero-1.png" style="height: 945px;">
+                        <div class="container information">
                             <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="hero__text">
-                                        <h5>Eduquer à l'esprit critique avec l'IA</h5>
-                                        <h2>Les olympiades de l'argumentation</h2>
-                                        <a href="qualification.html" class="primary-btn">commencer maintenant</a>
-                                    </div>
+                                <div class="col-lg-6 col-md-12">
+                                    <img style="width:100%;" class="infoElt infoImg" src="" alt="" />
                                 </div>
-                                <div class="col-lg-6">
-                                    <div class="hero__img">
-                                        <img src="media/images/hero/hero-right.png" alt="">
-                                    </div>
+                                <div class="col-lg-6 col-md-12">
+                                    <p class="infoElt infoText">
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 flex">
+                                    <a href="#" class="primary-btn flexCentered boutonQualifier hidden">Qualifier</a>
+                                </div>
+                                <div class="col-lg-12">
+                                    <pre class="result"></pre>
                                 </div>
                             </div>
                         </div>
@@ -148,7 +150,7 @@
                                     <!--<div class="footer__logo">
                                         <a href="/">Polemika</a>
                                         </div>-->
-                                    <p>Polemika est Génération automatique Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                                         ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida viverra maecen
                                         lacus vel facilisis. 
                                     </p>
@@ -196,9 +198,35 @@
                 </div>
             </footer>
         </div>
+        <div class="mc-modal">
+            <!-- Modal content -->
+            <div class="mc-modal-content">
+                <div class="mc-modal-header">
+                    <span class="close">
+                    &times;
+                    </span>
+                    <div class="mc-modal-title">
+                        Modal Header
+                    </div>
+                </div>
+                <div class="sep"></div>
+                <div class="mc-modal-body">
+                    <p>
+                        Some text in the Modal Body
+                    </p>
+                    <p>
+                        Some other text...
+                    </p>
+                </div>
+                <div class="sep"></div>
+                <div class="mc-modal-footer flex_layout" style="display: flex;">
+                    <div class="buttons" style="margin-left: auto !important;"></div>
+                </div>
+            </div>
+        </div>
     </body>
-    
-	<script src="media/js/jquery-3.3.1.min.js"></script>
+	
+    <script src="media/js/jquery-3.3.1.min.js"></script>
     <script src="media/js/bootstrap.min.js"></script>
     <script src="media/js/jquery.slicknav.js"></script>
     <script src="media/js/owl.carousel.min.js"></script>
@@ -207,24 +235,38 @@
     <script src='media/js/d3.V5.min.js'></script>
     <script src='media/js/reseau.js'></script>
     <script src='media/js/menuSunburst.js'></script>
+	<script src='media/js/menu-qualification.js'></script>
     <script src='media/js/geoLoc.js'></script>
     <script src='media/js/proto.js'></script>
+	<script src='media/js/qualification.js'></script>
     <script src='media/js/MagicObject.js'></script>
     <script src='media/js/MagicNode.js'></script>
     <script src='media/js/McButton.js'></script>
     <script src='media/js/McModal.js'></script>
     <script src='media/js/spin.min.js'></script>
 	<!--<script src='media/js/global.js'></script>-->
-
+	
     <!-- register service worker -->
     <script>
         if ('serviceWorker' in navigator) {
         	window.addEventListener('load', function() { 
-        		navigator.serviceWorker.register('service-worker.js')
+        		navigator.serviceWorker.register('/media/js/service-worker.js')
         			.then(function() { console.log("Service Worker Registered, Cheers to PWA Fire!"); });
         		}
         	);
         }
     </script>
     <!-- end of service worker -->
+    <script>
+        try {
+        	var proto = new Qualification();
+
+			proto.getCircularMenuData(function(menuData) {
+				new MenuQualification("testMenu", menuData, function(){});
+			});
+			
+        } catch(e) {
+        	console.log("error", e);
+        }
+    </script>
 </html>

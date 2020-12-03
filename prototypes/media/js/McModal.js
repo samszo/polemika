@@ -6,7 +6,7 @@
  * @copyright (c) 2011-2020 Erwan Brottier */
 class McModal extends MagicObject { 
 
-    constructor(headerText, $content, actions) {
+    constructor($content, actions, headerText) {
         super();
         this.node = $(".mc-modal");
         var self = this;
@@ -16,24 +16,26 @@ class McModal extends MagicObject {
         var $buttons = $(".mc-modal-footer").find(".buttons");
         $buttons.empty();
         var cancelCallback = null;
-        $.each(actions, function(index, value) {
-            cancelCallback = null;
-            if (value.action == "cancel" && value.callback)
-                cancelCallback = value.callback;
-			else {
-				var $button = $("<button class='mc-admin-button brd'>"+value.action+"</button>");
-				$buttons.append($button);
-				var button = new McButton($button);
-				button.node.unbind("click").bind("click", function() {
-					if (button.isEnabled()) {
-						button.disable();
-						var callback = value.callback;
-						var lock = $.orchestrator.createLock();
-						self.callAction(callback, button);
-					}                
-				});
-			}
-        });
+        if (actions) {
+			$.each(actions, function(index, value) {
+				cancelCallback = null;
+				if (value.action == "cancel" && value.callback)
+					cancelCallback = value.callback;
+				else {
+					var $button = $("<button class='mc-admin-button brd'>"+value.action+"</button>");
+					$buttons.append($button);
+					var button = new McButton($button);
+					button.node.unbind("click").bind("click", function() {
+						if (button.isEnabled()) {
+							button.disable();
+							var callback = value.callback;
+							var lock = $.orchestrator.createLock();
+							self.callAction(callback, button);
+						}                
+					});
+				}
+			});
+		}
         self.node.find(".close").unbind("click").bind("click", function() {
             var lock = $.orchestrator.createLock();
             self.callAction(cancelCallback);

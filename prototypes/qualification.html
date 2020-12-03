@@ -44,6 +44,7 @@
                     <ul>
                         <li><a href="index.html">A propos</a></li>
                         <li class="active"><a href="qualification.html">Olympiades</a></li>
+						<li><a href="analyse.html">Admin</a></li>
                     </ul>
                 </nav>
                 <div id="mobile-menu-wrap"></div>
@@ -101,6 +102,7 @@
                                 <ul>
                                     <li><a href="index.html">A propos</a></li>
                                     <li class="active"><a href="qualification.html">Olympiades</a></li>
+									<li><a href="analyse.html">Admin</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -113,7 +115,7 @@
             <!-- Header End -->
             <!-- Hero Section Begin -->
             <section class="hero-section">
-                <div class="">
+				<div class="">
                     <div class="hero__item set-bg" data-setbg="media/images/hero/hero-1.png" style="height: 945px;">
                         <div class="container information">
                             <div class="row">
@@ -234,8 +236,10 @@
     <script src='media/js/d3.V5.min.js'></script>
     <script src='media/js/reseau.js'></script>
     <script src='media/js/menuSunburst.js'></script>
+	<script src='media/js/menu-qualification.js'></script>
     <script src='media/js/geoLoc.js'></script>
     <script src='media/js/proto.js'></script>
+	<script src='media/js/qualification.js'></script>
     <script src='media/js/MagicObject.js'></script>
     <script src='media/js/MagicNode.js'></script>
     <script src='media/js/McButton.js'></script>
@@ -256,96 +260,7 @@
     <!-- end of service worker -->
     <script>
         try {
-			var isLocal = true;
-        	var proto = new Proto(isLocal);
-        	console.log("get information to display ...");
-        	var params = proto.getGetParameters();
-        	var info = proto.getOneInformation(params.info);
-        	proto.getResult().info = info;
-        	console.log(info);
-        	var $info = $(".information");
-        	var $infoImg = $(".infoImg", $info);
-        	var $infoText = $(".infoText", $info);
-        	$infoImg.attr("src", info.media.imgUrl);
-        	$infoText.text(info.texte);
-        	
-        	var modal = null;
-        	var menuChange = function(p, $domElt) {
-        		if ($domElt.is("circle")) {
-        			proto.getResult().property.pop();
-        		} else if (!p.children) {
-					var initialColor = $domElt.css("fill");
-					var redColor = "rgb(255, 0, 0)";
-					$domElt.css("fill", redColor);
-					var count = 1;
-					var intervalId = setInterval(function() {
-						if ($domElt.css("fill") == redColor)
-							$domElt.css("fill", initialColor);
-						else
-							$domElt.css("fill", redColor);
-						if (count++ === 5) {
-							clearInterval(intervalId);
-							proto.getResult().property.push(p.data.omkId);
-							proto.serializeResult(function(omkData) {										    
-								//$(".result").text(JSON.stringify(omkData, undefined, 4));
-								console.log(JSON.stringify(omkData, undefined, 4));
-								modal.node.find("span.close").click();
-								$(".boutonQualifier").removeClass("hidden");
-								proto.deselectInfo();
-							});
-						}
-					}, 200);
-        		} else {
-        			proto.getResult().property.push(p.data.omkId);					
-        		}
-        	};
-        	
-        	var openMenu = function() {
-        		var $dataviz = $("body #dataviz");
-        		if ($dataviz.length == 0) {
-        			$dataviz = $("<div id='dataviz'></div>");
-        			$("body").append($dataviz);
-        		}
-        		var $content = $(".mc-modal-content");
-        		proto.getCircularMenuData(function(menuData) {
-        			$dataviz.empty();
-        			var svgMenu = new menuSunburst({
-        				'idCont':'dataviz',
-        				'width':200,
-        				'data' : menuData,
-        				'callback' : menuChange
-        			});
-        			modal = new McModal("", $dataviz, [
-        				{action : "cancel", callback : function(modalLock) {
-        					modalLock.resolve();
-        					$("body #content").removeClass("blur");
-        				}}
-        			]);
-        			$("body #content").addClass("blur");
-        			modal.show();
-        		});
-        	}
-        	// bind events on informations
-        	console.log("bind events ...");
-        	$infoImg.unbind("click").bind("click", function() {
-				proto.selectInfo($infoImg);
-        	});
-        	$infoText.unbind("mouseup").bind("mouseup", function() {
-                var selection = null;		        
-        		var selection = window.getSelection()
-        		var node = selection.focusNode.parentNode;
-        		if (node == $infoText[0]) {
-        			var text = selection.toString();
-        			$(".result").text("");
-        			if (text == '') {// whole text
-        				text = $infoText.text();
-        			}
-        			proto.selectInfo($infoText, text);
-        		}
-        	});
-			$(".boutonQualifier").unbind("click").bind("click", function() {
-				openMenu();
-			});
+        	var proto = new Qualification();			
         } catch(e) {
         	console.log("error", e);
         }

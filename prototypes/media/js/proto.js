@@ -1,22 +1,9 @@
 class Proto {
 
-    constructor(useLocal) {
-		this.useLocal = useLocal ? useLocal : false;
+    constructor() {		
+		this.useLocal = window.location.origin.indexOf("127.0.0.1") > -1;
+		this.APIBaseUrl = "https://polemika.univ-paris8.fr/omk";
 		this.useCorsProxy = this.useLocal;
-		this.geo = new Geo();
-		this.geo.getPosition(function(coords) {}); // just for ask the user for its approval when starting the app
-        this.resultData = {
-            resource : { 
-                type : null, // 'picture' ou 'text'
-                value : null // value of text if type == 'image'
-            },
-            property : [],
-            user : null,
-            geoLoc : null,
-            date : null,
-            info : null
-        }
-        this.circularMenuData = null;
     }
     getGetParameters() {
         var search = location.search.substring(1);
@@ -26,8 +13,8 @@ class Proto {
             return {};
     }
     getSyncJson(url) {
-		if (this.useCorsProxy && !url.startsWith("http://127.0.0.1:5000"))
-		    url = "https://cors-anywhere.herokuapp.com/"+url;
+		//if (this.useCorsProxy && !url.startsWith("http://127.0.0.1:5000"))
+		//    url = "https://cors-anywhere.herokuapp.com/"+url;
 		var result = null;
 		$.ajax({
 		    type: 'GET',
@@ -41,47 +28,50 @@ class Proto {
 		});
 		return result;
     }
-	getInformationsData() {
-        var url = null;
-		if (this.useLocal)
-            url = "http://127.0.0.1:5000/media/data/dataLocalInformations.json";
-        else
-            url = "../omk/api/items?item_set_id=2";
-		var informations = this.getSyncJson(url);
-		return informations;
+	getItemsData(item_set_id) {
+		var url = this.resolveAPIUrl("../omk/api/items?item_set_id="+item_set_id);
+		return this.getSyncJson(url);
 	}
-	getOneInformationData(infoId) {
-		var informations = this.getInformationsData();
+    getOneInformation(infoId) {
+		var information = this.getOneInformationData(infoId);
+		return this.readInformation(information);
+    }	
+	getOneInformationData(infoId) {		
+		var informations = this.getItemsData(2);
 		//$.getJSON(url, function(informations) {
 		var information = null;
-		if (this.useLocal) {
-			information = informations[0];
+		if (infoId == null) {
+			var randomIndex = Math.floor(Math.random() * (informations.length-1));
+			information = informations[randomIndex];
 		} else {
-			if (infoId == null) {
-				var randomIndex = Math.floor(Math.random() * (informations.length-1));
-				information = informations[randomIndex];
-			} else {
-				$.each(informations, function(index, value) {
-					if (value["o:id"] == infoId) {
-						information = value;
-						return false;
-					}
-				});
-			}
+			$.each(informations, function(index, value) {
+				if (value["o:id"] == infoId) {
+					information = value;
+					return false;
+				}
+			});
 		}
 		return information;
 	}
-    getMenuData(callback) {
-        var url = null;
-		if (this.useLocal)
-            url = "http://127.0.0.1:5000/media/data/dataMenuCirculaire.json";
-        else
-            url = "../omk/api/items?resource_class_id=133";
-		$.getJSON(url, callback);
-    }
+	resolveAPIUrl(relativeUrl) {
+		if (this.useLocal && relativeUrl.indexOf("../") == 0) {
+			var apiUrl = this.APIBaseUrl;
+			var shifts = 0
+			while (relativeUrl.indexOf("../") == 0) {
+				relativeUrl = relativeUrl.substring(3);
+				shifts++;
+			}
+			if (shifts) {
+				var tab = apiUrl.split("/");
+				tab.splice(tab.length - shifts, shifts);
+				apiUrl = tab.join("/")+"/";
+			}
+			return apiUrl + relativeUrl;
+		} else
+			return relativeUrl;
+	}
 	getMediaData(mediaUrl) {
-		if (this.useLocal)
-            mediaUrl = "http://127.0.0.1:5000/media/data/dataLocalMedia.json";
+        var mediaUrl = this.resolveAPIUrl(mediaUrl);
 		return this.getSyncJson(mediaUrl);
 	}
 	readInformation(information) {
@@ -122,16 +112,11 @@ class Proto {
 		var info = data[0]    
         return info;		
 	}
-    getOneInformation(infoId) {
-        var self = this;
-		var information = self.getOneInformationData(infoId);
-		return this.readInformation(information);
-    }
     getCircularMenuData(callback) {
         if (this.circularMenuData)
             callback(this.circularMenuData);
         else {
-    		this.getMenuData(function(object) {
+			$.getJSON(this.resolveAPIUrl("../omk/api/items?resource_class_id=133"), function(object) {
     			var data = {
     				name: 'menu',
     				color: 'magenta',
@@ -206,61 +191,4 @@ class Proto {
     		});
         }
     }
-    getResult() {
-        return this.resultData;
-    }
-    serializeResult(callback) {
-        var self = this;
-        self.geo.getPosition(function(coords) {
-            self.resultData.geoLoc = coords;
-            var latitude = null;
-			var longitude = null;
-			if (coords) {
-				latitude = coords.latitude;
-				longitude = coords.longitude;
-			}
-			var today = new Date();
-            self.resultData.date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
-            if (self.resultData.resource.type == 'picture')
-                self.resultData.resource.omkId = self.resultData.info.media.omkId;
-            else
-                self.resultData.resource.omkId = self.resultData.info.omkId;
-            // serialize as omk RDF
-            var omkData = {
-                'dcterms:title' : "TODO",
-                'jdc:creationDate' : self.resultData.date,
-                'ma:locationLatitude' : latitude,
-                'ma:locationLongitude' : longitude,
-                'oa:hasSource' : [{
-                    'type':'resource',
-                    'value':self.resultData.resource
-                }],
-                'TD:property' : self.resultData.property,
-                'TD:user' : "TODO",
-                'TD:info' : self.resultData.info.omkId
-            }            
-            callback(omkData);
-        });    
-    }
-    sendResult() {
-        console.log("SEND DATA");
-        console.log(self.resultData);        
-        // TODO send to server
-    }
-	selectInfo($info, value) {				
-		if ($info.hasClass("infoText")) {
-			this.getResult().resource.type = "picture";
-		} else {
-			this.getResult().resource.type = 'text';
-			this.getResult().resource.value = value;
-		}
-		$(".result").text("");
-		$(".boutonQualifier").removeClass("hidden");
-		$(".infoElt").removeClass("selected");
-		$info.addClass("selected");
-	}
-	deselectInfo() {				
-		$(".boutonQualifier").addClass("hidden");
-		$(".infoElt").removeClass("selected");
-	}
 }

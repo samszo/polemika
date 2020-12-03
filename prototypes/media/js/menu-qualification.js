@@ -1,4 +1,4 @@
-class menuSunburst {
+class MenuQualification {
     
 	constructor(params) {
         var self = this;
@@ -211,13 +211,10 @@ class menuSunburst {
 		}
 	}
 	clickOnValidate(domElt, data) {
-		console.log("validate");
+		this.callback(this.selectedItems);
 	}
 	clickOnArea(domElt, data) {
 		var self = this;
-		if (self.callback) {
-			self.callback(data, $(domElt));
-		}
 		//si pas d'enfant on sort
 		if (!data.children)
 			return;
@@ -260,5 +257,3 @@ class menuSunburst {
 					.attrTween("transform", d => () => self.checkboxTransform(d.current));
 	}
 }
-
-  
