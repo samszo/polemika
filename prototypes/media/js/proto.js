@@ -97,7 +97,7 @@ class Proto {
 					var mediaUrl = node["o:media"][0]["@id"];
 					var mediaData = self.getMediaData(mediaUrl);					
 					var media = {
-						imgUrl: mediaData["o:source"],
+						imgUrl: mediaData["o:thumbnail_urls"].large,//mediaData["o:source"],
 						omkId : {
 						    id : mediaData["o:id"],
 						    type : mediaData["@type"]
