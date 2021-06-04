@@ -1,0 +1,27 @@
+.omk-db-subjects .dropdown-item:hover {
+    background-color: #1894d9 !important;
+    color: #fff;
+}
+#orderby-list .dropdown-item:hover {
+    background-color: #1894d9 !important;
+    color: #fff;
+}
+
+.mc-modal {
+	background-color: rgba(88,88,88,0.5);
+    width: 100vw;
+    height: 100vh;	
+}
+.mc-modal .mc-modal-content {
+	background-color:transparent;
+	width: 100%;
+    height: 100%;
+	border:none;
+	box-shadow : none;
+}
+.mc-modal .mc-modal-header {
+	height: 28px;
+}
+.mc-modal .sep {
+	display:none;
+}

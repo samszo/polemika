@@ -18,30 +18,32 @@ class Qualification extends Proto {
             info : null
         }
 		var params = self.getGetParameters();
-		var info = self.getOneInformation(params.info);
-		this.resultData.info = info;
-		var $info = $(".information");
-		var $infoImg = $(".infoImg", $info);
-		var $infoText = $(".infoText", $info);
-		$infoImg.attr("src", info.media.imgUrl);
-		$infoText.text(info.texte);				
-		// bind events on informations
-		console.log("bind events ...");
-		$infoImg.unbind("click").bind("click", function() {
-			self.selectInfo($infoImg);
-		});
-		$infoText.unbind("mouseup").bind("mouseup", function() {
-			var selection = null;		        
-			var selection = window.getSelection()
-			var node = selection.focusNode.parentNode;
-			if (node == $infoText[0]) {
-				var text = selection.toString();
-				if (text == '') {// whole text
-					text = $infoText.text();
+		self.getOneInformation(params.info, function(info) {
+			self.resultData.info = info;
+			var $info = $(".information");
+			var $infoImg = $(".infoImg", $info);
+			var $infoText = $(".infoText", $info);
+			$infoImg.attr("src", info.media.imgUrl);
+			$infoText.text(info.texte);				
+			// bind events on informations
+			console.log("bind events ...");
+			$infoImg.unbind("click").bind("click", function() {
+				self.selectInfo($infoImg);
+			});
+			$infoText.unbind("mouseup").bind("mouseup", function() {
+				var selection = null;		        
+				var selection = window.getSelection()
+				var node = selection.focusNode.parentNode;
+				if (node == $infoText[0]) {
+					var text = selection.toString();
+					if (text == '') {// whole text
+						text = $infoText.text();
+					}
+					self.selectInfo($infoText, text);
 				}
-				self.selectInfo($infoText, text);
-			}
+			});
 		});
+
 		/*$(".boutonQualifier").unbind("click").bind("click", function() {
 			self.openMenu();
 		});*/

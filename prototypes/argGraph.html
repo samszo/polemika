@@ -7,7 +7,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Polemika - les olympiades de l'argumentation</title>
+        <title>Polemika - Graphe d'argumentation</title>
         <link rel="icon" type="image/x-icon" href="media/images/favicon.ico" />
 		
 		<!-- Imports style -->
@@ -22,9 +22,10 @@
         <link rel="stylesheet" href="media/css/magicCms-modal.css" type="text/css">
         <link rel="stylesheet" href="media/css/custom-style.css" type="text/css">
 		<!--<link rel="stylesheet" href="media/css/global.min.css" type="text/css">-->
-		
+        <link rel="stylesheet" href="media/css/jquery-ui.css" type="text/css">
+
         <!-- start of web manifest -->
-        <link rel="manifest" href="manifest.json">
+        <!--<link rel="manifest" href="media/js/manifest.json">-->
     </head>
     <body>
         <div id="content">
@@ -42,8 +43,9 @@
                 </div>
                 <nav class="offcanvas__menu mobile-menu">
                     <ul>
-                        <li class="active"><a href="index.html">A propos</a></li>
+                        <li><a href="index.html">A propos</a></li>
                         <li><a href="qualification.html">Olympiades</a></li>
+                        <li class="active"><a href="argGraph.html">Graphe</a></li>
 						<li><a href="analyse.html">Admin</a></li>
                     </ul>
                 </nav>
@@ -100,8 +102,9 @@
                         <div class="col-lg-9 col-md-9">
                             <nav class="header__menu">
                                 <ul>
-                                    <li class="active"><a href="index.html">A propos</a></li>
+                                    <li><a href="index.html">A propos</a></li>
                                     <li><a href="qualification.html">Olympiades</a></li>
+									<li class="active"><a href="argGraph.html">Graphe</a></li>
 									<li><a href="analyse.html">Admin</a></li>
                                 </ul>
                             </nav>
@@ -115,24 +118,42 @@
             <!-- Header End -->
             <!-- Hero Section Begin -->
             <section class="hero-section">
-                <div class="hero__slider owl-carousel">
-                    <div class="hero__item set-bg" data-setbg="media/images/hero/hero-1.png">
-                        <div class="container">
+				<div class="">
+                    <div class="hero__item set-bg" data-setbg="media/images/hero/hero-1.png" style="height: 945px;">
+
+
+
+                        <div class="container editorMenu" id="contPage" style="margin-top:164px;color:white" >
                             <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="hero__text">
-                                        <h5>Eduquer à l'esprit critique avec l'IA</h5>
-                                        <h2>Les olympiades de l'argumentation</h2>
-                                        <a href="qualification.html" class="primary-btn">commencer maintenant</a>
+                                <div class="col-md-12">
+                                    <div class="header__info-left">
+                                        <div class="ui-widget">
+                                            <label for="cartes">Sélectionner une carte :</label>
+                                            <div id="spin-cartes" style="display: none;"
+                                                    class="spinner-border spinner-border-sm"
+                                                    role="status">
+                                                    <span class="sr-only">Chargement...</span>
+                                            </div>
+                                            <input class="form-control" id="cartes" size="64">
+											<button class="createNode">CREATE NODE</button>
+											<div class="text-editor">
+												<input type="text" disabled>
+											</div>
+											<div class="nodeArchetypes connectedSortable">
+											</div>
+                                        </div>										
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
-                                    <div class="hero__img">
-                                        <img src="media/images/hero/hero-right.png" alt="">
-                                    </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <h3 id="sltCarte" style="color:white;" ></h3>
                                 </div>
                             </div>
+                            <div class="row" id="contCarte" style="height:800px;background-color:white;margin-top:10px;">
+                
+                            </div>
                         </div>
+
+
                     </div>
                 </div>
             </section>
@@ -148,7 +169,7 @@
                                     <!--<div class="footer__logo">
                                         <a href="/">Polemika</a>
                                         </div>-->
-                                    <p>Polemika est Génération automatique Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                                         ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida viverra maecen
                                         lacus vel facilisis. 
                                     </p>
@@ -196,35 +217,166 @@
                 </div>
             </footer>
         </div>
+        <div class="mc-modal">
+            <!-- Modal content -->
+            <div class="mc-modal-content">
+                <div class="mc-modal-header">
+                    <span class="close">
+                    &times;
+                    </span>
+                    <div class="mc-modal-title">
+                        Modal Header
+                    </div>
+                </div>
+                <div class="sep"></div>
+                <div class="mc-modal-body">
+                    <p>
+                        Some text in the Modal Body
+                    </p>
+                    <p>
+                        Some other text...
+                    </p>
+                </div>
+                <div class="sep"></div>
+                <div class="mc-modal-footer flex_layout" style="display: flex;">
+                    <div class="buttons" style="margin-left: auto !important;"></div>
+                </div>
+            </div>
+        </div>
     </body>
-    
-	<script src="media/js/jquery-3.3.1.min.js"></script>
+	
+    <script src="media/js/jquery-3.3.1.min.js"></script>
     <script src="media/js/bootstrap.min.js"></script>
     <script src="media/js/jquery.slicknav.js"></script>
     <script src="media/js/owl.carousel.min.js"></script>
     <script src="media/js/main.js"></script>
     <script src='media/js/orchestrator.js'></script>
-    <script src='media/js/d3.V5.min.js'></script>
-    <script src='media/js/reseau.js'></script>
-    <script src='media/js/menuSunburst.js'></script>
-    <script src='media/js/geoLoc.js'></script>
-    <script src='media/js/proto.js'></script>
+    <script src='media/js/d3.V6.min.js'></script>
     <script src='media/js/MagicObject.js'></script>
     <script src='media/js/MagicNode.js'></script>
     <script src='media/js/McButton.js'></script>
     <script src='media/js/McModal.js'></script>
     <script src='media/js/spin.min.js'></script>
 	<!--<script src='media/js/global.js'></script>-->
-
+    <script src='media/js/graphs/carteArgument.js'></script>
+	<script src='media/js/graphs/EditorArguments.js'></script>
+	<script src='media/js/jquery-ui.js'></script>
+	
     <!-- register service worker -->
     <script>
         if ('serviceWorker' in navigator) {
         	window.addEventListener('load', function() { 
-        		navigator.serviceWorker.register('service-worker.js')
+        		navigator.serviceWorker.register('/media/js/service-worker.js')
         			.then(function() { console.log("Service Worker Registered, Cheers to PWA Fire!"); });
         		}
         	);
         }
     </script>
     <!-- end of service worker -->
+    <script>
+const urlAutoComplete = "https://polemika.univ-paris8.fr/omk/api/items?resource_class_id=1306&property[0][joiner]=and&property[0][property]=1&sort_by=title&property[0][type]=in&property[0][text]=";
+
+
+$(function() {
+    console.log("page chargée");
+    setAutoComplete('cartes');
+    //drawRapport({value:'TEST',id:6716});
+
+});
+
+function setAutoComplete(id){
+
+    $("#"+id)
+        // don't navigate away from the field on tab when selecting an item
+        .on("keydown", function (event) {
+                if (event.keyCode === $.ui.keyCode.TAB &&
+                        $(this).autocomplete("instance").menu.active) {
+                        event.preventDefault();
+                }
+        })
+        .autocomplete({
+                minLength: 3,
+                source: function (request, response) {
+                        searchTerm = request.term;
+                        d3.select('#spin-'+id).style('display', 'inline-block');
+                        d3.select('#icon-'+id).style('display', 'none');
+                        $.ajax({
+                                url: urlAutoComplete + searchTerm,
+                                dataType: "json",
+                                success: function (data) {
+                                        d3.select('#spin-'+id).style('display', 'none');
+                                        d3.select('#icon-'+id).style('display', 'inline-block');
+                                        let rs = data.map(d => {
+                                            let v = d['o:title']+' ('+d["dcterms:creator"][0]["@value"]
+                                                +' - '+d["dcterms:created"][0]["@value"]+')';
+                                                return {
+                                                        'value': v,
+                                                        'id': d['o:id']
+                                                }
+                                        })
+                                        response(rs);
+                                }
+                        })
+                },
+                focus: function () {
+                        // prevent value inserted on focus
+                        return false;
+                },
+                select: function (event, ui) {
+                        if(id=='cartes') drawCarte(ui.item);
+                        this.value = "";
+                        return false;
+                },
+        }).data("ui-autocomplete")._renderItem = function (ul, item) {
+                const regex = new RegExp(searchTerm, "gi");
+                let html = '<a>' + item.label.replace(regex, '<span class="findTerm">' + searchTerm + '</span>') + '</a>';
+                return $("<li></li>")
+                        .data("item.autocomplete", item)
+                        .append(html)
+                        .appendTo(ul);
+        };
+}
+function drawCarte(item){
+    console.log(item);
+    d3.select('#sltCarte').html(item.value);
+
+    $.ajax({
+        url: 'https://polemika.univ-paris8.fr/omk/s/prototypes/page/ajax?type=carteArgumentaire&json=1&id=' + item.id,
+        dataType: "json",
+        success: function (data) {
+            console.log(data);
+            //calcul la taille du conteneur
+            let contFooter = d3.select(".footer-section").node()
+            let contCarte = d3.select("#contCarte").node();            
+            let ca = new carteArgument({'data':data,'idCont':'contCarte'
+                ,'width':contCarte.offsetWidth,'height':contFooter.offsetTop-contCarte.offsetTop})
+        }
+    })
+}
+    </script>
+	<script>
+		var editor = new EditorArguments($(".editorMenu"), $("#contCarte"));
+		editor.loadCarte('http://127.0.0.1:5000/media/data/carteArgumentaireSamuel.json');
+		/*
+		$.ajax({
+			url: 'http://127.0.0.1:5000/media/data/carteArgumentaireSamuel.json',
+			dataType: "json",
+			success: function (data) {
+				console.log(data);
+				//calcul la taille du conteneur
+				let contFooter = d3.select(".footer-section").node()
+				let contCarte = d3.select("#contCarte").node();            
+				let ca = new carteArgument(
+					{
+						'data':data,
+						'idCont':'contCarte',
+						'width':contCarte.offsetWidth,
+						'height':contFooter.offsetTop-contCarte.offsetTop
+					},
+					$(".createNode")
+				);
+			}
+		});
+		*/
+	</script>
 </html>

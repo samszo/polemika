@@ -98,6 +98,7 @@ class MenuQualification {
 			});
 			
 		self.g.append("text")
+			.attr("pointer-events", "none")
 			.attr("dx", "-8")
 			.attr("dy", "2")
 			.style("cursor", "pointer")
@@ -117,6 +118,7 @@ class MenuQualification {
 				.selectAll("text")
 				.data(descendants)
 				.join("text")
+				.attr("pointer-events", "none")
 				.attr("dy", "0.35em")
 				.attr("fill-opacity", d => +self.labelVisible(d.current))
 				.attr("transform", d => self.labelTransform(d.current))
@@ -139,7 +141,7 @@ class MenuQualification {
 				.attr("transform", d => self.checkboxTransform(d.current))
 				.on("click", function(d) {
 					self.clickedOnCheckbox(this, d);
-				});		
+				}).each(self.initSelection);		
     }
 	wrap(text, width) {
 		text.each(function() {
@@ -198,7 +200,47 @@ class MenuQualification {
 		const y = (d.y0 + d.y1) / 2 * this.radius;
 		return `rotate(${x - 90}) translate(${y-17},0) rotate(${x < 180 ? 0 : 180})`;
 	}
-	clickedOnCheckbox(domElt, data) {		
+	initSelection(data, index) {
+		data.selected = false;
+		data.selectedDescendants = [];
+	}
+	calculateRender(domElt, data) {
+		var checkbox = d3.select(domElt);
+		if (data.selected)
+			checkbox.attr("fill", "black");
+		else if (data.selectedDescendants.length > 0)
+			checkbox.attr("fill", "grey");
+		else {
+			checkbox.attr("fill", "white");
+		}
+	}
+	setAsSelected(data, selected) {
+		data.selected = selected;
+		var parent = data;
+		while(parent) {
+			parent = parent.parent
+			if (parent && parent.selectedDescendants) {
+				if (selected)
+					parent.selectedDescendants.push(data);
+				else {
+					var index = parent.selectedDescendants.indexOf(data);
+					if (index >= 0)
+						parent.selectedDescendants.splice(index, 1);
+				}
+			}
+		}
+	}
+	clickedOnCheckbox(domElt, data) {
+		this.setAsSelected(data, !data.selected);
+		if (data.selected)
+			this.selectedItems.push(data);
+		else {
+			var index = this.selectedItems.indexOf(data);
+			if (index >= 0)
+				this.selectedItems.splice(index, 1);
+		}
+		this.calculateRender(domElt, data);
+		/*
 		var checkbox = d3.select(domElt);
 		if (checkbox.attr("fill") == "white") {
 			this.selectedItems.push(data);
@@ -208,7 +250,7 @@ class MenuQualification {
 			if (index >= 0)
 				this.selectedItems.splice(index, 1);
 			checkbox.attr("fill", "white");
-		}
+		}*/
 	}
 	clickOnValidate(domElt, data) {
 		this.callback(this.selectedItems);
@@ -252,6 +294,8 @@ class MenuQualification {
 					
 		self.checkboxes.filter(function (d) {
 				return +this.getAttribute("fill-opacity") || self.checkboxVisible(d.target);
+			}).each(function(data, index) {
+				self.calculateRender(this, data);
 			}).transition(t)
 					.attr("display", d => self.checkboxVisible(d.target))
 					.attrTween("transform", d => () => self.checkboxTransform(d.current));

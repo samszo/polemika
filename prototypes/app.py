@@ -17,6 +17,13 @@ def qualification():
 def analyse():
     return render_template("analyse.html")
 
+@app.route("/editor.html")
+def editor():
+    return render_template("editor.html")
+
+@app.route("/argGraph.html")
+def argGraph():
+    return render_template("argGraph.html")
 
 @app.route("/testMinify.html")
 def testMinify():

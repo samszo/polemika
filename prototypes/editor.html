@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="fr">
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+        <meta name="msapplication-TileColor" content="#00aba9"/>
+        <meta name="theme-color" content="#ffffff"/>
+        <title>
+            Polemika - Editeur
+        </title>
+        <link rel="stylesheet" href="media/analyse/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="media/analyse/css/slick-1.8.1.css"/>
+        <link rel="stylesheet" href="media/analyse/build/app.b2aacfc9.css">
+        <link rel="stylesheet" href="media/css/jquery-ui.css"/>
+		<link rel="stylesheet" href="media/css/magicCms-modal.css" type="text/css">
+		<link rel="stylesheet" href="media/w2ui/w2ui-1.5.min.css">
+		<link rel="stylesheet" href="media/editor/css/editor.css">
+    </head>
+    <body role="document" class="not-connected ">
+        <div id="page-search">
+            <nav id="navbar" class="navbar flex-column bb">
+                <div class="container flex-nowrap" style="margin-top: 20px; margin-bottom: 20px;">
+                    <a class="navbar-brand mx-0" href="index.html" style="line-height: initial;">
+                        <div style="border-top: 1px solid #1894d9; border-bottom: 1px solid #1894d9;">
+							POLEMIKA
+						</div>						
+                    </a>
+                    <div class="flex-grow-1 px-2 px-sm-4">
+                        <form data-step="1" id="form_search" class="position-relative">
+                            <div class="input-group position-relative  input-group-sm ">
+                                <div data-step="2" data-intro="Vous pouvez définir d’autres périmètres de recherche : dans les documents, les collections, les référentiels d&#039;ISIDORE" data-position="top" class="input-group-prepend" >
+                                    <button id="q-space" class="omk-db-subjects-chooser btn input-button dropdown-toggle size-small" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										<span class="d-sm-none">D</span>
+										<span class="label d-none d-sm-inline">-- All --</span>
+                                    </button>
+                                    <div class="dropdown-menu omk-db-subjects">
+                                        <a class="dropdown-item font-regular size-small color-darkgrey" href="#" data-subject="">-- All --</a>
+                                    </div>
+                                </div>
+                                <input id="q" autocomplete="off" name="q" type="text" class="omk-db-title-chooser typeahead form-control size-small" placeholder="Rechercher dans le titre" value=""  />
+                                <div class="input-group-append" style="margin-left:-2px;">
+                                    <div class="input-group-text">
+                                        <!--<button class="d-none d-sm-inline isibtn input-button font-semibold size-small color-darkblue filter-list-link pr-1" type="button">+ <span class="filters-length">1</span> filtre</button>-->
+                                        <button title="Supprimer le filtre" class="removeTitleSearchButton d-none d-md-inline isibtn input-button pr-1 pr-md-2 pr-lg-3 del-all-filters position-relative mb-1" type="button"><i class="isicon isicon-delete-small-outline isicon-xs color-darkblue"></i></button>
+                                        <div class="popover hide bs-popover-bottom filter-list frame frame-blue position-absolute text-left p-3 " x-placement="bottom" style="top:35px!important; left:0px; width:100%; background:#fff;z-index: 3; max-width:inherit;">
+                                            <div class="arrow filter-arrow" ></div>
+                                            <div class="popover-body">
+                                                <ul class="list-unstyled">
+                                                    <li style="white-space: normal;">Type de document
+                                                        <span data-name="type" data-value="-http://127.0.0.1/bad" class="del-filter isi-badge isi-badge-blue"><span class="filter-label" style="text-decoration: line-through">http://127.0.0.1/bad/ontology#art_exhibition</span> <i class="isicon isicon-delete-small-outline isicon-xs"></i></span>
+                                                        <span data-name="type" data-value="http://127.0.0.1/bad/ontology#article" class="del-filter isi-badge isi-badge-blue"><span class="filter-label" >Articles</span> <i class="isicon isicon-delete-small-outline isicon-xs"></i></span>
+                                                    </li>
+                                                </ul>
+                                                <button type="button" class="btn btn-primary float-right">lancer la requête</button>
+                                            </div>
+                                        </div>
+                                        <span class="vertical-divider"></span>
+                                        <button class="titleSearchButton isibtn input-button" type="button"><i class="isicon isicon-search color-darkblue"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="q-autocomplete" class="hide p-2 position-absolute" ></div>
+                        </form>
+                    </div>
+                    <div class="navbar-nav float-none float-md-right mx-0" style="min-width:70px">
+                        <div class="nav-item navbar-lang ml-0  ml-sm-4 mr-sm-3" data-toggle="popover" data-html-content=".navbar-lang-content"><a href="#" class="icon-rounded">fr </a></div>
+                        <div class="nav-item navbar-menu" data-toggle="popover" data-html-content=".navbar-menu-content" style="position:relative;">
+                            <div data-step="3" data-intro="Pour accéder à votre espace personnel et à votre assistant de recherche, connectez-vous!" class="menu-bar">
+                                <span class="line"></span>
+                                <span class="line"></span>
+                                <span class="line"></span>
+                            </div>
+                        </div>
+                        <div class="navbar-lang-content hide">
+                            <ul class="list-group">
+                                <li class="list-group-item text-left"><a href="http://127.0.0.1/bad/lang/fr" class="font-bold size-regular color-darkblue">Français (fr)</a></li>
+                                <li class="list-group-item text-left"><a href="http://127.0.0.1/bad/lang/en" class="font-regular size-regular color-darkblue">English (en)</a></li>
+                                <li class="list-group-item text-left"><a href="http://127.0.0.1/bad/lang/es" class="font-regular size-regular color-darkblue">Español (es)</a></li>
+                            </ul>
+                        </div>
+                        <div class="navbar-menu-content hide dropdown-menu">
+                            <li class="dropdown-item color-darkblue font-regular size-regular mt-3 mb-3">
+                                <div class="row">
+                                    <div class="col-4 offset-1 color-darkblue">Thème</div>
+                                    <div class="col-2"><button class="isibtn isitheme" data-id="white" data-toggle="tooltip" title="Clair"><span class="theme-white  active "></span></button></div>
+                                    <div class="col-2"><button class="isibtn isitheme" data-id="dark" data-toggle="tooltip" title="Sombre"><span class="theme-dark "></span></button></div>
+                                </div>
+                            </li>
+                            <div class="divider"></div>
+                            <a href="http://127.0.0.1/bad/login" class="dropdown-item color-darkblue font-regular size-regular mt-3 mb-3">
+                            <i class="isicon isicon-sign-in-outline mr-3"></i>
+                            Se connecter
+                            </a>
+                            <div class="divider"></div>
+                            <a href="http://127.0.0.1/bad/login?referer=/u/library" data-toggle="tooltip" data-placement="left" title="Se connecter pour avoir accès à  « Mes bibliothèques »" class="dropdown-item color-lightgrey font-regular size-regular mt-3 mb-3"><i class="isicon isicon-bookmark-outline mr-3"></i> Mes bibliothèques</a>
+                            <a href="http://127.0.0.1/bad/u/history" class="dropdown-item color-darkblue font-regular size-regular mt-3 mb-3">
+                            <i class="isicon isicon-my-history-outline mr-3"></i>
+                            Mon historique
+                            </a>
+                            <a href="http://127.0.0.1/bad/login?referer=/u/search" data-toggle="tooltip" data-placement="left" title="Se connecter pour avoir accès à  « Mes requêtes »" class="dropdown-item color-lightgrey font-regular size-regular mt-3 mb-3"><i class="isicon isicon-my-queries mr-3"></i> Mes requêtes</a>
+                            <a href="http://127.0.0.1/bad/login?referer=/u/author" data-toggle="tooltip" data-placement="left" title="Se connecter pour avoir accès à  « Mes auteurs »" class="dropdown-item color-lightgrey font-regular size-regular mt-3 mb-3"><i class="isicon isicon-my-authors mr-3"></i> Mes auteurs</a>
+                            <a href="http://127.0.0.1/bad/login?referer=/u/alerts" data-toggle="tooltip" data-placement="left" title="Se connecter pour avoir accès à  « Mes alertes »" class="dropdown-item color-lightgrey font-regular size-regular mt-3 mb-3"><i class="isicon isicon-my-alerts mr-3"></i> Mes alertes</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <div id="container">
+                <div class="container">
+                    <div class="page-content row mb-4 mt-4 mx-0">
+                        <div class="col-12">
+                            <div class="polemika-editor-container">
+								<div class="polemika-editor-menu">
+									<!-- menu -->
+									<div class="carte-selector form-group form-group-flex">
+										<label for="carte-selector-input1">Carte :</label>
+										<input type="text" class="form-control" id="carte-selector-input1" placeholder="http(s)://...">
+									    <label for="carte-selector-select1">Layout :</label>
+										<select class="carte-layout-selector form-control" id="carte-selector-select1">
+										    <option selected>full</option>
+										    <option>split-v</option>
+											<option>split-h</option>
+									    </select>										
+									</div>
+									<div class="panel-multipanes">
+										<div class="panel panel-adder hide selected">
+											<div class="node-adder">
+												<div class="nodeArchetypes connectedSortable">
+												</div>
+											</div>									
+										</div>
+										<div class="panel panel-edition hide">
+											<div class="text-editor form-group form-group-flex">
+												<label for="carte-selector-input1">Valeur :</label>
+												<input disabled type="text" class="form-control" placeholder="">
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="polemika-editor-instance-container">
+									<!-- editor -->
+									<!--
+									<div class="polemika-editor-instance hide selected">
+									</div>
+									<div class="polemika-editor-instance hide"></div>
+									-->
+								</div>
+							</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			<nav class="footer text-center ">
+				<div class="container-fluid">
+					<div class="row mx-auto">
+						<div class="col">
+							<div id="example"></div>
+							<span class="navbar-text text-center color-darkgrey size-regular font-regular">
+							<a href="vocabularies.html" class="color-darkgrey size-regular font-regular">Référentiels</a> |
+							<a href="api.html" class="color-darkgrey size-regular font-regular">API</a> |
+							<a href="http://127.0.0.1/bad/sqe" class="color-darkgrey size-regular font-regular">SPARQL</a> |
+							<a href="about.html" class="color-darkgrey size-regular font-regular">À propos</a> |
+							<a href="credit.html" class="color-darkgrey size-regular font-regular">Mentions légales</a> |
+							<a href="mailto:isidore@huma-num.fr" class="color-darkgrey size-regular font-regular">Contact</a>
+							</span>
+						</div>
+					</div>
+				</div>
+			</nav>			
+        </div>
+        <script src="media/analyse/js/jquery-3.3.1.min.js"></script>
+        <script src="media/analyse/js/bootstrap.min.js"></script>
+		<script src='media/js/geoLoc.js'></script>
+		<script src='media/js/orchestrator.js'></script>
+		<script src='media/js/MagicObject.js'></script>
+		<script src='media/js/MagicNode.js'></script>
+		<script src='media/js/McButton.js'></script>
+		<script src='media/js/McModal.js'></script>
+		<script src='media/js/menu-qualification.js'></script>
+		<script src='media/js/OmkDataReader.js'></script>
+		<!--<script src='media/js/renderEngine.js'></script>-->
+		<script src='media/js/spin.min.js'></script>
+		<script src='media/js/d3.V6.min.js'></script>
+		<!--<script src='media/js/graphs/carteArgument.js'></script>-->
+		<!--<script src='media/js/graphs/EditorArguments.js'></script>-->
+		<script src='media/editor/js/Diagram.js'></script>
+		<script src='media/editor/js/DiagramArgument.js'></script>
+		<script src='media/editor/js/Editor.js'></script>
+		<script src='media/editor/js/EditorLayout.js'></script>
+		
+		<script src='media/underscore/underscore.js'></script>
+		<script src='media/js/jquery-ui.js'></script>
+		<script src='media/w2ui/w2ui-1.5.min.js'></script>
+
+
+		<style>
+			.hidden {
+				display:none !important;
+			}
+			a.pushed {
+				color:#1894d9;
+			}
+			.list-unstyled2 {				
+				list-style: none;
+			}
+			.facets-menu-panel-hierarchy ul {				
+				padding-inline-start: 16px;
+			}
+			.arbo-action {
+				border:1px solid #1894d9;
+				color : #1894d9;
+				background-color: white;
+				cursor: pointer;
+			}
+			
+			.grilleCriteria {
+				height: 240px;
+			}
+			.list-item .thumbnail-preview2 {
+				position: absolute;
+				z-index: -1;
+				top: 0;
+				left: 0;
+				height: 100%;
+				width: 100%;
+				background-size: 100% 100%;
+				opacity: 0.1;
+				transition: opacity 1s ease-out;
+			}
+			.list-item.thumbnail-view:hover .thumbnail-preview2 {			
+				opacity: 1;
+			}
+			.list-item.thumbnail-view .title {
+				background-color:rgba(255,255,255,0.5);
+				transition: background-color 1s ease-out;
+			}
+			.list-item.thumbnail-view:hover .title {
+				background-color:rgba(255,255,255,1);
+			}
+		</style>
+		<script>
+
+			/*var pstyle = 'background-color: #F5F6F7; border: 1px solid #dfdfdf; padding: 5px;';
+			$('.polemika-editor-instance-container').w2layout({
+				name: 'layout',
+				panels: [
+					{ type: 'top',  size: "50%", resizable: true, style: pstyle, content: 'top' },
+					{ type: 'left', size: "50%", resizable: true, style: pstyle, content: 'left' },
+					{ type: 'main', style: pstyle, content: 'main' },
+					{ type: 'preview', size: '50%', resizable: true, style: pstyle, content: 'preview' },
+					{ type: 'right', size: 200, resizable: true, style: pstyle, content: 'right' },
+					{ type: 'bottom', size: "50%", resizable: true, style: pstyle, content: 'bottom' }
+				]
+			});*/
+
+			
+			var editor = new Editor(
+				$(".polemika-editor-container"),
+				{
+					layout: "split-v",
+					cartes: {
+						carteSamuel : 'http://127.0.0.1:5000/media/data/carteArgumentaireSamuel.json',
+						carteRequest : 'http://127.0.0.1:5000/media/data/carteRequest.json'
+					}
+				}
+			);
+			/*
+			editor.loadDiagram(
+				'http://127.0.0.1:5000/media/data/carteArgumentaireSamuel.json',
+			);
+			*/
+			
+			var $panel = editor.layout.getPanel("main");
+			editor.loadDiagram(
+				'http://127.0.0.1:5000/media/data/carteRequest.json',
+				$panel
+			);
+			
+	
+		</script>
+    </body>
+</html>

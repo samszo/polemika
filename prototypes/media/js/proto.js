@@ -4,6 +4,7 @@ class Proto {
 		this.useLocal = window.location.origin.indexOf("127.0.0.1") > -1;
 		this.APIBaseUrl = "https://polemika.univ-paris8.fr/omk";
 		this.useCorsProxy = this.useLocal;
+		this.reader = new OmkDataReader(this);
     }
     getGetParameters() {
         var search = location.search.substring(1);
@@ -11,6 +12,17 @@ class Proto {
             return JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}');    
         else
             return {};
+    }
+    getJson(url, callback) {
+		return $.ajax({
+		    type: 'GET',
+		    url: url,
+		    dataType: 'json',
+		    success: function(object) {
+		    	callback(object);
+		    },
+		    data: {}
+		});
     }
     getSyncJson(url) {
 		//if (this.useCorsProxy && !url.startsWith("http://127.0.0.1:5000"))
@@ -28,30 +40,39 @@ class Proto {
 		});
 		return result;
     }
-	getItemsData(item_set_id) {
-		var url = this.resolveAPIUrl("../omk/api/items?item_set_id="+item_set_id);
-		return this.getSyncJson(url);
-	}
-    getOneInformation(infoId) {
-		var information = this.getOneInformationData(infoId);
-		return this.readInformation(information);
-    }	
-	getOneInformationData(infoId) {		
-		var informations = this.getItemsData(2);
-		//$.getJSON(url, function(informations) {
-		var information = null;
-		if (infoId == null) {
-			var randomIndex = Math.floor(Math.random() * (informations.length-1));
-			information = informations[randomIndex];
-		} else {
-			$.each(informations, function(index, value) {
-				if (value["o:id"] == infoId) {
-					information = value;
-					return false;
-				}
-			});
+	getItemsData(params, callback) {
+		var url = "../omk/api/items?item_set_id=2";
+		if (params) {
+			$.each(params, function(index, value) {
+				if (value != null)
+					url+="&"+value;
+			});			
 		}
-		return information;
+		url = this.resolveAPIUrl(url);
+		this.getJson(url, callback);
+	}
+    getOneInformation(infoId, callback) {
+		var self = this;
+		this.getOneInformationData(null, function(information) {
+			callback(self.readInformation(information));
+		});
+    }	
+	getOneInformationData(infoId, callback) {		
+		this.getItemsData(null, function(informations) {
+			var information = null;
+			if (infoId == null) {
+				var randomIndex = Math.floor(Math.random() * (informations.length-1));
+				information = informations[randomIndex];
+			} else {
+				$.each(informations, function(index, value) {
+					if (value["o:id"] == infoId) {
+						information = value;
+						return false;
+					}
+				});
+			}
+			callback(information);
+		});
 	}
 	resolveAPIUrl(relativeUrl) {
 		if (this.useLocal && relativeUrl.indexOf("../") == 0) {
@@ -73,7 +94,7 @@ class Proto {
 	getMediaData(mediaUrl) {
         var mediaUrl = this.resolveAPIUrl(mediaUrl);
 		return this.getSyncJson(mediaUrl);
-	}
+	}	
 	readInformation(information) {
 		var self = this;
 		var data = [];

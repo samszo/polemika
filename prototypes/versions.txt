@@ -1,0 +1,27 @@
+v 0.7
+	
+OK	layout
+OK		http://w2ui.com/web/demos/#!layout/layout-2
+	tooltip
+OK		menu classique
+		d3 tooltip menu circulaire
+	actions de base	
+		create node
+		delete node
+		create link
+		delete link
+	généraliser pour langage logique 1er ordre
+	généraliser pour digaramme de classe
+	
+	mettre sur github	
+	requête logique 1er ordre :
+		https://www.researchgate.net/figure/Graphical-representation-of-the-SQGM-for-the-SPARQL-query-in-Figure-2_fig1_220853944
+	voir le jeu de samuel
+		https://polemika.univ-paris8.fr/omk/s/emotions/page/rapports
+
+	à mettre dans idées thot
+		use case : dans polemika, le menu est défini en html à deux endroits (pour mobile et pour desktop). Avec le diagramme d'update, créer un process écoutant la partie du dom définissant le menu et lorsque modifié, générer l'équivalent dans le html du menu mobile
+		
+v 0.6
+
+	TODO mettre ce qui a été fait avant

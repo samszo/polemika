@@ -1,0 +1,148 @@
+.omk-db-subjects .dropdown-item:hover {
+    background-color: #1894d9 !important;
+    color: #fff;
+}
+#orderby-list .dropdown-item:hover {
+    background-color: #1894d9 !important;
+    color: #fff;
+}
+
+/* structure page */
+#page-search {
+    display: flex;
+    flex-flow: column;
+    height: 100vh;
+}
+#container {
+    flex: 1; /* take all remaining space */
+	/*padding-bottom: inherit;*/
+}
+#container .container {
+	max-width: initial;
+	height: 100%;
+}
+#container .container .page-content {
+	height: 100%;
+	overflow: hidden;
+}
+
+/* structure polemika editor */
+
+.polemika-editor-container {
+	height: 100%;
+    display: flex;
+    flex-flow: column;
+	/*background-color: aqua;*/
+}
+.polemika-editor-menu {
+	/*background-color: blue;*/
+}
+.polemika-editor-instance-container {
+	flex: 1; /* take all remaining space */
+    display: flex;
+    flex-flow: column;
+	
+	border: 1px solid grey;
+	background-color: white;
+	-webkit-box-shadow: 0px 0px 15px 3px #9E9E9E; 
+	box-shadow: 0px 0px 15px 3px #9E9E9E;
+	margin-bottom: 5px;
+	padding: 10px;	
+}
+.polemika-editor-instance {
+	flex: 1; /* take all remaining space */
+}
+
+/* beautiful editor */
+.polemika-editor-instance-container .w2ui-panel {
+	border: 1px solid grey;
+}
+
+.polemika-editor-instance-container .w2ui-panel.selected {
+	border: 1px solid #1894d9;
+}
+.polemika-editor-menu {
+	border: 1px solid grey;
+	background-color: white;
+	-webkit-box-shadow: 0px 0px 15px 3px #9E9E9E; 
+	box-shadow: 0px 0px 15px 3px #9E9E9E;
+	margin-bottom: 5px;
+	padding: 10px;
+}
+
+/* menu editor */
+
+.carte-selector select {
+    max-width: 100px;	
+}
+
+.form-group-flex {
+	display: flex;
+}
+.form-group-flex label {
+	white-space: nowrap;
+	padding: 0px 5px;
+	margin: auto;
+}
+
+/* editor popup */
+.editor-popup {
+	background-color: white;
+}
+.editor-popup .editor-popup-action {
+	border: 1px solid blue;
+	display: inline-block;
+	padding: 5px;
+	cursor: pointer;
+}
+
+.panel-multipanes .panel.selected {
+	display: block;
+}
+
+.node-adder {
+	padding:5px;
+	border: 1px solid grey;
+	-webkit-box-shadow: inset 0px 0px 5px 2px lightgrey;
+	box-shadow: inset 0px 0px 5px 2px lightgrey;
+}
+.nodeArchetypes {
+	display: flex;
+	
+}
+.nodeArchetypes .nodeArchetype {
+	-webkit-box-shadow: 0px 0px 5px 2px lightgrey;
+	box-shadow: 0px 0px 5px 2px lightgrey;
+
+	background-color: white;
+	border: 2px solid;
+	margin: 5px;
+	padding: 0px 5px;
+	color: black;
+	cursor: pointer;
+}
+
+/* svg carte */
+
+svg.svg .actionsPopup {
+	/*border : 1px solid black;*/
+	visibility:hidden;
+}
+svg.svg .actionsPopup.visible {
+	/*border : 1px solid black;*/
+	visibility:visible;
+}
+
+svg.svg .actionsPopup .action {
+	color: blue;
+	border : 1px solid blue;
+	padding-left: 12px;
+	background-color: white;
+	font-size: 14px;
+	cursor: pointer;
+}
+svg.svg .actionsPopup .action:hover {
+	color: white;	
+	background-color: blue;
+}
+

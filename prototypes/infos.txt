@@ -1,8 +1,10 @@
 python : 3
-virtual env : interfaceUser
+virtual env : userInterface
 
 Pour lancer le serveur :
 workon userInterface
 cd prototypes
 python3 app.py
-http://127.0.0.1:5000/index.html
+lancer ça :
+	http://127.0.0.1:5000/index.html
+	avec un chrome dont la sécurité CORS est désactivée
