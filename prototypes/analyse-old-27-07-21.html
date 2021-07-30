@@ -27,41 +27,6 @@
 						
                     </a>
                     <div class="flex-grow-1 px-2 px-sm-4">
-                        <!--<form data-step="1" id="form_search" class="position-relative">
-                            <div class="input-group position-relative  input-group-sm ">
-                                <div data-step="2" data-intro="Vous pouvez définir d’autres périmètres de recherche : dans les documents, les collections, les référentiels d&#039;ISIDORE" data-position="top" class="input-group-prepend" >
-                                    <button id="q-space" class="omk-db-subjects-chooser btn input-button dropdown-toggle size-small" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-										<span class="d-sm-none">D</span>
-										<span class="label d-none d-sm-inline">-- All --</span>
-                                    </button>
-                                    <div class="dropdown-menu omk-db-subjects">
-                                        <a class="dropdown-item font-regular size-small color-darkgrey" href="#" data-subject="">-- All --</a>
-                                    </div>
-                                </div>
-                                <input id="q" autocomplete="off" name="q" type="text" class="omk-db-title-chooser typeahead form-control size-small" placeholder="Rechercher dans le titre" value=""  />
-                                <div class="input-group-append" style="margin-left:-2px;">
-                                    <div class="input-group-text">
-                                        <button title="Supprimer le filtre" class="removeTitleSearchButton d-none d-md-inline isibtn input-button pr-1 pr-md-2 pr-lg-3 del-all-filters position-relative mb-1" type="button"><i class="isicon isicon-delete-small-outline isicon-xs color-darkblue"></i></button>
-                                        <button class="d-none d-sm-inline isibtn input-button font-semibold size-small color-darkblue filter-list-link pr-1" type="button">+ <span class="filters-length">1</span> filtre</button>
-										<div class="popover hide bs-popover-bottom filter-list frame frame-blue position-absolute text-left p-3 " x-placement="bottom" style="top:35px!important; left:0px; width:100%; background:#fff;z-index: 3; max-width:inherit;">
-                                            <div class="arrow filter-arrow" ></div>
-                                            <div class="popover-body">
-                                                <ul class="list-unstyled">
-                                                    <li style="white-space: normal;">Type de document
-                                                        <span data-name="type" data-value="-http://127.0.0.1/bad" class="del-filter isi-badge isi-badge-blue"><span class="filter-label" style="text-decoration: line-through">http://127.0.0.1/bad/ontology#art_exhibition</span> <i class="isicon isicon-delete-small-outline isicon-xs"></i></span>
-                                                        <span data-name="type" data-value="http://127.0.0.1/bad/ontology#article" class="del-filter isi-badge isi-badge-blue"><span class="filter-label" >Articles</span> <i class="isicon isicon-delete-small-outline isicon-xs"></i></span>
-                                                    </li>
-                                                </ul>
-                                                <button type="button" class="btn btn-primary float-right">lancer la requête</button>
-                                            </div>
-                                        </div>
-                                        <span class="vertical-divider"></span>
-                                        <button class="titleSearchButton isibtn input-button" type="button"><i class="isicon isicon-search color-darkblue"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="q-autocomplete" class="hide p-2 position-absolute" ></div>
-                        </form>-->
                         <form data-step="1" id="form_search" class="position-relative">
                             <div class="input-group position-relative  input-group-sm ">
                                 <div data-step="2" data-intro="Vous pouvez définir d’autres périmètres de recherche : dans les documents, les collections, les référentiels d&#039;ISIDORE" data-position="top" class="input-group-prepend" >
@@ -95,141 +60,8 @@
                                     </div>
                                 </div>
                             </div>
-
-							<div class="request-element request-operator input-group mb-3">
-								<div class="input-group-prepend">
-									<select class="operator-value custom-select" id="inputGroupSelect01">
-										<option selected>AND</option>
-										<option value="1">OR</option>
-									</select>
-								</div>
-								<div class="operator-elements form-control" style="height: auto;">
-									<div class="request-element input-group mb-3">
-										<div class="input-group-prepend">
-											<select class="custom-select" id="inputGroupSelect01">
-												<option selected>Date</option>
-												<option value="1">Titre</option>
-											</select>
-											<select class="custom-select" id="inputGroupSelect01">
-												<option value="inf" selected>inf.</option>
-												<option value="equ">equ.</option>
-												<option value="sup">sup.</option>
-											</select>
-										</div>
-										<input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
-										<button class="request-element-remover">-</button>
-									</div>
-									<div class="request-element input-group mb-3">
-										<div class="input-group-prepend">
-											<select class="custom-select" id="inputGroupSelect01">
-												<option selected>Date</option>
-												<option value="1">Titre</option>
-											</select>
-											<select class="custom-select" id="inputGroupSelect01">
-												<option value="inf" selected>inf.</option>
-												<option value="equ">equ.</option>
-												<option value="sup">sup.</option>
-											</select>
-										</div>
-										<input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
-										<button class="request-element-remover">-</button>
-									</div>
-
-
-
-									<div class="request-element request-operator input-group mb-3">
-										<div class="input-group-prepend">
-											<select class="operator-value custom-select" id="inputGroupSelect01">
-												<option>AND</option>
-												<option value="1" selected>OR</option>
-											</select>
-										</div>
-										<div class="operator-elements form-control" style="height: auto;">
-											<div class="request-element input-group mb-3">
-												<div class="input-group-prepend">
-													<label class="input-group-text">Type</label>
-												</div>
-												<select class="custom-select">
-													<option value="culture" selected>culture</option>
-													<option value="economie">economie</option>
-													<option value="people">people</option>
-													<option value="actualités">actualités</option>
-												</select>
-												<button class="request-element-remover">-</button>
-											</div>
-
-											<div class="request-element input-group mb-3">
-												<div class="input-group-prepend">
-													<label class="input-group-text">Title</label>
-													<select class="custom-select">
-														<option value="contains" selected>cont.</option>
-														<option value="equals">equ.</option>
-														<option value="starts">starts</option>
-														<option value="ends">ends</option>
-													</select>
-												</div>
-												<input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
-												<button class="request-element-remover">-</button>
-											</div>
-
-											<div class="request-element input-group mb-3">
-												<div class="input-group-prepend">
-													<label class="input-group-text">Date</label>
-													<select class="custom-select">
-														<option value="inf" selected>inf.</option>
-														<option value="equals">equ.</option>
-														<option value="sup">sup.</option>
-													</select>
-												</div>
-												<input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
-												<button class="request-element-remover">-</button>
-											</div>
-											<button class="request-element-adder">+</button>
-										</div>
-										<button class="request-element-remover">-</button>
-									</div>
-									<div class="request-element-adder dropdown">
-									  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-										+
-									  </button>
-									  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-										<a class="dropdown-item" href="#">Action</a>
-										<a class="dropdown-item" href="#">Another action</a>
-										<a class="dropdown-item" href="#">Something else here</a>
-									  </div>
-									</div>									
-									
-									
-								</div>
-								<button class="request-element-adder">-</button>
-							</div>
-
-							
-
-							
-							
-							<div class="input-group position-relative  input-group-sm ">
-                                <div data-step="2" data-intro="Vous pouvez définir d’autres périmètres de recherche : dans les documents, les collections, les référentiels d&#039;ISIDORE" data-position="top" class="input-group-prepend" >
-                                    <button id="q-space" class="btn input-button dropdown-toggle size-small" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-										<span class="d-sm-none">D</span>
-										<span class="label d-none d-sm-inline">AND</span>
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item font-regular size-small color-darkgrey" href="#" data-subject="">AND</a>
-										<a class="dropdown-item font-regular size-small color-darkgrey" href="#" data-subject="">OR</a>
-                                    </div>
-
-
-                                </div>
-                                <input id="q" autocomplete="off" name="q" type="text" class="omk-db-title-chooser typeahead form-control size-small" placeholder="Rechercher dans le titre" value=""  />
-                                
-                            </div>
+                            <div id="q-autocomplete" class="hide p-2 position-absolute" ></div>
                         </form>
-						<form class="request-engine" style="border: 1px solid green;">
-							<div class="request-elements">
-							</div>
-							<button class="search">SEARCH</button>
-						</form>
                     </div>
                     <div class="navbar-nav float-none float-md-right mx-0" style="min-width:70px">
                         <div class="nav-item navbar-lang ml-0  ml-sm-4 mr-sm-3" data-toggle="popover" data-html-content=".navbar-lang-content"><a href="#" class="icon-rounded">fr </a></div>
@@ -609,7 +441,6 @@
 		<script src='media/js/PageAdminQualification.js'></script>
 		<script src='media/js/OmkDataReader.js'></script>
 		<script src='media/js/renderEngine.js'></script>
-		<script src='media/js/requestEngine.js'></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
 		<script data-template="simple-view" type="template">
 			<div class="list-item row mb-5 simple-view" data-item-id="<<_meta.id>>">
@@ -738,13 +569,6 @@
 			} catch(e) {
 				console.log("error", e);
 			}
-			
-			
-			var requestEngine = new RequestEngine($(".request-engine"));
-			$(".request-engine .search").bind("click", function() {
-				console.log("SEARCH");
-				console.log(requestEngine.serialize());
-			});
 		</script>
         <div class="mc-modal">
             <!-- Modal content -->
