@@ -1,0 +1,7 @@
+plein d'exemple de graphe : http://techslides.com/over-1000-d3-js-examples-and-demos
+show/hide dans un force-layout : 
+	https://bl.ocks.org/mbostock/1095795
+
+exemple graphe orienté
+https://www.programmersought.com/article/92464374706/
+http://bl.ocks.org/fancellu/2c782394602a93921faff74e594d1bb1

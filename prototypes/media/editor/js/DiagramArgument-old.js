@@ -115,7 +115,6 @@ class DiagramArgument extends Diagram {
 					})
 			);
 		//construction des connecteurs
-		/*
 		self.rightConnectors = self.node.append("circle")
 			.attr("class", "rightConnector")
 			.attr("cy", "-5")
@@ -136,8 +135,6 @@ class DiagramArgument extends Diagram {
 						self.dragLinkEnded(this, event, d);
 					})
 			);
-		*/
-		/*
 		self.leftConnectors = self.node.append("circle")
 			.attr("class", "leftConnector")
 			.attr("cx", "-5")
@@ -156,19 +153,6 @@ class DiagramArgument extends Diagram {
 					}).on("end", function(event, d) {						
 					})
 			);
-		*/
-		
-		self.linksLayers = self.node.append("rect")
-			.attr("class", "linksLayer")
-			.attr("id", d=>"linksLayer"+d.id)
-			.attr("stroke", "rgba(255,150,0,255)")
-			.attr("fill-opacity", "0")
-			.on("mouseover", function(d) {
-				self.focus(this, d);
-			}).on("mouseout", function(d) {
-				self.unfocus(this, d);
-			});
-		
 		//construction des enveloppes
 		self.rectNode = self.node.append("rect")
 			.attr("class", "rectNode")
@@ -188,7 +172,7 @@ class DiagramArgument extends Diagram {
 				return s
 			}).on('click', function(event, data) {
 				self.clickOn(this, event, data);
-			});
+			})			;
 			//.style("pointer-events", "none"); // to prevent mouseover/drag capture
 
 		//construction des labels
@@ -210,49 +194,15 @@ class DiagramArgument extends Diagram {
 			});
 			
 		//redimensionne les enveloppes
-		self.node.each(function(d,i){
+		self.rectNode.each(function(d,i){
 			//récupère la taille du texte
-			let dNode = d3.select(this);
-			let dLinkLayer = d3.select("#linksLayer"+d.id);
-			let dText = d3.select("#labelNode"+d.id);
-			let dRect = d3.select("#rectNode"+d.id);
-			let bb = dText.node().getBBox();
-			let marge = parseInt(self.styles[0]["concept-style"]["text-margin"]);
-
-			let layerBorderMargin = 10;
-			let textBorderMargin = 2;
-
-			let textWidth = bb.width+(marge*2);
-			let textHeight = bb.height+(marge*2);
-			let rectWidth = textWidth + textBorderMargin*2;
-			let rectHeight = textHeight + textBorderMargin*2;
-			let layerWidth = rectWidth + layerBorderMargin*2;
-			let layerHeight = rectHeight + layerBorderMargin*2;
-
-			
-			//let textX = -marge;
-			//let textY = -marge-self.styles[0]["concept-style"]["font-size"];
-			
-			dLinkLayer
-				//.attr('cx',0)
-				//.attr('cy',0)
-				//.attr('fill','transparent')
-				.attr('width', layerWidth)
-				.attr('height', layerHeight);				
-			dRect
-				.attr('x', layerBorderMargin)
-				.attr('y', layerBorderMargin)
-				.attr('width', rectWidth)
-				.attr('height', rectHeight);
-			dText
-				//.attr('text-anchor','start')
-				.attr('x', layerBorderMargin + textBorderMargin + marge)
-				.attr('y', layerBorderMargin + textBorderMargin + textHeight/2 + marge)
-				.attr('width', textWidth)
-				.attr('height', textHeight);
-
-				
-			//let nodeBox = dNode.node().getBBox();
+			let bb = d3.select("#labelNode"+d.id).node().getBBox();
+			let marge = parseInt(self.styles[0]["concept-style"]["text-margin"]);                    
+			d3.select(this)
+				.attr('x',-marge)
+				.attr('y',-marge-self.styles[0]["concept-style"]["font-size"])                    
+				.attr('width',bb.width+(marge*2))
+				.attr('height',bb.height+(marge*2));                    
 		});
 		
 		//construction des liens
@@ -309,13 +259,11 @@ class DiagramArgument extends Diagram {
 			outputs.push(link);
 		});
 		// init connectors
-		/*
 		self.rightConnectors.each(function(d,i) {
 				var connector = d3.select(this);			
 				var width = self.getWidth(d3.select(this.parentNode));
 				connector.attr("cx", width-10);
 			});
-		*/
 		//redimensionne les liens
 		self.link.each(function(d,i){
 			//récupère la source et la destination
@@ -574,7 +522,6 @@ class DiagramArgument extends Diagram {
 	showTooltip(event, data){
 		console.log("show tooltip", event, data);
 	}
-	
 	focus(domElt, data) {
 		var self = this;
 		var $elt = $(domElt);
@@ -590,14 +537,7 @@ class DiagramArgument extends Diagram {
 			if (self.linkCreation.source == null) {
 				d3.select(domElt).style("cursor", "pointer").transition().attr("fill-opacity", "0.5").duration(300);
 			}			
-		}
-		else if ($elt.hasClass("linksLayer")) {			
-			if (self.linkCreation.source == null) {
-				console.log("focus linksLayer");
-				d3.select(domElt).style("cursor", "pointer").transition().attr("fill-opacity", "0.5").duration(200);
-			}
-		}
-		else if ($elt.hasClass("node")) {
+		} else if ($elt.hasClass("node")) {
 			//console.log("node");
 		}
 	}
@@ -612,11 +552,6 @@ class DiagramArgument extends Diagram {
 			//console.log("rightConnector");
 			if (self.linkCreation.source == null) {
 				d3.select(domElt).style("cursor", "default").transition().attr("fill-opacity", "0").duration(300);
-			}
-		} else if ($elt.hasClass("linksLayer")) {
-			if (self.linkCreation.source == null) {
-				console.log("focus linksLayer");
-				d3.select(domElt).style("cursor", "default").transition().attr("fill-opacity", "0").duration(200);
 			}
 		}
 		/*
