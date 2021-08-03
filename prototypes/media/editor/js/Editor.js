@@ -39,7 +39,8 @@ class Editor {
 					x : (ui.position.left)*self.carteTranslation.k + self.carteTranslation.x,
 					y : (ui.position.top)*self.carteTranslation.k + self.carteTranslation.y
 				};				
-				diagram.createNode(pos, $movedElt.data("archetype"));
+				var node = diagram.model.createNode($movedElt.data("archetype"));
+				diagram.addNode(node, pos);
             }		  
 		}).disableSelection();		
 		// bind external actions		
