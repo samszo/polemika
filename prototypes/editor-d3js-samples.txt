@@ -5,3 +5,6 @@ show/hide dans un force-layout :
 exemple graphe orienté
 https://www.programmersought.com/article/92464374706/
 http://bl.ocks.org/fancellu/2c782394602a93921faff74e594d1bb1
+
+lien entre deux rectangles :
+https://stackoverflow.com/questions/50252070/svg-draw-connection-line-between-two-rectangles

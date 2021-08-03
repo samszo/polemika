@@ -329,26 +329,108 @@ class DiagramArgument extends Diagram {
 		var self = this;
 		var targetPoint = self.getLeftAnchorPosition(dst);
 		var sourcePoint = self.getRightAnchorPosition(src);
-		link.attr('x1',sourcePoint.x)
-			.attr('y1',sourcePoint.y)
-			.attr('x2',targetPoint.x)
-			.attr('y2',targetPoint.y);
+		
+		var srcData = this.getNodeRectData(src);
+		var dstData = this.getNodeRectData(dst);
+		var w1 = srcData.width / 2;
+		var h1 = srcData.height / 2;
+		var w2 = dstData.width / 2;
+		var h2 = dstData.height / 2;
+
+		var cx1 = srcData.x + w1;
+		var cy1 = srcData.y + h1;
+		var cx2 = dstData.x + w2;
+		var cy2 = dstData.y + h2;
+
+		var dx = cx2 - cx1;
+		var dy = cy2 - cy1;
+
+		var p1 = this.getIntersection(dx, dy, cx1, cy1, w1, h1);
+		var p2 = this.getIntersection(-dx, -dy, cx2, cy2, w2, h2);
+
+		console.log("p1", p1);
+		console.log("p2", p2);
+
+		link.attr('x1', p1[0])
+			.attr('y1', p1[1])
+			.attr('x2', p2[0])
+			.attr('y2', p2[1]);
+	}
+	getIntersection(dx, dy, cx, cy, w, h) {
+		if (Math.abs(dy / dx) < h / w) {
+			// Hit vertical edge of box1
+			return [cx + (dx > 0 ? w : -w), cy + dy * w / Math.abs(dx)];
+		} else {
+			// Hit horizontal edge of box1
+			return [cx + dx * h / Math.abs(dy), cy + (dy > 0 ? h : -h)];
+		}
+	}
+	getNodeRectData(d3Node) {
+		var pt = this.svg.node().createSVGPoint();
+		var data = d3Node.data()[0];
+		pt.x = data.x;
+		pt.y = data.y;
+		var rectBox = d3Node.select(".rectNode").node().getBBox();
+		//rectNode6271
+		var box = d3Node.node().getBBox();
+		pt.x = pt.x + rectBox.x;
+		pt.y = pt.y + rectBox.y;
+		return {
+			x: pt.x,
+			y: pt.y,
+			width: rectBox.width,
+			height: rectBox.height
+		};
 	}
 	getLeftAnchorPosition(d3Node) {
+		var svg = this.svg.node();
+		var pt = svg.createSVGPoint();
+		//pt = pt.matrixTransform(d3Node.node().getCTM());
+		var data = d3Node.data()[0];
+		pt.x = data.x;
+		pt.y = data.y;
+		var rectBox = d3Node.select(".rectNode").node().getBBox();
+		//rectNode6271
+		var box = d3Node.node().getBBox();
+		pt.x = pt.x + rectBox.x;
+		pt.y = pt.y + rectBox.y + rectBox.height / 2;
+		return {
+			x: pt.x,
+			y: pt.y
+		};
+		
+		/*
 		var data = d3Node.data()[0];
 		var box = d3Node.node().getBBox();
 		return {
 			x: parseInt(data.x)-this.textMargin, 
 			y: parseInt(data.y)-(box.height/2) + 7
 		};
+		*/
 	}
 	getRightAnchorPosition(d3Node) {
+		var svg = this.svg.node();
+		var pt = svg.createSVGPoint();
+		//pt = pt.matrixTransform(d3Node.node().getCTM());
+		var data = d3Node.data()[0];
+		pt.x = data.x;
+		pt.y = data.y;		
+		var box = d3Node.node().getBBox();
+		pt.x = pt.x + box.width / 2;
+		pt.y = pt.y + box.height / 2;
+		return {
+			x: pt.x,
+			y: pt.y
+		};
+
+		/*
 		var data = d3Node.data()[0];
 		var box = d3Node.node().getBBox();
 		return {
 			x: box.width+parseInt(data.x)-this.textMargin - 20,
 			y: parseInt(data.y)-(box.height/2) + 7
 		};
+		*/
 	}
 	getWidth(d3Node) {
 		var box = d3Node.node().getBBox();
