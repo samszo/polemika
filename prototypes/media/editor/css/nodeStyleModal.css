@@ -1,0 +1,38 @@
+@media (min-width: 576px) {
+	#nodeStyleModal .modal-dialog {
+		max-width: 600px;
+	}
+}
+#nodeStyleModal .group-panel-name {
+	margin-top: 8px;
+}
+#nodeStyleModal .group-panel {
+	padding: 10px;
+    border: 1px solid white;
+    margin: 1px;
+}
+#nodeStyleModal input {
+	width: 100%;
+	outline: none;
+}
+#nodeStyleModal input.is-invalid {
+	border-color: red;
+}
+#nodeStyleModal button[data-toggle=button] {
+	border-color: white;
+}
+#nodeStyleModal .sp-original-input-container {
+	width: 100%;
+}
+#nodeStyleModal .sp-original-input-container .sp-colorize-container {
+	width: 30px !important;
+}
+#nodeStyleModal .group-panel .col-6 {
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+#nodeStyleModal .nodeArchetype {
+    padding: 5px;
+    text-align: center;
+	border-style: solid;
+}

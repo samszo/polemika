@@ -17,6 +17,10 @@
 		<link rel="stylesheet" href="media/css/magicCms-modal.css" type="text/css">
 		<link rel="stylesheet" href="media/w2ui/w2ui-1.5.min.css">
 		<link rel="stylesheet" href="media/editor/css/editor.css">
+		<link rel="stylesheet" href="media/editor/css/diagram.css">
+		<link rel="stylesheet" href="media/editor/css/nodeStyleModal.css">
+		<link rel="stylesheet" href="media/editor/css/panelEdition.css">
+		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2/dist/spectrum.min.css">
     </head>
     <body role="document" class="not-connected ">
         <div id="page-search">
@@ -121,7 +125,8 @@
 										    <option selected>full</option>
 										    <option>split-v</option>
 											<option>split-h</option>
-									    </select>										
+									    </select>
+										<button action="test">XXX</button>
 									</div>
 									<div class="panel-multipanes">
 										<div class="panel panel-adder hide selected">
@@ -131,14 +136,14 @@
 											</div>									
 										</div>
 										<div class="panel panel-edition hide">
-											<div class="text-editor form-group form-group-flex">
-												<label for="carte-selector-input1">Valeur :</label>
-												<input disabled type="text" class="form-control" placeholder="">
+											<div class="form-group form-group-flex">
+												<label for="text-editor-input1">Valeur :</label>
+												<div class="text-container form-control" style="display: flex; height: auto;"></div>
 											</div>
 										</div>
 									</div>
 								</div>
-								<div class="polemika-editor-instance-container">
+								<div class="polemika-editor-instance-container" tabindex=0>
 									<!-- editor -->
 									<!--
 									<div class="polemika-editor-instance hide selected">
@@ -169,25 +174,132 @@
 				</div>
 			</nav>			
         </div>
+		
+		<!-- Modal nodeStyleModal -->
+		<button type="button" class="btn btn-primary hidden" data-toggle="modal" data-target="#nodeStyleModal"></button>
+		<div class="modal fade" id="nodeStyleModal" tabindex="-1" role="dialog" aria-labelledby="nodeStyleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="nodeStyleModalLabel">Propriétés de style</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="row" data-input-field="name">
+							<div class="col-4">Nom</div>
+							<div class="col-8"><input data-field="name" type="text" value="AAA"></div>
+						</div>						
+						<div class="row group-panel-name">
+							<div class="col-12">
+								Propriétés de la forme
+							</div>
+						</div>
+						<div class="row group-panel">
+							<div class="col-6">Couleur de la bordure</div>
+							<div class="col-6"><input data-css-field="border-color" class="color-picker" value='#276cb8'/></div>
+							<div class="col-6">Epaisseur de la bordure (px)</div>
+							<div class="col-6"><input data-css-field="border-width" type="text" value="1"></div>
+							<div class="col-6">Couleur de fond</div>
+							<div class="col-6"><input data-css-field="background-color" class="color-picker" value='#276cb8'/></div>
+						</div>
+						<div class="row group-panel-name">
+							<div class="col-12">
+								Propriétés du texte
+							</div>
+						</div>
+						<div class="row group-panel">
+							<div class="col-6">Couleur du texte</div>							
+							<div class="col-6"><input data-css-field="color" class="color-picker" value='#276cb8'/></div>
+							<div class="col-6">Style du texte</div>
+							<div class="col-6">
+								<button data-css-field="font-weight" type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" style="font-weight: bolder;">B</button>
+								<button data-css-field="font-style" type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" style="font-style: italic;">I</button>
+							</div>
+						</div>
+						<div class="row group-panel-name">
+							<div class="col-12">
+								Rendu
+							</div>
+						</div>
+						<div class="row group-panel">
+							<div class="col-12">
+								<div class="nodeArchetype">
+									CCC
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" action="close" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary" action="save">Save changes</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Modal reificationModal -->
+		<button type="button" class="btn btn-primary hidden" data-toggle="modal" data-target="#reificationModal"></button>
+		<div class="modal fade" id="reificationModal" tabindex="-1" role="dialog" aria-labelledby="reificationModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="reificationModalLabel">Création archétype</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="row" data-input-field="name">
+							<div class="col-4">Nom</div>
+							<div class="col-8"><input data-field="name" type="text" value=""></div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" action="close" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary" action="create">Create</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
         <script src="media/analyse/js/jquery-3.3.1.min.js"></script>
         <script src="media/analyse/js/bootstrap.min.js"></script>
 		<script src='media/js/geoLoc.js'></script>
 		<script src='media/js/orchestrator.js'></script>
 		<script src='media/js/MagicObject.js'></script>
 		<script src='media/js/MagicNode.js'></script>
+		<script src='media/components/PWidgets.js'></script>
+		
 		<script src='media/js/McButton.js'></script>
 		<script src='media/js/McModal.js'></script>
+		<script src='media/editor/js/modals/NodeStyleModal.js'></script>
+		<script src='media/editor/js/modals/ReificationModal.js'></script>
 		<script src='media/js/menu-qualification.js'></script>
 		<script src='media/js/OmkDataReader.js'></script>
 		<!--<script src='media/js/renderEngine.js'></script>-->
 		<script src='media/js/spin.min.js'></script>
 		<script src='media/js/d3.V6.min.js'></script>
 		<!--<script src='media/js/graphs/carteArgument.js'></script>-->
-		<!--<script src='media/js/graphs/EditorArguments.js'></script>-->
-		<script src='media/editor/js/Diagram.js'></script>
-		<script src='media/editor/js/DiagramModel.js'></script>
-		<script src='media/editor/js/diagram/argument/DiagramArgument.js'></script>
-		<script src='media/editor/js/diagram/argument/DiagramArgumentModel.js'></script>
+		<!--<script src='media/js/graphs/EditorArguments.js'></script>-->		
+		<script src='media/editor/js/objects/StyledObject.js'></script>
+		<script src='media/editor/js/objects/Archetype.js'></script>
+		<script src='media/editor/js/objects/Instance.js'></script>
+		<script src='media/editor/js/menu/EditionPanel.js'></script>
+		<script src='media/editor/js/menu/CreationPanel.js'></script>
+		<script src='media/editor/js/menu/ContextualMenu.js'></script>
+		<script src='media/editor/js/diagram/Diagram.js'></script>
+		<script src='media/editor/js/diagram/DiagramBuilder.js'></script>
+		<script src='media/editor/js/diagram/DiagramModel.js'></script>
+
+		<script src='media/editor/js/plugins/argument/Diagram_argument.js'></script>
+		<script src='media/editor/js/plugins/argument/DiagramBuilder_argument.js'></script>
+		<script src='media/editor/js/plugins/argument/DiagramModel_argument.js'></script>
+		<script src='media/editor/js/plugins/argument/NodeArchetype_argument.js'></script>
+		<script src='media/editor/js/plugins/argument/NodeInstance_argument.js'></script>
+		<script src='media/editor/js/plugins/argument/LinkArchetype_argument.js'></script>
+		<script src='media/editor/js/plugins/argument/LinkInstance_argument.js'></script>
 		
 		<script src='media/editor/js/Editor.js'></script>
 		<script src='media/editor/js/EditorLayout.js'></script>
@@ -195,7 +307,7 @@
 		<script src='media/underscore/underscore.js'></script>
 		<script src='media/js/jquery-ui.js'></script>
 		<script src='media/w2ui/w2ui-1.5.min.js'></script>
-
+		<script src="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2/dist/spectrum.min.js"></script>
 
 		<style>
 			.hidden {
@@ -268,19 +380,23 @@
 					}
 				}
 			);
-			/*
-			editor.loadDiagram(
-				'http://127.0.0.1:5000/media/data/carteArgumentaireSamuel.json',
-			);
-			*/
 			
 			var $panel = editor.layout.getPanel("main");
+			editor.loadDiagram({
+				data: 'http://127.0.0.1:5000/media/data/editor/carteArgumentaireSamuel-modified.json',
+				archetypes: 'http://127.0.0.1:5000/media/data/editor/archetypes.json',
+				type: "Diagram_argument"
+			});			
+			
+			/*			
 			editor.loadDiagram(
-				'http://127.0.0.1:5000/media/data/carteArgumentaireSamuel.json',
+				//'http://127.0.0.1:5000/media/data/carteArgumentaireSamuel.json',
+				'http://127.0.0.1:5000/media/data/editor/carteArgumentaireSamuel-modified.json',
+				"DiagramArgument",
 				$panel
-			);
+			);*/
 			
 	
-		</script>
+		</script>	
     </body>
 </html>

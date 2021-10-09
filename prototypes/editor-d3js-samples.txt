@@ -1,10 +1,32 @@
 plein d'exemple de graphe : http://techslides.com/over-1000-d3-js-examples-and-demos
-show/hide dans un force-layout : 
-	https://bl.ocks.org/mbostock/1095795
+exemples D3js : https://christopheviau.com/d3list/
+tutos : https://github.com/d3/d3/wiki/Tutorials
+show/hide dans un force-layout : https://bl.ocks.org/mbostock/1095795
+exemple graphe orienté :
+	https://www.programmersought.com/article/92464374706/
+	http://bl.ocks.org/fancellu/2c782394602a93921faff74e594d1bb1
 
-exemple graphe orienté
-https://www.programmersought.com/article/92464374706/
-http://bl.ocks.org/fancellu/2c782394602a93921faff74e594d1bb1
+lien entre deux rectangles : https://stackoverflow.com/questions/50252070/svg-draw-connection-line-between-two-rectangles
 
-lien entre deux rectangles :
-https://stackoverflow.com/questions/50252070/svg-draw-connection-line-between-two-rectangles
+
+
+force-directed tree : https://bl.ocks.org/mbostock/1138500
+force directed multiples : https://bl.ocks.org/mbostock/1804889
+pour ajouter en live des éléments à un force directed layout : http://bl.ocks.org/benzguo/4370043
+
+selection par mouse area : https://bl.ocks.org/mbostock/929623
+
+How to check with d3.js if element is in viewpoint (in visible area) : https://stackoverflow.com/questions/52787833/how-to-check-with-d3-js-if-element-is-in-viewpoint-in-visible-area
+disable zoom : https://stackoverflow.com/questions/18788188/how-to-temporarily-disable-the-zooming-in-d3-js
+
+doc d3js force : https://github.com/d3/d3-force
+description enter update exit:
+	(v4) https://www.d3indepth.com/v4/enterexit/
+	(v6) https://www.d3indepth.com/enterexit/
+tutos d3js force :
+	https://www.google.com/search?q=d3js+version+6+tutorial+force&rlz=1C1AVFC_enFR854FR854&oq=d3js+version+6+tutorial+force&aqs=chrome..69i57j33i10i160j33i21.10911j0j7&sourceid=chrome&ie=UTF-8
+	https://www.youtube.com/watch?v=y2-sgZh49dQ
+selection : https://jsfiddle.net/cyril123/4twgt9rr/
+migration v4 => v6 : 
+	https://observablehq.com/@d3/d3v6-migration-guide
+	https://stackoverflow.com/questions/38224875/replacing-d3-transform-in-d3-v4
