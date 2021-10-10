@@ -4,4 +4,6 @@ omk/
 *.sql
 bdd/omk-polemika04-12-20.sql.zip
 bdd/omk-polemika20-12-20d.sql.zip
-prototypes/media/.DS_Store
+
+*.DS_Store
+
