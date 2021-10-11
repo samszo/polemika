@@ -5,7 +5,8 @@ class Diagram extends PSubject {
 		var self = this;
         self.editor = params.editor;
 		self.builder = this.createBuilder();
-		self.creationPanel = self.builder.createCreationPanel(self, params.archetypes);
+		self.creationPanel = self.editor.creationPanelContainer.createCreationPanel(self, params.archetypes);
+		//self.creationPanel = self.builder.createCreationPanel(self, params.archetypes);
 		//self.cont = d3.select("#"+params.idCont);
 		self.node = params.container;
 		params.container.data("object", this);

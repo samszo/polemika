@@ -1,15 +1,17 @@
 class CreationPanel {
 
-    constructor($node, diagram, archetypesData) {
+    constructor(diagram, archetypesData) {
 		var self = this;
-		this.node = $node;
+		this.node = $('<div class="node-adder"><div class="nodeArchetypes connectedSortable"></div></div>');
 		this.diagram = diagram;
 		this.node.data("object", this);
 		this.initArchetypes(archetypesData);
-		this.node.sortable({
-			connectWith: ".connectedSortable",
+		var $list = this.node.find(".nodeArchetypes");
+		var listId = $list.uniqueId().attr("id");
+		$list.sortable({
+			connectWith: "#listId",
 			update : function(e, ui){
-				console.log("> update drag");
+				//console.log("> update drag");
 			},
             stop: function(e, ui){
                 console.log("> stop drag");
@@ -45,6 +47,6 @@ class CreationPanel {
 	}
 	addArchetype(archetype) {
 		//this.archetypes[archetype.data.id] = archetype;
-		$(".nodeArchetypes").append(archetype.node);		
+		$(".nodeArchetypes", this.node).append(archetype.node);
 	}
 }

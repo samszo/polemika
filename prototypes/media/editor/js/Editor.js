@@ -4,7 +4,8 @@ class Editor {
 		var self = this;
 		this.node = $node;
 		this.menuRoot = $(".polemika-editor-menu", $node);
-		this.carteContainer = $(".polemika-editor-instance-container", $node);		
+		this.carteContainer = $(".polemika-editor-instance-container", $node);
+		this.creationPanelContainer = new CreationPanelContainer($(".panel-adder", $node));
 		this.carte = null;
 		this.options = options
 		var defaultOptions = {
@@ -233,9 +234,9 @@ class Editor {
 		$input.val("");
 		$input.prop("disabled", true);
 	}
-	loadDiagram(diagramData) {
+	loadDiagram(diagramData, layoutPanel) {
 		var self = this;
-		var $carteContainer = this.layout.getSelectedPanel();
+		var $carteContainer = layoutPanel == null ? this.layout.getSelectedPanel() : this.layout.getPanel(layoutPanel);
 		$carteContainer.empty();
 		var carteId = $carteContainer.uniqueId().attr("id");
 		var lock1 = this.resolveJsonData(diagramData.data);

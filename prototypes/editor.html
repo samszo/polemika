@@ -130,10 +130,7 @@
 									</div>
 									<div class="panel-multipanes">
 										<div class="panel panel-adder hide selected">
-											<div class="node-adder">
-												<div class="nodeArchetypes connectedSortable">
-												</div>
-											</div>									
+											<!-- dynamic content -->
 										</div>
 										<div class="panel panel-edition hide">
 											<div class="form-group form-group-flex">
@@ -289,6 +286,7 @@
 		<script src='media/editor/js/objects/NodeInstance.js'></script>
 		<script src='media/editor/js/objects/LinkInstance.js'></script>
 		<script src='media/editor/js/menu/EditionPanel.js'></script>
+		<script src='media/editor/js/menu/CreationPanelContainer.js'></script>
 		<script src='media/editor/js/menu/CreationPanel.js'></script>
 		<script src='media/editor/js/menu/ContextualMenu.js'></script>
 		<script src='media/editor/js/diagram/Diagram.js'></script>
@@ -386,7 +384,8 @@
 			var editor = new Editor(
 				$(".polemika-editor-container"),
 				{
-					layout: "full", // layout: "split-v",
+					//layout: "full",
+					layout: "split-v",
 					cartes: {
 						diagram1 : diagram1,
 						diagram2 : diagram2
@@ -396,6 +395,7 @@
 			
 			var $panel = editor.layout.getPanel("main");
 			editor.loadDiagram(diagram1);
+			editor.loadDiagram(diagram1, "bottom");
 		</script>	
     </body>
 </html>

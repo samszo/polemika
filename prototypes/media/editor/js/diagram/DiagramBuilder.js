@@ -6,7 +6,7 @@ class DiagramBuilder {
 		this.creationCounter = 0;
     }
 	createCreationPanel(diagram, archetypesData) {
-		return new CreationPanel(editor.menuRoot.find(".nodeArchetypes"), diagram, archetypesData);
+		return new CreationPanel(diagram, archetypesData);
 	}
 	newId() {
 		this.creationCounter = this.creationCounter - 1;
