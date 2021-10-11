@@ -15,6 +15,11 @@ class CreationPanel {
                 console.log("> stop drag");
                 var $movedElt = $(ui.item);
 				var editor = self.editor;				
+				/*var p = d3.pointer(event);
+				var pos = {
+					x : p[0],
+					y : p[1]
+				};*/
 				var pos = {
 					x : (ui.position.left)*self.diagram.editor.carteTranslation.k + self.diagram.editor.carteTranslation.x,
 					y : (ui.position.top)*self.diagram.editor.carteTranslation.k + self.diagram.editor.carteTranslation.y

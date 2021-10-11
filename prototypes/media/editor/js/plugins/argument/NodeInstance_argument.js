@@ -28,8 +28,28 @@ class NodeInstance_argument extends NodeInstance {
 			"Importer" : {
 				multi: false,
 				func: function(selection) {
-					var url = 'http://127.0.0.1:5000/media/data/editor/import2.json';
-					self.diagram.importData(url);
+					var url = 'http://127.0.0.1:5000/media/data/editor/import3.json';
+                    $.ajax({
+                        url: url,
+                        dataType: "json",
+                        success: function (data) {
+                            $.each(data.nodes, function(index, nodeData) {
+                                var existingNode = _.find(self.diagram.data.nodes, function(elt) {
+                                    return elt.id == nodeData.id;
+                                });
+                                if (existingNode == null)
+                                    self.diagram.data.nodes.push(nodeData);
+                            });
+                            $.each(data.links, function(index, linkData) {
+                                var existingLink = _.find(self.diagram.data.links, function(elt) {
+                                    return elt.id == linkData.id;
+                                });
+                                if (existingLink == null)
+                                    self.diagram.data.links.push(linkData);
+                            });
+                            self.diagram.updateGraph();
+                        }
+                    });
 				}
 			}
 		};

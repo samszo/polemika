@@ -4,6 +4,7 @@ class LinkInstance extends Instance {
 		super(domElt, data, archetype, diagram);
     }
 	delete(doUpdate) {		
+		this.archetype.deleteInstance(this);
 		this.diagram.model.notifyDeletion(this.data);
 		this.diagram.deleteLink(this);
 		if (doUpdate)

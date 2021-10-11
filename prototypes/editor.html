@@ -371,34 +371,31 @@
 				]
 			});*/
 
-			
+
+			var diagram1 = {
+				data: 'http://127.0.0.1:5000/media/data/editor/carteArgumentaireSamuel-modified.json',
+				archetypes: 'http://127.0.0.1:5000/media/data/editor/archetypes.json',
+				type: "Diagram_argument"
+			}
+			var diagram2 = {
+				data: 'http://127.0.0.1:5000/media/data/editor/carteArgumentaireSamuel-modified.json',
+				archetypes: 'http://127.0.0.1:5000/media/data/editor/archetypes.json',
+				type: "Diagram_argument"
+			}
+
 			var editor = new Editor(
 				$(".polemika-editor-container"),
 				{
 					layout: "full", // layout: "split-v",
 					cartes: {
-						carteSamuel : 'http://127.0.0.1:5000/media/data/carteArgumentaireSamuel.json',
-						carteRequest : 'http://127.0.0.1:5000/media/data/carteRequest.json'
+						diagram1 : diagram1,
+						diagram2 : diagram2
 					}
 				}
 			);
 			
 			var $panel = editor.layout.getPanel("main");
-			editor.loadDiagram({
-				data: 'http://127.0.0.1:5000/media/data/editor/carteArgumentaireSamuel-modified.json',
-				archetypes: 'http://127.0.0.1:5000/media/data/editor/archetypes.json',
-				type: "Diagram_argument"
-			});			
-			
-			/*			
-			editor.loadDiagram(
-				//'http://127.0.0.1:5000/media/data/carteArgumentaireSamuel.json',
-				'http://127.0.0.1:5000/media/data/editor/carteArgumentaireSamuel-modified.json',
-				"DiagramArgument",
-				$panel
-			);*/
-			
-	
+			editor.loadDiagram(diagram1);
 		</script>	
     </body>
 </html>

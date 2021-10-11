@@ -5,6 +5,7 @@ class NodeInstance extends Instance {
     }
 	delete(doUpdate) {
 		var  self = this;
+		this.archetype.deleteInstance(this);
 		this.diagram.model.notifyDeletion(this.data);
 		this.diagram.deleteNode(this);
 		$.each(this.inputs, function(index, link) {
