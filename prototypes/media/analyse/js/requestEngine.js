@@ -76,18 +76,43 @@ class RequestBuilder {
 		`);
 		return new TypeRequest($node, this.engine);
 	}
+	createResourceTemplateRequest($option) {
+		var $node = $(`
+			<div class="request-element input-group mb-3">
+				<div class="input-group-prepend">
+					<label class="input-group-text">Type</label>
+				</div>
+				<select class="custom-select">
+					<option value="culture" selected>culture</option>
+					<option value="economie">economie</option>
+					<option value="people">people</option>
+					<option value="actualités">actualités</option>
+				</select>
+			</div>
+		`);
+		$node.find(".input-group-text").text($option.attr("rt-type"));
+		return new TypeRequest($node, this.engine);
+	}
 	createRequestAdderButton() {
 		var $node = $(`
 			<div class="request-element-adder dropdown">
 				<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				+
 				</button>
-				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+				<!--<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 					<a class="dropdown-item" value="createOperator" href="#">Operator</a>
 					<a class="dropdown-item" value="createDateRequest" href="#">Date</a>
 					<a class="dropdown-item" value="createTitleRequest" href="#">Title</a>
 					<a class="dropdown-item" value="createTypeRequest" href="#">Type</a>
+				</div>-->
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					<a class="dropdown-item" value="createOperator" href="#">Operator</a>
+					<a class="dropdown-item" value="createDateRequest" href="#">Item</a>
+					<a class="dropdown-item" value="createTitleRequest" href="#">SP Emotion</a>
+					<a class="dropdown-item" value="createResourceTemplateRequest" rt-type="Sonar" href="#">SP Sonar</a>
+					<a class="dropdown-item" value="createTypeRequest" href="#">SP Général</a>
 				</div>
+
 			</div>`);
 		return new BDropdownMenu($node);
 	}
@@ -159,7 +184,7 @@ class RequestOperator extends RequestElement {
 		var adder = this.engine.builder.createRequestAdderButton();
 		this.node.find(".operator-body").append(adder.node);
 		adder.addObserver(function(event) {
-			var element = self.engine.builder[event.item]();
+			var element = self.engine.builder[event.item](event.node);
 			self.add(element);
 			self.showHideOperator();
 		});
@@ -278,7 +303,7 @@ class BDropdownMenu extends MagicActionNode {
 		super($node);
 	    var self = this;
 		$(".dropdown-item", self.node).bind("click", function() {
-	        self.notifyObservers({name: "click", item: $(this).attr("value")});
+	        self.notifyObservers({name: "click", item: $(this).attr("value"), node:$(this)});
 	    });
     }	
 }
