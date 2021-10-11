@@ -130,10 +130,10 @@ class Diagram extends PSubject {
 							var collision = 
 								tX >= d.x && tX <= (parseInt(d.x) + parseInt(d.width)) &&
 								tY >= d.y && tY <= (parseInt(d.y) + parseInt(d.height));
-							if (!d3Node.classed("selectedNode") && collision)
-								d3Node.classed("selectedNode", true);
-							else if (d3Node.classed("selectedNode") && !collision)
-								d3Node.classed("selectedNode", false);
+							if (!d3Node.classed("selectedElement") && collision)
+								d3Node.classed("selectedElement", true);
+							else if (d3Node.classed("selectedElement") && !collision)
+								d3Node.classed("selectedElement", false);
 						}
 					});
 					
@@ -147,7 +147,7 @@ class Diagram extends PSubject {
 					var s = self.svg.select("rect.selection");
 					if (!s.empty()) {
 						s.remove();
-						self.setSelection($.map($("g.selectedNode", this.node), function(obj) { return obj; }));
+						self.setSelection($.map($("g.selectedElement", this.node), function(obj) { return obj; }));
 					}					
 				}
 			});
@@ -530,7 +530,7 @@ class Diagram extends PSubject {
 			}
 		});		
 	}
-	deleteNode(d3Node, doesUpdate) {
+	/*deleteNode(d3Node, doesUpdate) {
 		console.log("deleteNode");
 		var self = this;
 		var data = d3Node.data()[0];
@@ -545,16 +545,17 @@ class Diagram extends PSubject {
 			self.data.nodes.splice(index, 1);
 		if (doesUpdate == true)
 			self.updateGraph();
-	}
-	deleteLink(d3Link, doesUpdate) {
-		console.log("deleteLink");		
-		var self = this;
-		var data = d3Link.data()[0];
-		var index = self.data.links.indexOf(data);
+	}*/
+	deleteNode(node) {		
+		var index = this.data.nodes.indexOf(node.data);
 		if (index > -1)
-			self.data.links.splice(index, 1);
-		if (doesUpdate == true)
-			self.updateGraph();
+			this.data.nodes.splice(index, 1);
+	}	
+	
+	deleteLink(link) {
+		var index = this.data.links.indexOf(link.data);
+		if (index > -1)
+			this.data.links.splice(index, 1);
 	}
 	clickOn(domElt, event, data, leftClick) {
 		var isSvg = domElt.tagName == "svg";
@@ -593,10 +594,10 @@ class Diagram extends PSubject {
 		var self = this;
 		if (!_.isEqual(this.selection, selection)) {
 			$.each(_.filter(selection, function(obj){ return !_.findWhere(self.selection, obj); }), function(index, obj) {
-				$(obj).addClass("selectedNode");
+				$(obj).addClass("selectedElement");
 			});
 			$.each(_.filter(self.selection, function(obj){ return !_.findWhere(selection, obj); }), function(index, obj) {
-				$(obj).removeClass("selectedNode");
+				$(obj).removeClass("selectedElement");
 			});
 			this.selection = selection;
 			this.notifyObservers({ name : "selectionChanged" });

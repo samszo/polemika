@@ -1,4 +1,4 @@
-class NodeInstance_argument extends Instance {
+class NodeInstance_argument extends NodeInstance {
 
     constructor(domElt, data, archetype, diagram) {
 		super(domElt, data, archetype, diagram);
@@ -13,8 +13,8 @@ class NodeInstance_argument extends Instance {
 				multi: true,
 				func: function(selection) {
 					$.each(selection, function(index, domElt) {
-						var d3Node = d3.select(domElt);
-						self.diagram.deleteNode(d3Node, true);
+						var instance = self.diagram.builder.gotInstance($(domElt));
+						instance.delete(true);
 					});
 				}
 			},

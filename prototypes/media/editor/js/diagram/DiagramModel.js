@@ -22,9 +22,9 @@ class DiagramModel {
 		if (!_.contains(this.data.deleted, element))
 			this.data.deleted.push(element);
 		if (_.contains(this.data.created, element))
-			this.data.created.slice(this.data.created.indexOf(element), 1);
+			this.data.created = _.without(this.data.created, element);
 		if (_.contains(this.data.updated, element))
-			this.data.updated.slice(this.data.updated.indexOf(element), 1);		
+			this.data.updated = _.without(this.data.updated, element);
 	}
 	getChanges() {
 		/*var result = {

@@ -40,5 +40,5 @@ class Instance extends StyledObject {
 			return this.archetype.getStyle();
 		else
 			return this.data.cssStyle;
-	}	
+	}
 }

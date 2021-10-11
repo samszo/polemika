@@ -5,7 +5,11 @@
 	user-select: none; /* Standard */
 }
 
-.polemika-editor-instance-container svg .nodes .node.selectedNode .linksLayer {
+.polemika-editor-instance-container svg .nodes .node.selectedElement .linksLayer {
 	stroke: grey;
     stroke-dasharray: 4px;	
+}
+.polemika-editor-instance-container svg .links .link.selectedElement {
+	stroke: grey;
+    stroke-dasharray: 4px;
 }
