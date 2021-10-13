@@ -78,11 +78,11 @@ class Diagram_argument extends Diagram {
 		self.nodeContainers.append('text')
 			.attr("class", "labelNode")
 			.attr("id", d=>"labelNode"+d.id)
-			.attr('font-size',self.styles[0]["concept-style"]["font-size"])
-			.attr('font-family',self.styles[0]["concept-style"]["font-name"])
+			.attr('font-size', 12) //.attr('font-size',self.styles[0]["concept-style"]["font-size"])
+			.attr('font-family', 'Verdana') //.attr('font-family',self.styles[0]["concept-style"]["font-name"])
 			//.style('stroke',style[0]["concept-style"]["border-color"])
 			.attr('fill',d=>{
-				let s = "rgba("+self.styles[0]["concept-style"]["font-color"]+")";
+				let s = "rgba(0,0,0,255)"; //let s = "rgba("+self.styles[0]["concept-style"]["font-color"]+")";
 				//s = "none";
 				if(d.style) s = d.style['fgTextColor'] ? d.style['fgTextColor'] : s;
 				return s
@@ -105,12 +105,12 @@ class Diagram_argument extends Diagram {
 			.append("line")
 			.attr("class", "link")
 			.attr('stroke',d=>{
-				let s = "rgba("+self.styles[0]["connection-style"]["color"]+")";
+				let s = "rgba(0,0,0,255)"; //let s = "rgba("+self.styles[0]["connection-style"]["color"]+")";
 				if(d.style) s = d.style['color'] ? d.style['color'] : s;
 				return s
 			})
 			.attr('stroke-width',d=>{
-				let s = self.styles[0]["connection-style"]["thickness"]+"px";
+				let s = "1px"; //let s = self.styles[0]["connection-style"]["thickness"]+"px";
 				if(d.style) s = d.style['thickness'] ? d.style['thickness'] : s;
 				return s
 			})
@@ -203,7 +203,7 @@ class Diagram_argument extends Diagram {
 		let dText = d3.select("#labelNode"+nodeData.id);
 		let dRect = d3.select("#rectNode"+nodeData.id);
 		let bb = dText.node().getBBox();
-		let marge = parseInt(this.styles[0]["concept-style"]["text-margin"]);
+		let marge = 4; //let marge = parseInt(this.styles[0]["concept-style"]["text-margin"]);
 
 		let layerBorderMargin = 10;
 		let textBorderMargin = 2;

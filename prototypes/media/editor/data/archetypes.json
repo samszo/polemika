@@ -1,0 +1,31 @@
+[
+	{
+		"id" : "1",
+		"type" : "node",
+		"name":"AAA",
+		"cssStyle":"background-color: #EDF4F6; color: #000000; border-width: 1px; border-color: rgba(0,0,0,255);"
+	},
+	{
+		"id" : "2",
+		"type" : "node",
+		"name":"BBB",
+		"cssStyle":"background-color: #EDF4F6; color: #000000; border-width: 1px; border-color: rgba(255,0,255,255);"
+	},
+	{
+		"id" : "3",
+		"type" : "node",
+		"name":"CCC",
+		"cssStyle":"background-color: #EDF4F6; color: #000000; border-width: 1px; border-color: rgba(255,150,0,255);"
+	},
+	{
+		"id" : "4",
+		"type" : "node",
+		"name":"DDD",
+		"cssStyle":"background-color: white; color: #000000; border-width: 1px; border-color: transparent;"
+	},
+	{
+		"id" : "5",
+		"type" : "link",
+		"name":"EEE"
+	}
+]

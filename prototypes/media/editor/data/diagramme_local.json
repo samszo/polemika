@@ -1,0 +1,18 @@
+[
+   {
+      "name":"diagram1",
+      "id":6402,
+      "title":"Transformer",
+      "urlData":"http:\/\/127.0.0.1:5000\/media\/editor\/data\/carteArgumentaireSamuel-modified.json",
+      "urlArchetypes":"http:\/\/127.0.0.1:5000\/media\/editor\/data\/archetypes.json",
+      "type":"Diagram_argument"
+   },
+   {
+      "name":"diagram2",
+      "id":6403,
+      "title":"Transformer",
+      "urlData":"http:\/\/127.0.0.1:5000\/media\/editor\/data\/newCarteSamuel.json",
+      "urlArchetypes":"http:\/\/127.0.0.1:5000\/media\/editor\/data\/newCarteSamuel_archetypes.json",
+      "type":"Diagram_argument"
+   }
+]

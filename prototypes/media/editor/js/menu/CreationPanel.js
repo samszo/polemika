@@ -39,7 +39,7 @@ class CreationPanel {
     }
 	initArchetypes(archetypesData) {
 		var self = this;
-		$.each(archetypesData.archetypes, function(index, archetype) {
+		$.each(archetypesData, function(index, archetype) {
 			archetype = self.diagram.builder.createArchetype(archetype, self.diagram);
 			if (archetype.data.type == "node")				
 				self.addArchetype(archetype);

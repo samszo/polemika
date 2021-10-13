@@ -1,8 +1,9 @@
 class Editor {
 
-    constructor($node, options) {
+    constructor($node, api, options) {
 		var self = this;
 		this.node = $node;
+		this.api = api;
 		this.menuRoot = $(".polemika-editor-menu", $node);
 		this.carteContainer = $(".polemika-editor-instance-container", $node);
 		this.creationPanelContainer = new CreationPanelContainer($(".panel-adder", $node));
@@ -191,20 +192,23 @@ class Editor {
 		});
 		this.menuRoot.find(".carte-layout-selector").val(self.options.layout);
 		// init carte selector
-		if (this.options.cartes) {
-			var carteIdents = Object.keys(this.options.cartes)
+		if (this.options.diagrams) {
+			var diagramNames = _.map(this.options.diagrams, function(obj){ return obj.name; });
 			this.menuRoot.find(".carte-selector input").autocomplete({
-				source: carteIdents,
+				source: diagramNames,
 				select: function(event, ui) {					
-					var carteUrl = self.options.cartes[ui.item.label];
-					console.log(carteUrl);
-					self.loadDiagram(carteUrl);
+					var diagramName = ui.item.label;
+					var diagram = _.find(self.options.diagrams, function(obj){ return obj.name == diagramName; });
+					self.loadDiagram(diagram);
 				}
 			});
 		}
 		this.menuRoot.find(".carte-selector input").bind("keyup", function(event) {
-			if (event.keyCode == 13)
-				self.loadDiagram($(this).val());
+			if (event.keyCode == 13) {
+			    var diagramName = $(this).val().trim();
+			    var diagram = _.find(self.options.diagrams, function(obj){ return obj.name == diagramName; });
+			    self.loadDiagram(diagram);
+			}
 		});
 		// init multi-panes
 		var $multiPanes = this.menuRoot.find(".panel-multipanes");	
@@ -239,8 +243,8 @@ class Editor {
 		var $carteContainer = layoutPanel == null ? this.layout.getSelectedPanel() : this.layout.getPanel(layoutPanel);
 		$carteContainer.empty();
 		var carteId = $carteContainer.uniqueId().attr("id");
-		var lock1 = this.resolveJsonData(diagramData.data);
-		var lock2 = this.resolveJsonData(diagramData.archetypes);
+		var lock1 = this.resolveJsonData(diagramData.urlData);
+		var lock2 = this.resolveJsonData(diagramData.urlArchetypes);
         $.when.apply($,[lock1, lock2]).then(function() {
 			//calcul la taille du conteneur				
 			var params = {
@@ -255,6 +259,7 @@ class Editor {
 			self.currentDiagram.addObserver(function(event, subject) {
 				self.manageEvent(event, subject);
 			});
+			self.menuRoot.find(".carte-selector input").val(diagramData.name);
         });		
 		
 		/*$.ajax({

@@ -28,7 +28,7 @@ class NodeInstance_argument extends NodeInstance {
 			"Importer" : {
 				multi: false,
 				func: function(selection) {
-					var url = 'http://127.0.0.1:5000/media/data/editor/import3.json';
+					var url = 'http://127.0.0.1:5000/media/editor/data/import3.json';
                     $.ajax({
                         url: url,
                         dataType: "json",

@@ -1,0 +1,74 @@
+[
+   {
+      "id":8385,
+      "type":"node",
+      "name":"Envelope 616541d310865",
+      "cssStyle":"{\u0022border-color\u0022:\u0022255,150,0,255\u0022,\u0022color\u0022:\u0022#EDF4F6\u0022,\u0022fgTextColor\u0022:\u0022#000000\u0022}"
+   },
+   {
+      "id":8386,
+      "type":"node",
+      "name":"Envelope 616541d3d95c0",
+      "cssStyle":"{\u0022color\u0022:\u0022#EDF4F6\u0022,\u0022fgTextColor\u0022:\u0022#000000\u0022}"
+   },
+   {
+      "id":8387,
+      "type":"node",
+      "name":"Envelope 616541d4ac37c",
+      "cssStyle":"{\u0022border-color\u0022:\u0022255,0,255,255\u0022,\u0022color\u0022:\u0022#EDF4F6\u0022,\u0022fgTextColor\u0022:\u0022#000000\u0022}"
+   },
+   {
+      "id":8388,
+      "type":"node",
+      "name":"Envelope 616541d56bbe1",
+      "cssStyle":"{\u0022border-color\u0022:\u00220,0,0,255\u0022,\u0022color\u0022:\u0022#EDF4F6\u0022,\u0022fgTextColor\u0022:\u0022#000000\u0022}"
+   },
+   {
+      "id":8389,
+      "type":"node",
+      "name":"Envelope 616541d6d34dc",
+      "cssStyle":"{\u0022color\u0022:\u0022#0000FF\u0022,\u0022fgTextColor\u0022:\u0022#000000\u0022}"
+   },
+   {
+      "id":8390,
+      "type":"link",
+      "name":"Ligne 616541d771db2",
+      "cssStyle":"{\u0022from-pos\u0022:\u0022center\u0022,\u0022to-pos\u0022:\u0022center\u0022,\u0022arrowhead\u0022:\u0022yes\u0022,\u0022color\u0022:\u0022#000000\u0022,\u0022lineStyle\u0022:\u0022solid\u0022}"
+   },
+   {
+      "id":8391,
+      "type":"link",
+      "name":"Ligne 616541d86eb56",
+      "cssStyle":"{\u0022from-pos\u0022:\u0022center\u0022,\u0022to-pos\u0022:\u0022center\u0022,\u0022arrowhead\u0022:\u0022if-to-concept\u0022,\u0022color\u0022:\u0022#000000\u0022,\u0022lineStyle\u0022:\u0022solid\u0022}"
+   },
+   {
+      "id":8393,
+      "type":"link",
+      "name":"Ligne 616541d9d925c",
+      "cssStyle":"{\u0022from-pos\u0022:\u0022center\u0022,\u0022to-pos\u0022:\u0022center\u0022,\u0022arrowhead\u0022:\u0022if-to-concept\u0022,\u0022color\u0022:\u0022#FF9600\u0022,\u0022lineStyle\u0022:\u0022solid\u0022}"
+   },
+   {
+      "id":8394,
+      "type":"link",
+      "name":"Ligne 616541db526dc",
+      "cssStyle":"{\u0022from-pos\u0022:\u0022center\u0022,\u0022to-pos\u0022:\u0022left\u0022,\u0022arrowhead\u0022:\u0022if-to-concept\u0022,\u0022color\u0022:\u0022#000000\u0022,\u0022lineStyle\u0022:\u0022solid\u0022}"
+   },
+   {
+      "id":8395,
+      "type":"link",
+      "name":"Ligne 616541dd4d96a",
+      "cssStyle":"{\u0022from-pos\u0022:\u0022center\u0022,\u0022to-pos\u0022:\u0022center\u0022,\u0022arrowhead\u0022:\u0022if-to-concept\u0022,\u0022from-pos\u0022:\u0022center\u0022,\u0022to-pos\u0022:\u0022center\u0022,\u0022arrowhead\u0022:\u0022if-to-concept\u0022,\u0022color\u0022:\u0022#000000\u0022,\u0022lineStyle\u0022:\u0022solid\u0022}"
+   },
+   {
+      "id":8397,
+      "type":"link",
+      "name":"Ligne 616541de6a500",
+      "cssStyle":"{\u0022from-pos\u0022:\u0022center\u0022,\u0022to-pos\u0022:\u0022center\u0022,\u0022arrowhead\u0022:\u0022if-to-concept\u0022,\u0022from-pos\u0022:\u0022center\u0022,\u0022to-pos\u0022:\u0022center\u0022,\u0022arrowhead\u0022:\u0022if-to-concept\u0022,\u0022color\u0022:\u0022#FF9600\u0022,\u0022lineStyle\u0022:\u0022solid\u0022}"
+   },
+   {
+      "id":8398,
+      "type":"link",
+      "name":"Ligne 616541deaef39",
+      "cssStyle":"{\u0022from-pos\u0022:\u0022center\u0022,\u0022to-pos\u0022:\u0022center\u0022,\u0022arrowhead\u0022:\u0022yes\u0022,\u0022from-pos\u0022:\u0022center\u0022,\u0022to-pos\u0022:\u0022center\u0022,\u0022arrowhead\u0022:\u0022yes\u0022,\u0022color\u0022:\u0022#000000\u0022,\u0022lineStyle\u0022:\u0022solid\u0022}"
+   }
+]

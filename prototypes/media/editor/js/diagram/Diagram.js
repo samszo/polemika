@@ -22,7 +22,7 @@ class Diagram extends PSubject {
         self.data = params.data ? params.data : {};
 		self.styles = self.data.styles;
 		self.color = d3.scaleOrdinal(d3.schemeCategory10);
-		self.textMargin = parseInt(self.styles[0]["concept-style"]["text-margin"]);		
+		self.textMargin = 4; //parseInt(self.styles[0]["concept-style"]["text-margin"]);
 		self.linkCreation = {
 			source : null,
 			target : null
@@ -175,7 +175,8 @@ class Diagram extends PSubject {
 			.attr("x", 0).attr("y", 0)
 			.attr("width", '100%')
 			.attr("height", '100%')
-			.attr('fill',"rgba("+self.styles[0]["map-style"]["background-color"]+")");
+			.attr('fill',"rgba(255,255,255,0)");
+			//.attr('fill',"rgba("+self.styles[0]["map-style"]["background-color"]+")");
 		// définition du zoom
 		self.switchToEditionMode("zoom");
 		self.nodesContainer = self.container.append("g").attr("class", "nodes");

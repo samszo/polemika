@@ -4,6 +4,11 @@
 .panel-edition .panel-edition-fragment.variable-fragment {
 	display: flex;
 }
+.panel-edition .panel-edition-fragment.variable-fragment select {
+    height: calc(1.5rem + 2px);
+    padding: .0rem .1rem .1rem .1rem;
+    font-size: 1rem;
+}
 .panel-edition .panel-edition-fragment.variable-fragment .symbol {
 	padding: 0px 4px;
 }

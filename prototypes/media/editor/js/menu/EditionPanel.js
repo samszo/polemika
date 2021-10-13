@@ -186,7 +186,14 @@ class VariableFragment extends EditionPanelFragment {
     
 	constructor(editionPanel) {
 		super(editionPanel);
-		this.node = $('<div class="panel-edition-fragment variable-fragment"><span class="symbol">[</span><select class="form-control"><option>a</option><option>2</option><option>3</option><option>4</option><option>5</option></select><span class="symbol">]</span></div>');
+		var self = this;
+		this.node = $('<div class="panel-edition-fragment variable-fragment"><span class="symbol">[</span><select class="form-control"></select><span class="symbol">]</span></div>');
+        var $select = this.node.find("select");
+        this.editionPanel.editor.api.getConceptsDansCrible(function(concepts) {
+            $.each(concepts, function(index, concept) {
+                $select.append($('<option>'+concept+'</option>'));
+            });
+        });
 		this.node.data("object", this);
 		this.node.bind("click", function(event) {
 			event.stopPropagation();

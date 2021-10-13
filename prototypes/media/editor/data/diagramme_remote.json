@@ -1,0 +1,10 @@
+[
+   {
+      "name":"Transformer (Samuel Szoniecky - 2020-11-08T17:03:22+01:00)",
+      "id":6402,
+      "title":"Transformer",
+      "urlData":"https:\/\/\/omk\/s\/api\/page\/ajax?type=diagramme\u0026action=getDiagramme\u0026id=6402",
+      "urlArchetypes":"https:\/\/\/omk\/s\/api\/page\/ajax?type=diagramme\u0026action=getArchetype\u0026id=6402",
+      "type":"Diagram_argument"
+   }
+]
