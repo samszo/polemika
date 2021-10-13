@@ -3,12 +3,6 @@ class RequestAPI extends ProtoAPI {
     constructor(proto) {
         super(proto);
         this.resourceTemplates = {
-            item: {
-                id: 46,
-                name: "Item",
-                fields: null,
-                field2Value: {}
-            },
             descriptionMonde: {
                 id: 5,
                 name: "DescMonde",
@@ -30,6 +24,12 @@ class RequestAPI extends ProtoAPI {
             emotion: {
                 id: 44,
                 name: "Emotion",
+                fields: null,
+                field2Value: {}
+            },
+            item: {
+                id: 46,
+                name: "Item",
                 fields: null,
                 field2Value: {}
             }

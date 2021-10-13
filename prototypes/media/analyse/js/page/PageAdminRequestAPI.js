@@ -10,11 +10,11 @@ class PageAdminRequestAPI extends ProtoAPI {
 		/*if (filters.subject) {
 			Array.prototype.push.apply(params, ["property["+propIndex+"][joiner]=and", "property["+propIndex+"][property]=3", "property["+propIndex+"][type]=eq", "property["+propIndex+"][text]="+filters.subject]);
 			propIndex++;
-		}
+		}*/
 		if (filters.title) {
 			Array.prototype.push.apply(params, ["property["+propIndex+"][joiner]=and", "property["+propIndex+"][property]=1", "property["+propIndex+"][type]=in", "property["+propIndex+"][text]="+filters.title]);
 			propIndex++;
-		}*/
+		}
 		if (filters.sortBy)
 			params.push("sort_by="+filters.sortBy);
 		if (filters.sortOrder)

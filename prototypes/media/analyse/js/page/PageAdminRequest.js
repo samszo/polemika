@@ -22,7 +22,10 @@ class PageAdminRequest extends Proto {
                 var data = self.requestEngine.serialize();
                 self.session.request = data;
                 self.browser.saveSession();
-                console.log(JSON.stringify(data, null, 2));
+                var requestString = JSON.stringify(data, null, 2);
+                console.log(requestString);
+				self.resetItems();
+				self.loadItems();
             }
 		});
 		//this.requestEngine.api.test();
@@ -59,17 +62,19 @@ class PageAdminRequest extends Proto {
 		var text = $(".omk-sort-list a[data-sort_by='"+sortBy+"'][data-sort_oder='"+sortOrder+"']").text();
 		$(".omk-sort-chooser").text(text);
 	}
-	loadItemsData(filters, callback) {
-		var self = this;
-		self.getItemsData(filters, function(data) {
-			self.reader.process(data, self.reader.itemsQuery, function(items) {
-				callback(items);
-			});
-		});
+	getTitleSearchFromRequest() {
+        var requestString = JSON.stringify(this.session.request, null, 2);
+        var hash = 0;
+        for (var i = 0, len = requestString.length; i < len; i++)
+              hash += requestString[i].charCodeAt(0);
+        hash = hash % 26
+        var titleSearch = String.fromCharCode(97+hash);
+        return titleSearch;
 	}
 	loadItems() {
 		var self = this;
 		self.waitingMode(true);
+        this.session.filters.title = this.getTitleSearchFromRequest();
 		self.api.search(
 		    self.session.request,
 		    this.filters.page,
@@ -86,16 +91,7 @@ class PageAdminRequest extends Proto {
                 });
 		    }
         );
-		/*self.loadItemsData(self.computeLoadParams(), function(items) {
-			Array.prototype.push.apply(self.loadedItems, items);
-			self.renderItems(items, self.session.itemViewKind, self.currentItemList);
-			self.waitingMode(false);
-			self.infiniteScrollOn = true;
-			$(".buttonQualification").bind("click", function() {
-				self.openMenu();
-			});
-		});*/
-	}	
+	}
 	resetItems() {
 		this.infiniteScrollOn = false;
 		$(".list-result").empty();
