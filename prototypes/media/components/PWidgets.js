@@ -135,7 +135,34 @@ class PTextInput extends PInputField {
 	    }
     }	
 }
-
+class PACField extends PTextInput {
+	constructor($node) {
+	    super($node);
+    }
+    bindChange() {
+        var self = this;
+		self.fieldNode.bind("keyup keydown", function(event) {
+			if (event.keyCode == 13) {
+                event.preventDefault();
+                event.stopPropagation();
+			}
+		});
+    }
+    setACValues(values) {
+        var self = this;
+		self.fieldNode.autocomplete({
+            source: values,
+            select: function(event, ui) {
+                self.setAsValid();
+                self.notifyObservers({
+                    name: "valueChanged",
+                    target: self,
+                    original: event
+                });
+            }
+        });
+    }
+}
 class PIntegerInput extends PTextInput {
 
 	constructor($node) {

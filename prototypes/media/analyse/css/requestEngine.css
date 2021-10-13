@@ -1,0 +1,71 @@
+.ui-autocomplete.ui-front { /* fix for jquery ui auto-commplete */
+    z-index: 2;
+}
+
+form.request-engine {
+    margin-top: 60px;
+}
+
+.request-engine .searchButton,
+.request-engine .searchButton .isicon {
+    transition: color 0.3s, background-color 0.3s;
+}
+.request-engine .searchButton {
+    border: 1px solid #1894d9;
+    color: #1894d9;
+    margin: -43px 10px auto auto;
+    z-index: 3;
+    background-color: white;
+    cursor: pointer;
+    outline: none;
+}
+.request-engine .searchButton:hover {
+    color: white;
+    background-color: #1894d9;
+}
+.request-engine .searchButton:hover .isicon {
+    color: white;
+}
+.request-engine .request-element select,
+.request-engine .request-element input {
+    border-radius: 0;
+    border: 1px solid #d4d3d4;
+    height: calc(1.8125rem + 2px);
+    font-size: .875rem;
+}
+.request-engine .request-element select {
+    padding: .25rem 1.5rem .25rem .5rem;
+}
+.request-engine .request-element select.rt-select,
+.request-engine .request-element select.rt-field-select
+ {
+    color: white;
+    white-space: nowrap;
+    background-color: rgba(24,148,217, 0.8);
+    /*border: 1px solid #ced4da;*/
+}
+.request-engine .operator-body {
+    border: none;
+    border-left: 1px solid #1894d9;
+    border-right: 1px solid #1894d9;
+    padding-top: 0px;
+}
+.request-engine .request-element-remover {
+    display: flex;
+}
+.request-engine .request-element-remover .icon {
+    margin: auto auto auto 4px;
+    color: #1894d9;
+    cursor: pointer;
+}
+.request-engine .request-element-adder .icon {
+    color: #1894d9;
+    cursor: pointer;
+}
+.request-engine .request-element-adder .dropdown-toggle::after {
+    display: none;
+}
+.request-engine .request-element select.operator-value {
+    border-color: #1894d9;
+    color: #1894d9;
+}

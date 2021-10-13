@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
-from flask import Flask, render_template
+from flask import Flask, render_template, request, jsonify
 import os
+import requests
 
 path = os.path.abspath('.')
 app = Flask(__name__, static_url_path='/',  static_folder='/', template_folder=path)
@@ -40,6 +41,12 @@ def manifest():
 @app.route("/service-worker.js")
 def serviceWorker():
     return app.send_static_file('service-worker.js')
+
+@app.route('/proxy')
+def proxy():
+    url = request.args.get('url', '')
+    response = requests.get(url)
+    return jsonify(result=response.text)
 
 
 if __name__ == "__main__":

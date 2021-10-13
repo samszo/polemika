@@ -1,7 +1,10 @@
 class Proto {
 
     constructor() {		
+		this.useLocalData = true; // if true, use local data when useful
+		this.useLocalData = false;
 		this.useLocal = window.location.origin.indexOf("127.0.0.1") > -1;
+		this.useProxy = this.useLocal;
 		this.APIBaseUrl = "https://polemika.univ-paris8.fr/omk";
 		this.useCorsProxy = this.useLocal;
 		this.reader = new OmkDataReader(this);
@@ -13,6 +16,29 @@ class Proto {
         else
             return {};
     }
+	getJSON(url, callback) {
+	    var localCall = url.startsWith("http://127.0.0.1:5000");
+	    if (!localCall && this.useProxy) {
+            $.getJSON(
+                'http://127.0.0.1:5000/proxy',
+                {
+                    url: url,
+                },
+                function(data) {
+                    data = JSON.parse(data.result);
+                    callback(data);
+                }
+            );
+	    } else {
+			$.ajax({
+				url: url,
+				dataType: "json",
+				success: function (data) {
+					callback(data);
+				}
+			});
+	    }
+	}
     getJson(url, callback) {
 		return $.ajax({
 		    type: 'GET',

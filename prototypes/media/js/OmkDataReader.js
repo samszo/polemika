@@ -4,10 +4,11 @@ class OmkDataReader {
 		this.proto = proto;
 		this.itemsQuery = [{
 			texte : "o:title",
-			media : {
+			/*media : {
 				_ : "o:media",
 				imgUrl : "o:thumbnail_urls"
-			},
+			},*/
+			media : "thumbnail_display_urls",
 			sujet : "dcterms:subject",
 			date : "dcterms:date"
 		}];
@@ -35,7 +36,7 @@ class OmkDataReader {
 					try {
 						var child = node[value["_"]][0];
 						var url = self.proto.resolveAPIUrl(child["@id"]);
-						var deferred = self.proto.getJson(url, function(childData) {
+						var deferred = self.proto.getJSON(url, function(childData) {
 							result[key] = self.read(childData, query[key], deferreds);
 						})
 						deferreds.push(deferred);
