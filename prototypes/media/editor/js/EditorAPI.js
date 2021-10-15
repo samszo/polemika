@@ -7,7 +7,7 @@ class EditorAPI extends ProtoAPI {
 	getDiagrams(callback) {
         var url = 'https://polemika.univ-paris8.fr/omk/s/api/page/ajax?type=diagramme&action=getDiagrammes';
         if (this.useLocalData)
-            url = 'http://127.0.0.1:5000/media/editor/data/diagramme_local.json';
+            url = '/media/editor/data/diagramme_local.json';
         this.getJSON(
             url,
             function(data) {
@@ -22,7 +22,7 @@ class EditorAPI extends ProtoAPI {
         else {
             var url = 'https://polemika.univ-paris8.fr/omk/api/items?resource_template_id=41&sort_by=created&sort_order=desc';
             if (this.useLocalData)
-                url = 'http://127.0.0.1:5000/media/editor/data/conceptDansCrible.json';
+                url = '/media/editor/data/conceptDansCrible.json';
             this.getJSON(
                 url,
                 function(data) {

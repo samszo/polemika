@@ -22,18 +22,6 @@ def analyse():
 def editor():
     return render_template("editor.html")
 
-@app.route("/editor-old.html")
-def editor_old():
-    return render_template("editor-old.html")
-
-@app.route("/argGraph.html")
-def argGraph():
-    return render_template("argGraph.html")
-
-@app.route("/testMinify.html")
-def testMinify():
-    return render_template("testMinify.html")
-
 @app.route("/manifest.json")
 def manifest():
     return app.send_static_file('manifest.json')

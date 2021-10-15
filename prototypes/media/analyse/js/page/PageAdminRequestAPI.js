@@ -7,10 +7,6 @@ class PageAdminRequestAPI extends ProtoAPI {
 		var params = [];
 		params.push("page="+pagination);
 		var propIndex = 0;
-		/*if (filters.subject) {
-			Array.prototype.push.apply(params, ["property["+propIndex+"][joiner]=and", "property["+propIndex+"][property]=3", "property["+propIndex+"][type]=eq", "property["+propIndex+"][text]="+filters.subject]);
-			propIndex++;
-		}*/
 		if (filters.title) {
 			Array.prototype.push.apply(params, ["property["+propIndex+"][joiner]=and", "property["+propIndex+"][property]=1", "property["+propIndex+"][type]=in", "property["+propIndex+"][text]="+filters.title]);
 			propIndex++;

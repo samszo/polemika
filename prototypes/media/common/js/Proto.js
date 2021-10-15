@@ -9,6 +9,11 @@ class Proto {
 		this.useCorsProxy = this.useLocal;
 		this.reader = new OmkDataReader(this);
     }
+    getRootUrl() {
+        return "http://127.0.0.1:5000";
+        //return "http://polemika.amo-it-proto.com"
+        //return "https://polemika.univ-paris8.fr"
+    }
     getGetParameters() {
         var search = location.search.substring(1);
         if (search)
@@ -16,29 +21,6 @@ class Proto {
         else
             return {};
     }
-	getJSON(url, callback) {
-	    var localCall = url.startsWith("http://127.0.0.1:5000");
-	    if (!localCall && this.useProxy) {
-            $.getJSON(
-                'http://127.0.0.1:5000/proxy',
-                {
-                    url: url,
-                },
-                function(data) {
-                    data = JSON.parse(data.result);
-                    callback(data);
-                }
-            );
-	    } else {
-			$.ajax({
-				url: url,
-				dataType: "json",
-				success: function (data) {
-					callback(data);
-				}
-			});
-	    }
-	}
     getJson(url, callback) {
 		return $.ajax({
 		    type: 'GET',

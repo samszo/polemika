@@ -284,14 +284,13 @@ class Editor {
 	resolveJsonData(data) {
 		var lock = $.Deferred();
 		if (typeof(data) == "string") {
-			$.ajax({
-				url: data,
-				dataType: "json",
-				success: function (data) {
+			this.api.getJSON(
+			    data,
+			    function(data) {
 					lock.result = data;
 					lock.resolve();
-				}
-			});
+			    }
+			)
 		} else {
 			lock.result = data;
 			lock.resolve();

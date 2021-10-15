@@ -10,12 +10,12 @@
         <title>
             Polemika - Editeur
         </title>
-        <link rel="stylesheet" href="media/analyse/css/bootstrap.min.css"/>
-        <link rel="stylesheet" href="media/analyse/css/slick-1.8.1.css"/>
+        <link rel="stylesheet" href="media/common/bootstrap-4.1.3/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="media/common/slick/slick-1.8.1.css"/>
         <link rel="stylesheet" href="media/analyse/build/app.b2aacfc9.css">
-        <link rel="stylesheet" href="media/css/jquery-ui.css"/>
-		<link rel="stylesheet" href="media/css/magicCms-modal.css" type="text/css">
-		<link rel="stylesheet" href="media/w2ui/w2ui-1.5.min.css">
+        <link rel="stylesheet" href="media/common/jquery-ui/css/jquery-ui.css"/>
+		<link rel="stylesheet" href="media/common/widgets/modals.css" type="text/css">
+		<link rel="stylesheet" href="media/common/w2ui/w2ui-1.5.min.css">
 		<link rel="stylesheet" href="media/editor/css/editor.css">
 		<link rel="stylesheet" href="media/editor/css/diagram.css">
 		<link rel="stylesheet" href="media/editor/css/nodeStyleModal.css">
@@ -262,24 +262,21 @@
 		</div>
 		
         <script src="media/analyse/js/jquery-3.3.1.min.js"></script>
-        <script src="media/analyse/js/bootstrap.min.js"></script>
+        <script src="media/common/bootstrap-4.1.3/js/bootstrap.min.js"></script>
 		<script src='media/js/geoLoc.js'></script>
-		<script src='media/js/orchestrator.js'></script>
-		<script src='media/js/MagicObject.js'></script>
-		<script src='media/js/MagicNode.js'></script>
-		<script src='media/components/PWidgets.js'></script>
+		<script src='media/common/widgets/orchestrator.js'></script>
+		<script src='media/common/widgets/MagicObject.js'></script>
+		<script src='media/common/widgets/MagicNode.js'></script>
+		<script src='media/common/widgets/PWidgets.js'></script>
 		
-		<script src='media/js/McButton.js'></script>
-		<script src='media/js/McModal.js'></script>
+		<script src='media/common/widgets/McButton.js'></script>
+		<script src='media/common/widgets/McModal.js'></script>
 		<script src='media/editor/js/modals/NodeStyleModal.js'></script>
 		<script src='media/editor/js/modals/ReificationModal.js'></script>
 		<script src='media/js/menu-qualification.js'></script>
-		<script src='media/js/OmkDataReader.js'></script>
-		<!--<script src='media/js/renderEngine.js'></script>-->
-		<script src='media/js/spin.min.js'></script>
-		<script src='media/js/d3.V6.min.js'></script>
-		<!--<script src='media/js/graphs/carteArgument.js'></script>-->
-		<!--<script src='media/js/graphs/EditorArguments.js'></script>-->		
+		<script src='media/common/omk/OmkDataReader.js'></script>
+		<script src='media/common/spin/spin.min.js'></script>
+		<script src='media/common/d3js/d3.V6.min.js'></script>
 		<script src='media/editor/js/objects/StyledObject.js'></script>
 		<script src='media/editor/js/objects/Archetype.js'></script>
 		<script src='media/editor/js/objects/Instance.js'></script>
@@ -301,16 +298,16 @@
 		<script src='media/editor/js/plugins/argument/LinkArchetype_argument.js'></script>
 		<script src='media/editor/js/plugins/argument/LinkInstance_argument.js'></script>
 
-		<script src='media/js/proto.js'></script>
+		<script src='media/common/js/Proto.js'></script>
 		<script src='media/common/js/ProtoAPI.js'></script>
 		<script src='media/editor/js/EditorAPI.js'></script>
 		<script src='media/editor/js/Editor.js'></script>
 		<script src='media/editor/js/EditorLayout.js'></script>
 
 		<script src='media/analyse/js/jsonpath-0.8.0.js'></script>
-		<script src='media/underscore/underscore.js'></script>
-		<script src='media/js/jquery-ui.js'></script>
-		<script src='media/w2ui/w2ui-1.5.min.js'></script>
+		<script src='media/common/underscore/underscore.js'></script>
+		<script src='media/common/jquery-ui/js/jquery-ui.js'></script>
+		<script src='media/common/w2ui/w2ui-1.5.min.js'></script>
 		<script src="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2/dist/spectrum.min.js"></script>
 
 		<style>
@@ -359,53 +356,6 @@
 			}
 		</style>
 		<script>
-			/*
-			var diagram1 = {
-				data: 'http://127.0.0.1:5000/media/editor/data/carteArgumentaireSamuel-modified.json',
-				archetypes: 'http://127.0.0.1:5000/media/editor/data/archetypes.json',
-				type: "Diagram_argument"
-			}
-			var diagram2 = {
-				data: 'http://127.0.0.1:5000/media/editor/data/carteArgumentaireSamuel-modified.json',
-				archetypes: 'http://127.0.0.1:5000/media/editor/data/archetypes.json',
-				type: "Diagram_argument"
-			}
-			var editor = new Editor(
-				$(".polemika-editor-container"),
-				{
-					//layout: "full",
-					layout: "split-v",
-					cartes: {
-						diagram1 : diagram1,
-						diagram2 : diagram2
-					}
-				}
-			);
-			editor.loadDiagram(diagram1);
-			editor.loadDiagram(diagram1, "bottom");
-			*/
-
-			/*
-			var diagrams = [];
-			diagrams.push({
-				name: "diagram1",
-				id: 6402,
-				title: "Transformer",
-				urlData: 'http://127.0.0.1:5000/media/editor/data/carteArgumentaireSamuel-modified.json',
-				urlArchetypes: 'http://127.0.0.1:5000/media/editor/data/archetypes.json',
-				type: "Diagram_argument"
-			});
-			diagrams.push({
-				name: "diagram2",
-				id: 6402,
-				title: "Transformer",
-				urlData: 'http://127.0.0.1:5000/media/editor/data/carteArgumentaireSamuel-modified.json',
-				urlArchetypes: 'http://127.0.0.1:5000/media/editor/data/archetypes.json',
-				type: "Diagram_argument"
-			});
-			*/
-
-
 			var proto = new Proto();
 			var api = new EditorAPI(proto);
 			api.getDiagrams(function(diagrams) {

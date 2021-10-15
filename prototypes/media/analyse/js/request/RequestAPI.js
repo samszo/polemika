@@ -2,6 +2,7 @@ class RequestAPI extends ProtoAPI {
 
     constructor(proto) {
         super(proto);
+        this.useLocalData = true;
         this.resourceTemplates = {
             descriptionMonde: {
                 id: 5,
@@ -48,7 +49,7 @@ class RequestAPI extends ProtoAPI {
         } else {
             var url = 'https://polemika.univ-paris8.fr/omk/s/api/page/ajax?type=querySql&action=statResourceTemplate&id='+resourceTemplate.id;
             if (this.useLocalData)
-                url = 'http://127.0.0.1:5000/media/analyse/data/fields-39.json';
+                url = '/media/analyse/data/fields-39.json';
 			this.getJSON(
 			    url,
 			    function(data) {
@@ -80,7 +81,7 @@ class RequestAPI extends ProtoAPI {
         } else {
             var url = 'https://polemika.univ-paris8.fr/omk/s/api/page/ajax?type=querySql&action=getDistinctPropertyVal&idP='+field.id+'&idRT='+resourceTemplate.id;
             if (this.useLocalData)
-                url = 'http://127.0.0.1:5000/media/analyse/data/fieldValues.json';
+                url = '/media/analyse/data/fieldValues.json';
 			this.getJSON(
 			    url,
 			    function(data) {

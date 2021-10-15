@@ -38,7 +38,7 @@ var data = [
         compress : false,
     },
     {
-        file : 'media/css/slicknav.min.css',
+        file : 'media/common/jquery-slicknav/css/slicknav.min.css',
         compress : false,
     },
     {
