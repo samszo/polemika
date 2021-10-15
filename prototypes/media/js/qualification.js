@@ -17,6 +17,7 @@ class Qualification extends Proto {
             date : null,
             info : null
         }
+        this.reader = new OmkDataReader(this);
 		var params = self.getGetParameters();
 		self.getOneInformation(params.info, function(info) {
 			self.resultData.info = info;

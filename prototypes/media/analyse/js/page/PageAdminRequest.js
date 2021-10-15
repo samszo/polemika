@@ -3,6 +3,7 @@ class PageAdminRequest extends Proto {
     constructor() {
 		super();
 		var self = this;
+		this.reader = new OmkDataReader(this);
 		self.waitingMode(true);
 		this.browser = new Browser();
 		this.api = new PageAdminRequestAPI(this);

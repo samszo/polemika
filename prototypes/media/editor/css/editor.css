@@ -1,3 +1,6 @@
+.hidden {
+    display:none !important;
+}
 .omk-db-subjects .dropdown-item:hover {
     background-color: #1894d9 !important;
     color: #fff;

@@ -273,8 +273,6 @@
 		<script src='media/common/widgets/McModal.js'></script>
 		<script src='media/editor/js/modals/NodeStyleModal.js'></script>
 		<script src='media/editor/js/modals/ReificationModal.js'></script>
-		<script src='media/js/menu-qualification.js'></script>
-		<script src='media/common/omk/OmkDataReader.js'></script>
 		<script src='media/common/spin/spin.min.js'></script>
 		<script src='media/common/d3js/d3.V6.min.js'></script>
 		<script src='media/editor/js/objects/StyledObject.js'></script>
@@ -310,51 +308,6 @@
 		<script src='media/common/w2ui/w2ui-1.5.min.js'></script>
 		<script src="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2/dist/spectrum.min.js"></script>
 
-		<style>
-			.hidden {
-				display:none !important;
-			}
-			a.pushed {
-				color:#1894d9;
-			}
-			.list-unstyled2 {				
-				list-style: none;
-			}
-			.facets-menu-panel-hierarchy ul {				
-				padding-inline-start: 16px;
-			}
-			.arbo-action {
-				border:1px solid #1894d9;
-				color : #1894d9;
-				background-color: white;
-				cursor: pointer;
-			}
-			
-			.grilleCriteria {
-				height: 240px;
-			}
-			.list-item .thumbnail-preview2 {
-				position: absolute;
-				z-index: -1;
-				top: 0;
-				left: 0;
-				height: 100%;
-				width: 100%;
-				background-size: 100% 100%;
-				opacity: 0.1;
-				transition: opacity 1s ease-out;
-			}
-			.list-item.thumbnail-view:hover .thumbnail-preview2 {			
-				opacity: 1;
-			}
-			.list-item.thumbnail-view .title {
-				background-color:rgba(255,255,255,0.5);
-				transition: background-color 1s ease-out;
-			}
-			.list-item.thumbnail-view:hover .title {
-				background-color:rgba(255,255,255,1);
-			}
-		</style>
 		<script>
 			var proto = new Proto();
 			var api = new EditorAPI(proto);
@@ -367,7 +320,7 @@
 						diagrams: diagrams
 					}
 				);
-				editor.loadDiagram(diagrams[0]);
+				editor.loadDiagram(diagrams[1]);
 			});
 		</script>
     </body>

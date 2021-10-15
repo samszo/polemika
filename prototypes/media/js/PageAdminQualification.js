@@ -14,6 +14,7 @@ class PageAdminQualification extends Proto {
 		this.currentItemList = $(".list-result."+self.session.itemViewKind);
 		this.currentItemList.removeClass("hidden")
 		this.loadedItems = [];
+		this.reader = new OmkDataReader(this);
 		
 		//var params = proto.getGetParameters();
 		this.filters = {

@@ -7,7 +7,6 @@ class Proto {
 		this.useProxy = this.useLocal;
 		this.APIBaseUrl = "https://polemika.univ-paris8.fr/omk";
 		this.useCorsProxy = this.useLocal;
-		this.reader = new OmkDataReader(this);
     }
     getRootUrl() {
         return "http://127.0.0.1:5000";
