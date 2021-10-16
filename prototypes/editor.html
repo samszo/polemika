@@ -277,6 +277,8 @@
 		<script src='media/common/d3js/d3.V6.min.js'></script>
 		<script src='media/editor/js/objects/StyledObject.js'></script>
 		<script src='media/editor/js/objects/Archetype.js'></script>
+		<script src='media/editor/js/objects/NodeArchetype.js'></script>
+		<script src='media/editor/js/objects/LinkArchetype.js'></script>
 		<script src='media/editor/js/objects/Instance.js'></script>
 		<script src='media/editor/js/objects/NodeInstance.js'></script>
 		<script src='media/editor/js/objects/LinkInstance.js'></script>
@@ -295,6 +297,18 @@
 		<script src='media/editor/js/plugins/argument/NodeInstance_argument.js'></script>
 		<script src='media/editor/js/plugins/argument/LinkArchetype_argument.js'></script>
 		<script src='media/editor/js/plugins/argument/LinkInstance_argument.js'></script>
+
+		<script src='media/editor/js/plugins/force/Diagram_force.js'></script>
+		<script src='media/editor/js/plugins/force/DiagramBuilder_force.js'></script>
+		<script src='media/editor/js/plugins/force/DiagramModel_force.js'></script>
+
+		<script src='media/editor/js/plugins/argument_force/Diagram_argument_force.js'></script>
+		<script src='media/editor/js/plugins/argument_force/DiagramBuilder_argument_force.js'></script>
+		<script src='media/editor/js/plugins/argument_force/DiagramModel_argument_force.js'></script>
+		<script src='media/editor/js/plugins/argument_force/NodeArchetype_argument_force.js'></script>
+		<script src='media/editor/js/plugins/argument_force/NodeInstance_argument_force.js'></script>
+		<script src='media/editor/js/plugins/argument_force/LinkArchetype_argument_force.js'></script>
+		<script src='media/editor/js/plugins/argument_force/LinkInstance_argument_force.js'></script>
 
 		<script src='media/common/js/Proto.js'></script>
 		<script src='media/common/js/ProtoAPI.js'></script>
@@ -320,7 +334,7 @@
 						diagrams: diagrams
 					}
 				);
-				editor.loadDiagram(diagrams[1]);
+				editor.loadDiagram(diagrams[3]);
 			});
 		</script>
     </body>

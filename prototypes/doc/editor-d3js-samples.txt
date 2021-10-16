@@ -30,3 +30,4 @@ selection : https://jsfiddle.net/cyril123/4twgt9rr/
 migration v4 => v6 : 
 	https://observablehq.com/@d3/d3v6-migration-guide
 	https://stackoverflow.com/questions/38224875/replacing-d3-transform-in-d3-v4
+force collide for rect : https://bl.ocks.org/mbostock/4055889

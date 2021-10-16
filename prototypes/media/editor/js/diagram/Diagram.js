@@ -6,17 +6,12 @@ class Diagram extends PSubject {
         self.editor = params.editor;
 		self.builder = this.createBuilder();
 		self.creationPanel = self.editor.creationPanelContainer.createCreationPanel(self, params.archetypes);
-		//self.creationPanel = self.builder.createCreationPanel(self, params.archetypes);
-		//self.cont = d3.select("#"+params.idCont);
 		self.node = params.container;
 		params.container.data("object", this);
 		self.cont = d3.select(params.container[0]);
 		self.editionMode = null;
 		self.ongoingSelection = false;
 		self.finalizeSelection = false;
-        //self.width = params.width ? params.width : 600;
-        //self.height = params.height ? params.height : 600;
-        self.dataUrl = params.dataUrl ? params.dataUrl : false;
         self.kId = params.kId ? params.kId : 'o:id'; //identifiant omeka S
         self.kName = params.kName ? params.kName : 'o:title'; //title omeka S
         self.data = params.data ? params.data : {};
@@ -28,36 +23,40 @@ class Diagram extends PSubject {
 			target : null
 		}
 		self.selection = [];
-		//self.currentTransform = {x:0, y:0, k:1};
 
+		self.normalizeData(self.getData());
 		self.initGraph();
 		self.updateGraph();
-		
-		/*
-		self.popup = self.createPopup($("svg .container"));
-		var actions = {
-			"supprimer" : function($rectNode) {
-				console.log("supprimer", d3Node);
-				var d3Node = d3.select($rectNode.parent()[0]);
-				self.deleteNode(d3Node, true);
-			},
-			"autre" : function(d3Node) {
-				console.log("autre action", d3Node);
-			}
-		}
-		self.updatePopup(self.popup, actions);		
-		*/
+    }
+    getData() {
+        return this.data;
+    }
+    createMarkers() {
+		var self = this;
+		self.defs = self.svg.append('defs');
+		self.markers = [];
+		self.markers[''] = self.defs.append('marker')
+			.attr('id','head')
+			.attr('orient','auto')
+			.attr('markerWidth','2')
+			.attr('markerHeight','4')
+			.attr('refX','2')
+			.attr('refY','2')
+				.append('path')
+				.attr('d','M0,0 V4 L2,2 Z')
+				.attr('fill','red');
     }
 	initGraph() {
 		var self = this;
-		//construction du svg
+		self.svgWidth = self.cont.node().getBoundingClientRect().width;
+		self.svgHeight = self.cont.node().getBoundingClientRect().height;
 		self.svg = self.cont.append("svg")
 			.attr("class", "svg")
 			.attr("width", '100%')
 			.attr("height", '100%')
-			.attr('viewBox',0+' '+0+' '+self.data.w+' '+self.data.h)
+			.attr('viewBox',0+' '+0+' '+self.svgWidth+' '+self.svgHeight)
 			.attr('preserveAspectRatio','xMinYMin meet')
-			.on('click', function(event, data) {				
+			.on('click', function(event, data) {
 				//console.log("svg->click");
 				if (!self.finalizeSelection) {
 					event.preventDefault();
@@ -88,7 +87,7 @@ class Diagram extends PSubject {
 					self.clickOn(this, event, data, event.button != 2);
 				}*/
 			})
-			.on("mousemove", function(event) {				
+			.on("mousemove", function(event) {
 				var s = self.svg.select("rect.selection");
 				if (!s.empty()) {
 					var p = d3.pointer(event);
@@ -116,7 +115,7 @@ class Diagram extends PSubject {
 					d.height = Math.max(0, d.height);
 					for (var key in d)
 						s.attr(key, d[key]);
-					
+
 					d3.selectAll('g.node').each(function(state_data, i) {
 						if (!_.contains(self.selection, this)) {
 							var d3Node = d3.select(this);
@@ -128,7 +127,7 @@ class Diagram extends PSubject {
 								tX = tX + self.currentTransform.x;
 								tY = tY + self.currentTransform.y;
 							}
-							var collision = 
+							var collision =
 								tX >= d.x && tX <= (parseInt(d.x) + parseInt(d.width)) &&
 								tY >= d.y && tY <= (parseInt(d.y) + parseInt(d.height));
 							if (!d3Node.classed("selectedElement") && collision)
@@ -137,7 +136,7 @@ class Diagram extends PSubject {
 								d3Node.classed("selectedElement", false);
 						}
 					});
-					
+
 				}
 			})
 			.on("mouseup", function(event, data) {
@@ -149,26 +148,13 @@ class Diagram extends PSubject {
 					if (!s.empty()) {
 						s.remove();
 						self.setSelection($.map($("g.selectedElement", this.node), function(obj) { return obj; }));
-					}					
+					}
 				}
 			});
-
-		//création des définitions
-		self.defs = self.svg.append('defs');
-		self.markers = [];
-		self.markers[''] = self.defs.append('marker')
-			.attr('id','head')
-			.attr('orient','auto')
-			.attr('markerWidth','2')
-			.attr('markerHeight','4')
-			.attr('refX','2') 
-			.attr('refY','2')
-				.append('path')
-				.attr('d','M0,0 V4 L2,2 Z')
-				.attr('fill','red');
+		self.createMarkers();
 		//création du conteneur
 		self.container = self.svg.append("g").attr("class", "container");
-		
+
 		//création du fond
 		self.container.append('rect')
 			.attr("id", 'svgFond')
@@ -180,7 +166,7 @@ class Diagram extends PSubject {
 		// définition du zoom
 		self.switchToEditionMode("zoom");
 		self.nodesContainer = self.container.append("g").attr("class", "nodes");
-		self.linksContainer = self.container.append("g").attr("class", "links");		
+		self.linksContainer = self.container.append("g").attr("class", "links");
 	}
 	setZoomEnabled(enabled) {
 		var self = this;
@@ -201,6 +187,8 @@ class Diagram extends PSubject {
 		}
 			
 	}
+	/* to be overridden */
+	normalizeData(data) {}
 	/* to be overridden */
 	updateGraph() {}
 

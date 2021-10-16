@@ -1,11 +1,10 @@
-class LinkArchetype_argument extends LinkArchetype {
+class NodeArchetype extends Archetype {
 
     constructor(data, diagram) {
 		super(data, diagram);
     }
-    /* overridden */
 	instanciate(domElt, data, diagram) {
-		var instance = new LinkInstance_argument(domElt, data, this, diagram);
+		var instance = new NodeInstance(domElt, data, this, diagram);
 		this.addInstance(instance);
 		return instance;
 	}

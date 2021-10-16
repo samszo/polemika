@@ -1,9 +1,9 @@
-class NodeArchetype_argument extends Archetype {
+class NodeArchetype_argument extends NodeArchetype {
 
     constructor(data, diagram) {
 		super(data, diagram);
-		var self = this;
     }
+    /* overridden */
 	instanciate(domElt, data, diagram) {
 		var instance = new NodeInstance_argument(domElt, data, this, diagram);
 		this.addInstance(instance);
