@@ -5,7 +5,7 @@ class Diagram_argument_force extends Diagram {
 		this.model = new DiagramModel_force();
     }
 	createBuilder() {
-		return new DiagramBuilder_force(this);
+		return new DiagramBuilder_argument_force(this);
 	}
 	normalizeData(data) {
 	    var id = 0;
@@ -47,23 +47,56 @@ class Diagram_argument_force extends Diagram {
         var link = self.linksContainer
             .selectAll("line")
             .data(graph.links, d => d.id)
+            .each(function(data, index) {
+				var d3Node = d3.select(this);
+				var node = self.builder.gotInstance($(this), data, self);
+				node.graphUpdate(d3Node);
+			})
             .enter()
             .append("line")
-            .attr("stroke", "#999")
-            .attr("stroke-width", function(d) {
-                return 3;
-            });
+            .each(function(data, index) {
+				var d3Node = d3.select(this);
+				var link = self.builder.gotInstance($(this), data, self);
+				link.graphEnter(d3Node);
+			});
+        link.exit()
+            .each(function(data, index) {
+				var d3Node = d3.select(this);
+				var link = self.builder.gotInstance($(this), data, self);
+				link.graphExit(d3Node);
+			});
 
-        /*var nodeUpdate = self.nodesContainer
+        var node = self.nodesContainer
             .selectAll("circle")
             .data(graph.nodes, d => d.id)
             .each(function(data, index) {
+				var d3Node = d3.select(this);
 				var node = self.builder.gotInstance($(this), data, self);
-				node.renderUpdate();
+				node.graphUpdate(d3Node);
+			})
+			.enter()
+			.append("circle")
+            .each(function(data, index) {
+				var d3Node = d3.select(this);
+				var node = self.builder.gotInstance($(this), data, self);
+				node.graphEnter(d3Node);
 			});
-		*/
+        node.call(
+            d3
+            .drag()
+            .on("start", dragstarted)
+            .on("drag", dragged)
+            .on("end", dragended)
+        );
 
+		node.exit()
+            .each(function(data, index) {
+				var d3Node = d3.select(this);
+				var node = self.builder.gotInstance($(this), data, self);
+				node.graphExit(d3Node);
+			});
 
+        /*
         var node = self.nodesContainer
             .selectAll("circle")
             .data(graph.nodes, d => d.id)
@@ -80,6 +113,7 @@ class Diagram_argument_force extends Diagram {
                 .on("drag", dragged)
                 .on("end", dragended)
             );
+        */
 
         function ticked() {
             link

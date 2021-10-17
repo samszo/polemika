@@ -67,5 +67,19 @@ class NodeInstance_argument_force extends NodeInstance {
 	renderNodeStyle() {
 		var rect = d3.select(this.domElt.find(".rectNode")[0]);
 		this.diagram.computeNodeStyle(rect);
-	}	
+	}
+	graphUpdate(d3Node) {
+	    console.log("NodeInstance_argument_force> graphUpdate");
+	}
+	graphEnter(d3Node) {
+        console.log("NodeInstance_argument_force> graphEnter");
+        var self = this;
+        d3Node.attr("r", 5)
+        .attr("fill", function(d) {
+            return "red";
+        })
+	}
+	graphExit(d3Node) {
+	    console.log("NodeInstance_argument_force> graphExit");
+	}
 }

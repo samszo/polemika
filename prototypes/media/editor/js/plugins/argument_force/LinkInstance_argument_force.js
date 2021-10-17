@@ -29,4 +29,18 @@ class LinkInstance_argument_force extends LinkInstance {
 			};
 		return actions;
 	}
+	graphUpdate(d3Node) {
+	    console.log("LinkInstance_argument_force> graphUpdate");
+	}
+	graphEnter(d3Node) {
+        console.log("LinkInstance_argument_force> graphEnter");
+        var self = this;
+        d3Node.attr("stroke", "#999")
+        .attr("stroke-width", function(d) {
+            return 3;
+        });
+	}
+	graphExit(d3Node) {
+	    console.log("LinkInstance_argument_force> graphExit");
+	}
 }
