@@ -103,7 +103,7 @@ class NodeInstance_argument_force extends NodeInstance {
 		self.setPosition(d3Node, data);
 	}
 	setPosition(d3Node, data) {
-        if (data.x != null)
+        if (data.x != null && !isNaN(data.x))
             d3Node.attr("transform", "translate("+(data.x - data.width / 2)+","+(data.y - data.height / 2)+")");
 	}
 	graphUpdate(d3Node, data) {

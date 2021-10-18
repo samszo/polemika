@@ -71,7 +71,7 @@ class LinkInstance_argument_force extends LinkInstance {
 		var cx2 = dstData.x;
 		var cy2 = dstData.y;
 
-        if (cx1 != null) {
+        if (!isNaN(cx1)) {
             var dx = cx2 - cx1;
             var dy = cy2 - cy1;
 

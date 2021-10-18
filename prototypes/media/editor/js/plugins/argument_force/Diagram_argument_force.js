@@ -3,7 +3,6 @@ class Diagram_argument_force extends Diagram {
     constructor(params) {
         super(params);
 		this.model = new DiagramModel_force();
-		this.layout = new Layout_argument_force(this);
     }
 	createBuilder() {
 		return new DiagramBuilder_argument_force(this);
@@ -32,18 +31,6 @@ class Diagram_argument_force extends Diagram {
 	    var self = this;
         var graph = this.getData();
 
-        var simulation = d3
-            .forceSimulation(graph.nodes)
-            .force("link", d3.forceLink()
-                .id(function(d) {
-                    return d.id;
-                })
-                .links(graph.links)
-            )
-            .force("charge", d3.forceManyBody().strength(-100))
-            .force("center", d3.forceCenter(self.svgWidth / 2, self.svgHeight / 2))
-            //.force("collide", d3.forceCollide(15))
-            .on("tick", ticked);
 
         self.nodes = self.nodesContainer
             .selectAll("g")
@@ -97,20 +84,28 @@ class Diagram_argument_force extends Diagram {
 				link.graphExit(d3Node, data);
 			});
 
-        function ticked() {
-            self.links
-                .each(function(data, index) {
-                    var node = self.builder.gotInstance($(this), data, self);
-                    var d3Node = d3.select(this);
-                    node.computePosition(d3Node, data);
-			    });
-            self.nodes
-                .each(function(data, index) {
-                    var node = self.builder.gotInstance($(this), data, self);
-                    var d3Node = d3.select(this);
-                    node.setPosition(d3Node, data);
-			    });
-        }
+        /*this.layout = new Layout_argument_force(this, graph.nodes, graph.links);
+        this.layout.simulation.restart();*/
+
+        var simulation = d3
+            .forceSimulation(graph.nodes)
+            .stop()
+            .force("link", d3.forceLink()
+                .id(function(d) {
+                    return d.id;
+                })
+                .links(graph.links)
+            )
+            .force("charge", d3.forceManyBody().strength(-100))
+            .force("center", d3.forceCenter(self.svgWidth / 2, self.svgHeight / 2))
+            //.force("collide", d3.forceCollide(15))
+            .on("tick", function() {
+                self.ticked();
+            });
+        simulation.restart();
+        
+
+
 
         function dragstarted(event, d) {
             if (!event.active) simulation.alphaTarget(0.3).restart();
@@ -129,6 +124,23 @@ class Diagram_argument_force extends Diagram {
             d.fy = null;
         }
 	}
+
+    ticked() {
+        var self = this;
+        self.links
+            .each(function(data, index) {
+                var node = self.builder.gotInstance($(this), data, self);
+                var d3Node = d3.select(this);
+                node.computePosition(d3Node, data);
+            });
+        self.nodes
+            .each(function(data, index) {
+                var node = self.builder.gotInstance($(this), data, self);
+                var d3Node = d3.select(this);
+                node.setPosition(d3Node, data);
+            });
+    }
+
 	changeNodeLabel($node, text) {
 		var self = this;
 		var nodeData = d3.select($node[0]).data()[0];
