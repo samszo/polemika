@@ -249,7 +249,6 @@ class Editor {
 			//calcul la taille du conteneur				
 			var params = {
 				editor : self,
-				data: lock1.result,
 				archetypes: lock2.result,
 				container: $carteContainer
 			};
@@ -260,6 +259,7 @@ class Editor {
 				self.manageEvent(event, subject);
 			});
 			self.menuRoot.find(".carte-selector input").val(diagramData.name);
+			self.currentDiagram.load(lock1.result);
         });		
 		
 		/*$.ajax({

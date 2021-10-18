@@ -14,8 +14,6 @@ class Diagram extends PSubject {
 		self.finalizeSelection = false;
         self.kId = params.kId ? params.kId : 'o:id'; //identifiant omeka S
         self.kName = params.kName ? params.kName : 'o:title'; //title omeka S
-        self.data = params.data ? params.data : {};
-		self.styles = self.data.styles;
 		self.color = d3.scaleOrdinal(d3.schemeCategory10);
 		self.textMargin = 4; //parseInt(self.styles[0]["concept-style"]["text-margin"]);
 		self.linkCreation = {
@@ -23,10 +21,12 @@ class Diagram extends PSubject {
 			target : null
 		}
 		self.selection = [];
-
-		self.normalizeData(self.getData());
-		self.initGraph();
-		self.updateGraph();
+    }
+    load(data) {
+		this.data = data;
+		this.normalizeData(data);
+		this.initGraph();
+		this.updateGraph();
     }
     getData() {
         return this.data;
