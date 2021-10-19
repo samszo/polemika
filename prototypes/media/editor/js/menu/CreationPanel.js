@@ -16,23 +16,33 @@ class CreationPanel {
             stop: function(e, ui){
                 console.log("> stop drag");
                 var $movedElt = $(ui.item);
-				var editor = self.editor;				
-				/*var p = d3.pointer(event);
-				var pos = {
-					x : p[0],
-					y : p[1]
-				};*/
-				var pos = {
-					x : (ui.position.left)*self.diagram.editor.carteTranslation.k + self.diagram.editor.carteTranslation.x,
-					y : (ui.position.top)*self.diagram.editor.carteTranslation.k + self.diagram.editor.carteTranslation.y
+				var editor = self.editor;
+				console.log("ui", ui.position.left, ui.position.top);
+                var cont = d3.select("g.container");
+                var pointer = d3.pointer(e, cont);
+                var pos3 = {
+					x : pointer[0],
+					y : pointer[1]
 				};
-				/*var pos = {
-					x : (ui.position.left)*self.diagram.currentTransform.k + self.diagram.currentTransform.x,
-					y : (ui.position.top)*self.diagram.currentTransform.k + self.diagram.currentTransform.y
-				};*/				
+
+                var pos = {
+					x : ui.position.left,
+					y : ui.position.top
+				};
+				pos = {
+					x : pos.x*self.diagram.editor.carteTranslation.k + self.diagram.editor.carteTranslation.x,
+					y : pos.y*self.diagram.editor.carteTranslation.k + self.diagram.editor.carteTranslation.y
+				};
+                if (self.diagram.currentTransform) {
+                    //pos.x = pos.x / self.diagram.currentTransform.k;
+                    //pos.y = pos.y / self.diagram.currentTransform.k;
+                    pos.x = pos.x - self.diagram.currentTransform.x;
+                    pos.y = pos.y - self.diagram.currentTransform.y;
+                }
+				var position = pos;
 				var nodeData = self.diagram.builder.createNode($movedElt.data("archetype"));
 				//var nodeData = diagram.model.createNode($movedElt.data("archetype"));
-				var $node = diagram.addNode(nodeData, pos);
+				var $node = diagram.addNode(nodeData, position);
 				diagram.setSelection([$node[0]]);
             }		  
 		}).disableSelection();				

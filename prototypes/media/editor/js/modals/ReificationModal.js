@@ -16,9 +16,10 @@ class ReificationModal {
 		var cssStyle = this.instance.getStyle();
 		console.log("create", name, cssStyle);
 		var archetype = {						
-			"name":name,
-			"type":"node",
-			"cssStyle":cssStyle
+			"name": name,
+			"kind": "archetype",
+			"type": "node",
+			"cssStyle": cssStyle
 		}		
 		var archetype = this.instance.diagram.builder.createArchetype(archetype, this.instance.diagram);
 		this.instance.diagram.model.notifyCreation(archetype.data);

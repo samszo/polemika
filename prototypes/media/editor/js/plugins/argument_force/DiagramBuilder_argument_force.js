@@ -16,15 +16,18 @@ class DiagramBuilder_argument_force extends DiagramBuilder {
 	createNode(archetype) {
 		var newNode = {
 			id:this.newId(),
+			kind: "node",
 			idArchetype:archetype.id,
 			label:"New node"
 		};
+		this.diagram.model.normalizeData(newNode);
 		this.diagram.model.notifyCreation(newNode);
 		return newNode;
 	}
 	createLink(sourceNode, targetNode) {
 		var newLink = {
 			id:this.newId(),
+			kind: "link",
 			idArchetype: this.linkArchetype.data.id,
 			label:"",
 			src:sourceNode.data()[0].id,
@@ -37,6 +40,7 @@ class DiagramBuilder_argument_force extends DiagramBuilder {
 				"lineStyle":"solid"
 			}
 		};
+		this.diagram.model.normalizeData(newLink);
 		this.diagram.model.notifyCreation(newLink);
 		return newLink;		
 	}	

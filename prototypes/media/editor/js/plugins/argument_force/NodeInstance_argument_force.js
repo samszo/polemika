@@ -78,7 +78,21 @@ class NodeInstance_argument_force extends NodeInstance {
 			.attr("class", "linksLayer")
 			.attr("id", d=>"linksLayer"+d.id)
 			.attr("stroke", "rgba(255,150,0,255)")
-			.attr("fill-opacity", "0");
+			.attr("fill-opacity", "0")
+			.on("mouseover", function(d) {
+				self.linksLayerFocus(this, d);
+			}).on("mouseout", function(d) {
+				self.linksLayerUnfocus(this, d);
+			}).call(
+				d3.drag()
+					.on("start", function(event, d) {
+						self.dragLinkStarted(this, event, d);
+					}).on("drag", function(event, d) {
+						self.draggingLink(this, event, d);
+					}).on("end", function(event, d) {
+						self.dragLinkEnded(this, event, d);
+					})
+			);
 		var rect = d3Node.append("rect")
 			.attr("class", "rectNode")
 			.attr("id", d=>"rectNode"+d.id)
@@ -105,6 +119,15 @@ class NodeInstance_argument_force extends NodeInstance {
 	setPosition(d3Node, data) {
         if (data.x != null && !isNaN(data.x))
             d3Node.attr("transform", "translate("+(data.x - data.width / 2)+","+(data.y - data.height / 2)+")");
+	}
+	setLabelText(text) {
+		var self = this;
+		var d3Node = d3.select(this.domElt[0]);
+		this.data.label = text;
+		this.diagram.model.notifyChange(this.data);
+		this.domElt.find("text").html(text)
+		this.computeNodeSize(d3Node, this.data);
+		this.diagram.updateGraph();
 	}
 	graphUpdate(d3Node, data) {
 	    console.log("NodeInstance_argument_force> graphUpdate");
@@ -176,7 +199,84 @@ class NodeInstance_argument_force extends NodeInstance {
 			.attr('y', layerBorderMargin + textBorderMargin + textHeight/2 + marge)
 			.attr('width', textWidth)
 			.attr('height', textHeight);
-
-		//let nodeBox = d3Node.node().getBBox();
+	}
+	linksLayerFocus(domElt, data) {
+		var self = this;
+		var $elt = $(domElt);
+		var d3Node = d3.select(domElt);
+		if ($elt.hasClass("linksLayer")) {
+			if (self.diagram.linkCreation.source == null) {
+				d3Node.style("cursor", "pointer").transition().attr("fill-opacity", "0.5").duration(200);
+			} else {
+				self.diagram.linkCreation.target = d3Node;
+				d3Node.style("cursor", "pointer").transition().attr("fill-opacity", "0.5").duration(300);
+			}
+		}
+		else if ($elt.hasClass("node")) {
+			//console.log("node");
+		}
+	}
+	linksLayerUnfocus(domElt, data) {
+		var self = this;
+		var $elt = $(domElt);
+		if ($elt.hasClass("linksLayer")) {
+			if (self.diagram.linkCreation.source == null) {
+				d3.select(domElt).style("cursor", "default").transition().attr("fill-opacity", "0").duration(200);
+			} else {
+				var elt = d3.select(domElt);
+				if (self.diagram.linkCreation.source != elt) {
+					elt.style("cursor", "default").transition().attr("fill-opacity", "0").duration(200);
+					self.diagram.linkCreation.target = null;
+				}
+			}
+		}
+	}
+	dragLinkStarted(domElt, event, d) {
+		console.log("dragLinkStarted", domElt, event.x, event.y);
+		var self = this;
+		var elt = d3.select(domElt);
+		self.diagram.linkCreation.source = elt;
+		elt.style("cursor", "pointer").transition().attr("fill-opacity", "0.5").duration(300);
+		var d3Node = d3.select(domElt.parentElement);
+		var data = d3Node.data()[0];
+		var origin = {
+			x: data.x + data.width / 2,
+			y: data.y + data.height / 2
+		};
+		var diff = {
+			x : origin.x - event.x,
+			y : origin.y - event.y
+		};
+		var container = self.diagram.container;
+		console.log("create fake link");
+		self.fakeLink = container.append("line");
+		console.log(self.fakeLink);
+		self.fakeLink
+			.attr("x1", origin.x)
+			.attr("y1", origin.y)
+			.attr("x2", origin.x)
+			.attr("y2", origin.y)
+			.attr("stroke", "#000000")
+			.attr("stroke-width", "1px");
+		self.fakeLink.diff = diff;
+	}
+	draggingLink(domElt, event, d) {
+		var self = this;
+		self.fakeLink.attr("x2", event.x + self.fakeLink.diff.x).attr("y2", event.y + self.fakeLink.diff.y);
+	}
+	dragLinkEnded(domElt, event, d) {
+		console.log("dragLinkEnded", domElt, event.x, event.y);
+		var self = this;
+		self.fakeLink.remove();
+		if (self.diagram.linkCreation.target != null) {
+			var newLink = self.diagram.builder.createLink(self.diagram.linkCreation.source, self.diagram.linkCreation.target);
+			this.diagram.addLink(newLink);
+		}
+		self.diagram.linkCreation.source.style("cursor", "default").transition().attr("fill-opacity", "0").duration(300);
+		self.diagram.linkCreation.source = null;
+		if (self.diagram.linkCreation.target != null) {
+			self.diagram.linkCreation.target.style("cursor", "default").transition().attr("fill-opacity", "0").duration(300);
+			self.diagram.linkCreation.target = null;
+		}
 	}
 }

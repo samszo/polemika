@@ -2,28 +2,24 @@ class Diagram_argument_force extends Diagram {
 
     constructor(params) {
         super(params);
-		this.model = new DiagramModel_force();
+		this.model = new DiagramModel_argument_force();
+		this.linkCreation = {
+			source : null,
+			target : null
+		}
     }
 	createBuilder() {
 		return new DiagramBuilder_argument_force(this);
 	}
 	normalizeData(data) {
-	    var id = 0;
+	    var self = this;
 	    $.each(data.nodes, function(index, node) {
-	        if (node.id == null)
-	            node.id = id++;
-	        if (node.x != null)
-	            delete node["x"];
-	        if (node.y != null)
-	            delete node["y"];
+	        node.kind = "node";
+	        self.model.normalizeData(node);
 	    });
 	    $.each(data.links, function(index, link) {
-	        if (link.id == null)
-	            link.id = id++;
-	        if (link.source == null)
-	            link.source = link.src;
-	        if (link.target == null)
-	            link.target = link.dst;
+	        link.kind = "link";
+	        self.model.normalizeData(link);
 	    });
 	}
 	/* overridden */
@@ -87,7 +83,7 @@ class Diagram_argument_force extends Diagram {
         /*this.layout = new Layout_argument_force(this, graph.nodes, graph.links);
         this.layout.simulation.restart();*/
 
-        var simulation = d3
+        this.simulation = d3
             .forceSimulation(graph.nodes)
             .stop()
             .force("link", d3.forceLink()
@@ -102,13 +98,13 @@ class Diagram_argument_force extends Diagram {
             .on("tick", function() {
                 self.ticked();
             });
-        simulation.restart();
+        //this.simulation.restart();
         
 
 
 
         function dragstarted(event, d) {
-            if (!event.active) simulation.alphaTarget(0.3).restart();
+            if (!event.active) self.simulation.alphaTarget(0.3).restart();
             d.fx = d.x;
             d.fy = d.y;
         }
@@ -119,7 +115,7 @@ class Diagram_argument_force extends Diagram {
         }
 
         function dragended(event, d) {
-            if (!event.active) simulation.alphaTarget(0);
+            if (!event.active) self.simulation.alphaTarget(0);
             d.fx = null;
             d.fy = null;
         }
@@ -141,49 +137,4 @@ class Diagram_argument_force extends Diagram {
             });
     }
 
-	changeNodeLabel($node, text) {
-		var self = this;
-		var nodeData = d3.select($node[0]).data()[0];
-		self.model.notifyChange(nodeData);
-		nodeData.label = text;
-		$node.find("text").html(text)
-		self.computeNodeSize($node[0], nodeData)
-	}
-	focus(domElt, data) {
-		var self = this;
-		var $elt = $(domElt);
-		if ($elt.hasClass("linksLayer")) {
-			if (self.linkCreation.source == null) {
-				//console.log("focus linksLayer");
-				d3.select(domElt).style("cursor", "pointer").transition().attr("fill-opacity", "0.5").duration(200);
-			} else {
-				//console.log("SET TARGET")
-				var elt = d3.select(domElt);
-				self.linkCreation.target = elt;
-				elt.style("cursor", "pointer").transition().attr("fill-opacity", "0.5").duration(300);
-			}
-		}
-		else if ($elt.hasClass("node")) {
-			//console.log("node");
-		}
-	}
-	unfocus(domElt, data) {
-		var self = this;
-		var $elt = $(domElt);
-		if ($elt.hasClass("linksLayer")) {
-			if (self.linkCreation.source == null) {
-				//console.log("focus linksLayer");
-				d3.select(domElt).style("cursor", "default").transition().attr("fill-opacity", "0").duration(200);
-			} else {
-				var elt = d3.select(domElt);
-				//console.log("elt", elt);
-				//console.log("self.linkCreation.source", self.linkCreation.source);
-				if (self.linkCreation.source != elt) {
-					elt.style("cursor", "default").transition().attr("fill-opacity", "0").duration(200);
-					self.linkCreation.target = null;
-					//console.log("set target null");
-				}
-			}
-		}
-	}
 }

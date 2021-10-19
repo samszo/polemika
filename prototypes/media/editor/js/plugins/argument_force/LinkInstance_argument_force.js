@@ -50,7 +50,7 @@ class LinkInstance_argument_force extends LinkInstance {
         targetNode.inputs.push(self);
         var sourceNode = self.diagram.builder.gotInstance($(src.node()), data, self);
         sourceNode.outputs.push(self);
-        //self.setLinkPosition(d3Node, src, dst);
+        self.computePosition(d3Node, data);
 	}
 	graphUpdate(d3Node, data) {
 	    console.log("LinkInstance_argument_force> graphUpdate");

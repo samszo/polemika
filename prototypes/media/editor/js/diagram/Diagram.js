@@ -16,10 +16,6 @@ class Diagram extends PSubject {
         self.kName = params.kName ? params.kName : 'o:title'; //title omeka S
 		self.color = d3.scaleOrdinal(d3.schemeCategory10);
 		self.textMargin = 4; //parseInt(self.styles[0]["concept-style"]["text-margin"]);
-		self.linkCreation = {
-			source : null,
-			target : null
-		}
 		self.selection = [];
     }
     load(data) {
@@ -194,12 +190,12 @@ class Diagram extends PSubject {
 
 	addNode(nodeData, pos) {
 		var self = this;
-		if (self.currentTransform) {
+		/*if (self.currentTransform) {
 			pos.x = pos.x - self.currentTransform.x;
 			pos.y = pos.y - self.currentTransform.y;
 			pos.x = pos.x / self.currentTransform.k;
 			pos.y = pos.y / self.currentTransform.k;			
-		}
+		}*/
 		nodeData.x = pos.x;
 		nodeData.y = pos.y;
 		self.data.nodes.push(nodeData);
@@ -210,6 +206,10 @@ class Diagram extends PSubject {
 		var index = this.data.nodes.indexOf(node.data);
 		if (index > -1)
 			this.data.nodes.splice(index, 1);
+	}
+	addLink(link) {
+		this.data.links.push(link);
+		this.updateGraph();
 	}
 	deleteLink(link) {
 		var index = this.data.links.indexOf(link.data);
@@ -312,64 +312,5 @@ class Diagram extends PSubject {
 		//if (!d3.event.active) graphLayout.alphaTarget(0);
 		//d.x = null;
 		//d.y = null;
-	}
-	// domElt : circle.rightSelector
-	dragLinkStarted(domElt, event, d) {
-		console.log("dragLinkStarted", domElt, event.x, event.y);
-		var self = this;
-		var elt = d3.select(domElt);
-		self.linkCreation.source = elt;
-		elt.style("cursor", "pointer").transition().attr("fill-opacity", "0.5").duration(300);
-		var d3Node = d3.select(domElt.parentElement);
-		var rectData = self.getNodeRectData(d3Node);
-		//var posL = self.getLeftAnchorPosition(node)
-		//var posR = self.getRightAnchorPosition(node);		
-		var posR = {
-			x: rectData.x + rectData.width / 2,
-			y: rectData.y + rectData.height / 2
-		};
-		
-		var data = d3Node.data()[0];
-		
-		var diff = {
-			x : posR.x - event.x,
-			y : posR.y - event.y
-		};
-		self.createDndLink(self.container, posR, diff);
-	}
-	createDndLink(container, origin, diff) {
-		var self = this;
-		console.log("create fake link");
-		self.fakeLink = container.append("line");
-		console.log(self.fakeLink);
-		self.fakeLink
-			.attr("x1", origin.x)			
-			.attr("y1", origin.y)
-			.attr("x2", origin.x)
-			.attr("y2", origin.y)
-			.attr("stroke", "#000000")
-			.attr("stroke-width", "1px");
-		self.fakeLink.diff = diff;
-	}
-	draggingLink(domElt, event, d) {
-		//console.log("draggingLink", domElt, event.x, event.y);
-		var self = this;
-		self.fakeLink.attr("x2", event.x + self.fakeLink.diff.x).attr("y2", event.y + self.fakeLink.diff.y);
-	}
-	dragLinkEnded(domElt, event, d) {
-		console.log("dragLinkEnded", domElt, event.x, event.y);
-		var self = this;
-		self.fakeLink.remove();
-		if (self.linkCreation.target != null) {			
-			var newLink = self.builder.createLink(self.linkCreation.source, self.linkCreation.target);
-			this.data.links.push(newLink);
-			this.updateGraph();
-		}
-		self.linkCreation.source.style("cursor", "default").transition().attr("fill-opacity", "0").duration(300);
-		self.linkCreation.source = null;
-		if (self.linkCreation.target != null) {
-			self.linkCreation.target.style("cursor", "default").transition().attr("fill-opacity", "0").duration(300);
-			self.linkCreation.target = null;
-		}
 	}
 }

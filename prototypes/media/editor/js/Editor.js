@@ -31,92 +31,6 @@ class Editor {
 		$button.bind("click", function() {
 			var changes = self.getCurrentDiagram().model.getChanges();
 			console.log(JSON.stringify(changes, null, 2));
-			/*
-			var diag = self.getCurrentDiagram();
-			
-			var svg = d3.select("svg");
-			var width = 1836; //svg.attr("width");
-			var height = 602; //svg.attr("height");
-			$.each(diag.data.links, function(index, link) {
-				link.source = link.src;
-				link.target = link.dst;
-			});
-			var node = diag.nodesData;
-			var link = diag.linksData;
-			var simulation = d3
-				.forceSimulation(diag.data.nodes)
-				.force("link", d3.forceLink(diag.data.links).id(function(d) { return d.id; }))
-				.force("charge", d3.forceManyBody().strength(-30))
-				.force("center", d3.forceCenter(800/2, 600/2))
-				.on("tick", function() {
-					link
-						.attr("x1", function(d) {
-							return d.source.x;
-						})
-						.attr("y1", function(d) {
-							return d.source.y;
-						})
-						.attr("x2", function(d) {
-							return d.target.x;
-						})
-						.attr("y2", function(d) {
-							return d.target.y;
-						});
-					node
-						.attr("x", function(d) {
-							return d.x;
-						})
-						.attr("y", function(d) {
-							return d.y;
-						});
-				})
-				.on("end", function() {
-					console.log("END SIMULATION");
-					diag.updateGraph();
-				});
-				
-			/*console.log(diag);
-			var force = d3.layout.force()
-				.size([800, 600])
-				.nodes(diag.data.nodes)
-				.links(diag.data.links);
-			
-				force.on('end', function() {
-					console.log("END FORCE");
-					// When this function executes, the force layout
-					// calculations have concluded. The layout will
-					// have set various properties in our nodes and
-					// links objects that we can use to position them
-					// within the SVG container.
-
-					// First let's reposition the nodes. As the force
-					// layout runs it updates the `x` and `y` properties
-					// that define where the node should be centered.
-					// To move the node, we set the appropriate SVG
-					// attributes to their new values. We also have to
-					// give the node a non-zero radius so that it's visible
-					// in the container.
-
-					node.attr('cx', function(d) { return d.x; })
-						.attr('cy', function(d) { return d.y; });
-
-					// We also need to update positions of the links.
-					// For those elements, the force layout sets the
-					// `source` and `target` properties, specifying
-					// `x` and `y` values in each case.
-
-					link.attr('x1', function(d) { return d.source.x; })
-						.attr('y1', function(d) { return d.source.y; })
-						.attr('x2', function(d) { return d.target.x; })
-						.attr('y2', function(d) { return d.target.y; });
-
-				});
-
-				// Okay, everything is set up now so it's time to turn
-				// things over to the force layout. Here we go.
-
-				force.start();	
-			*/
 		});
     }
 	bindSelectionMode() {
@@ -172,8 +86,10 @@ class Editor {
 				if (selection.length == 1) {
 					var $selection = $(selection[0]);
 					var value = this.editionPanel.getValue();
-					if (value != this.oldValue)
-						diagram.changeNodeLabel($selection, value);
+					if (value != this.oldValue) {
+					    var node = diagram.builder.gotInstance($selection);
+					    node.setLabelText(value);
+					}
 				}
 			}
 		}
