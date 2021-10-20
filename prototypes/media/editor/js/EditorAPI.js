@@ -33,4 +33,13 @@ class EditorAPI extends ProtoAPI {
             );
         }
 	}
+	getDiagramFragment(callback) {
+        var url = '/media/editor/data/import3.json';
+        this.getJSON(
+            url,
+            function(data) {
+                callback(data);
+            }
+        );
+	}
 }

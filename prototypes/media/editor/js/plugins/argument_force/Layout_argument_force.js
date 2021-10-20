@@ -26,7 +26,7 @@ class Layout_argument_force {
                     .each(function(data, index) {
                         var node = self.diagram.builder.gotInstance($(this), data, self);
                         var d3Node = d3.select(this);
-                        node.setPosition(d3Node, data);
+                        node.computePosition(d3Node, data);
                     });
             });
     }
@@ -42,7 +42,7 @@ class Layout_argument_force {
             .each(function(data, index) {
                 var node = self.diagram.builder.gotInstance($(this), data, self);
                 var d3Node = d3.select(this);
-                node.setPosition(d3Node, data);
+                node.computePosition(d3Node, data);
             });
     }*/
 }
@@ -84,7 +84,7 @@ class Layout_argument_force {
             .each(function(data, index) {
                 var node = self.diagram.builder.gotInstance($(this), data, self);
                 var d3Node = d3.select(this);
-                node.setPosition(d3Node, data);
+                node.computePosition(d3Node, data);
             });
     }
 

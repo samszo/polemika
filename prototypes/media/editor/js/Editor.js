@@ -29,6 +29,11 @@ class Editor {
 		
 		var $button = $("button[action=test]");
 		$button.bind("click", function() {
+			console.log("TEST");
+			self.getCurrentDiagram().startAutoLayout(self.getCurrentDiagram().selection);
+		});
+		var $button = $("button[action=save]");
+		$button.bind("click", function() {
 			var changes = self.getCurrentDiagram().model.getChanges();
 			console.log(JSON.stringify(changes, null, 2));
 		});
@@ -86,7 +91,7 @@ class Editor {
 				if (selection.length == 1) {
 					var $selection = $(selection[0]);
 					var value = this.editionPanel.getValue();
-					if (value != this.oldValue) {
+					if (value != this.editionPanel.oldValue) {
 					    var node = diagram.builder.gotInstance($selection);
 					    node.setLabelText(value);
 					}

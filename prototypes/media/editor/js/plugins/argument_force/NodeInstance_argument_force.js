@@ -28,28 +28,23 @@ class NodeInstance_argument_force extends NodeInstance {
 			"Importer" : {
 				multi: false,
 				func: function(selection) {
-					var url = 'http://127.0.0.1:5000/media/editor/data/import3.json';
-                    $.ajax({
-                        url: url,
-                        dataType: "json",
-                        success: function (data) {
-                            $.each(data.nodes, function(index, nodeData) {
-                                var existingNode = _.find(self.diagram.data.nodes, function(elt) {
-                                    return elt.id == nodeData.id;
-                                });
-                                if (existingNode == null)
-                                    self.diagram.data.nodes.push(nodeData);
+				    self.diagram.editor.api.getDiagramFragment(function(data) {
+                        $.each(data.nodes, function(index, nodeData) {
+                            var existingNode = _.find(self.diagram.data.nodes, function(elt) {
+                                return elt.id == nodeData.id;
                             });
-                            $.each(data.links, function(index, linkData) {
-                                var existingLink = _.find(self.diagram.data.links, function(elt) {
-                                    return elt.id == linkData.id;
-                                });
-                                if (existingLink == null)
-                                    self.diagram.data.links.push(linkData);
+                            if (existingNode == null)
+                                self.diagram.data.nodes.push(nodeData);
+                        });
+                        $.each(data.links, function(index, linkData) {
+                            var existingLink = _.find(self.diagram.data.links, function(elt) {
+                                return elt.id == linkData.id;
                             });
-                            self.diagram.updateGraph();
-                        }
-                    });
+                            if (existingLink == null)
+                                self.diagram.data.links.push(linkData);
+                        });
+                        self.diagram.updateGraph();
+				    });
 				}
 			}
 		};
@@ -69,11 +64,21 @@ class NodeInstance_argument_force extends NodeInstance {
 		this.diagram.computeNodeStyle(rect);
 	}
 	graphEnter(d3Node, data) {
-        console.log("NodeInstance_argument_force> graphEnter");
+        //console.log("NodeInstance_argument_force> graphEnter");
         var self = this;
         d3Node
 			.attr("class", "node")
-			.attr("id", d => "gNode"+d.id);
+			.attr("id", d => "gNode"+d.id)
+			.call(
+				d3.drag()
+					.on("start", function(event, d) {
+						self.dragNodeStarted(this, event, d);
+					}).on("drag", function(event, d) {
+						self.draggingNode(this, event, d);
+					}).on("end", function(event, d) {
+						self.dragNodeEnded(this, event, d);
+					})
+			);
 		d3Node.append("rect")
 			.attr("class", "linksLayer")
 			.attr("id", d=>"linksLayer"+d.id)
@@ -96,7 +101,29 @@ class NodeInstance_argument_force extends NodeInstance {
 		var rect = d3Node.append("rect")
 			.attr("class", "rectNode")
 			.attr("id", d=>"rectNode"+d.id)
-			.attr("fill", "white");
+			.attr("fill", "white")
+            .on('click', function(event, data) {
+				console.log("rect->click");
+                event.stopPropagation(); // if a rectNode is clicked, stop progation to not take into account container click event (we don't want to deselect just after)
+                if (self.diagram.linkCreation.source == null) {
+                    var selection = self.diagram.selection.slice();
+                    if (!event.ctrlKey)
+                        selection = [];
+                    var domElt = $(this).parent()[0];
+                    selection.push(domElt);
+                    self.diagram.setSelection(selection);
+                }
+				//self.diagram.clickOn($(this).parent()[0], event, data, true);
+			}).on("contextmenu", function (event, data) {
+				console.log("rect->contextmenu");
+				event.preventDefault();
+                event.stopPropagation();
+                var domElt = $(this).parent()[0];
+                if (!_.contains(this.selection, domElt))
+                    self.diagram.setSelection([domElt]);
+                self.diagram.notifyObservers({ name : "openContextualMenu", data: data, event: event });
+				//self.diagram.clickOn($(this).parent()[0], event, data, false);
+			});
 		self.computeNodeStyle(rect);
 		d3Node.append('text')
 			.attr("class", "labelNode")
@@ -114,11 +141,53 @@ class NodeInstance_argument_force extends NodeInstance {
 				return d.label;
 			});
 		self.computeNodeSize(d3Node, data);
-		self.setPosition(d3Node, data);
+		self.computePosition(d3Node, data);
 	}
-	setPosition(d3Node, data) {
-        if (data.x != null && !isNaN(data.x))
-            d3Node.attr("transform", "translate("+(data.x - data.width / 2)+","+(data.y - data.height / 2)+")");
+	graphUpdate(d3Node, data) {
+	    //console.log("NodeInstance_argument_force> graphUpdate");
+	    if (this.updateSize) {
+	        this.updateSize = false;
+	        this.computeNodeSize(d3Node, data);
+	    }
+	    if (this.updatePosition) {
+	        this.updatePosition = false;
+	        this.computePosition(d3Node, data);
+	    }
+	}
+	graphExit(d3Node, data) {
+	    console.log("NodeInstance_argument_force> graphExit");
+	    d3Node.remove();
+	}
+	computePosition(d3Node, data) {
+        if (data.x != null && !isNaN(data.x)) {
+            data.tlCorner = {
+                x: data.x - data.width / 2,
+                y: data.y - data.height / 2
+            }
+            d3Node.attr("transform", "translate("+data.tlCorner.x+","+data.tlCorner.y+")");
+        }
+	}
+	setPosition(x, y) {
+	    this.updatePosition = true;
+	    this.data.x = x;
+	    this.data.y = y;
+	    if (!this.inLayoutScope) {
+            this.data.fx = x;
+            this.data.fy = y;
+	    }
+	}
+	setInLayoutScope(inScope) {
+        this.inLayoutScope = inScope;
+        if (inScope) {
+            delete this.data["fx"];
+            delete this.data["fy"];
+        } else {
+            this.data["fx"] = this.data["x"];
+            this.data["fy"] = this.data["y"];
+        }
+	}
+	isInLayoutScope() {
+	    return this.inLayoutScope;
 	}
 	setLabelText(text) {
 		var self = this;
@@ -126,14 +195,16 @@ class NodeInstance_argument_force extends NodeInstance {
 		this.data.label = text;
 		this.diagram.model.notifyChange(this.data);
 		this.domElt.find("text").html(text)
-		this.computeNodeSize(d3Node, this.data);
+		this.updateSize = true;
+		this.updatePosition = true;
+        $.each(this.inputs, function(index, link) {
+            link.updatePosition = true;
+        });
+        $.each(this.outputs, function(index, link) {
+            link.updatePosition = true;
+        });
+		//this.computeNodeSize(d3Node, this.data);
 		this.diagram.updateGraph();
-	}
-	graphUpdate(d3Node, data) {
-	    console.log("NodeInstance_argument_force> graphUpdate");
-	}
-	graphExit(d3Node, data) {
-	    console.log("NodeInstance_argument_force> graphExit");
 	}
 	computeNodeStyle(d3Node) {
 		var self = this;
@@ -277,6 +348,47 @@ class NodeInstance_argument_force extends NodeInstance {
 		if (self.diagram.linkCreation.target != null) {
 			self.diagram.linkCreation.target.style("cursor", "default").transition().attr("fill-opacity", "0").duration(300);
 			self.diagram.linkCreation.target = null;
+		}
+	}
+	dragNodeStarted(domElt, event, d) {
+		console.log("event", event.x, event.y);
+		this.diagram.stopAutoLayout();
+		this.draggedNodeElts = this.diagram.selection.slice();
+		this.draggedNodeElts = _.filter(this.draggedNodeElts, function(elt) {return $(elt).hasClass("node")});
+		if (this.draggedNodeElts.indexOf(domElt) < 0)
+		    this.draggedNodeElts.push(domElt);
+		this.dragChangePosition = false;
+	}
+	draggingNode(domElt, event, data) {
+		//console.log("draggingNode", domElt, event.x, event.y);
+		var self = this;
+		this.dragChangePosition = true;
+		var diff = {
+		    x: event.x - data.x,
+		    y: event.y - data.y
+		}
+		$.each(this.draggedNodeElts, function(index, domElt) {
+            var d3Node = d3.select(domElt);
+            var node = self.diagram.builder.gotInstance($(domElt));
+            //node.setInLayoutScope(false);
+            node.setPosition(node.data.x + diff.x, node.data.y + diff.y);
+            $.each(node.inputs, function(index, link) {
+                link.updatePosition = true;
+            });
+            $.each(node.outputs, function(index, link) {
+                link.updatePosition = true;
+            });
+		});
+		this.diagram.updateGraph();
+	}
+	dragNodeEnded(domElt, event, data) {
+		//console.log("dragNodeEnded", domElt, event.x, event.y);
+		var self = this;
+		if (this.dragChangePosition) {
+            $.each(this.draggedNodeElts, function(index, domElt) {
+            	var node = self.diagram.builder.gotInstance($(domElt));
+            	self.diagram.model.notifyChange(node.data);
+            });
 		}
 	}
 }

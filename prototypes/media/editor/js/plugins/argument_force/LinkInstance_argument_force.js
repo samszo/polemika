@@ -30,7 +30,7 @@ class LinkInstance_argument_force extends LinkInstance {
 		return actions;
 	}
 	graphEnter(d3Node, data) {
-        console.log("LinkInstance_argument_force> graphEnter");
+        //console.log("LinkInstance_argument_force> graphEnter");
         var self = this;
         d3Node
 			.attr("class", "link")
@@ -40,7 +40,19 @@ class LinkInstance_argument_force extends LinkInstance {
 			.attr('stroke-width',d=>{
 				return "1px";
 			})
-			.attr("marker-end",'url(#head)');
+			.attr("marker-end",'url(#head)')
+			.on('click', function(event, data) {
+				console.log("link->click");
+                event.stopPropagation(); // if a rectNode is clicked, stop progation to not take into account container click event (we don't want to deselect just after)
+                if (self.diagram.linkCreation.source == null) {
+                    var selection = self.diagram.selection.slice();
+                    if (!event.ctrlKey)
+                        selection = [];
+                    selection.push(this);
+                    self.diagram.setSelection(selection);
+                }
+				//self.diagram.clickOn(this, event, data, true);
+			});
         // define source and target data
         let src = d3.select("#gNode"+data.src);
         let dst = d3.select("#gNode"+data.dst);
@@ -53,10 +65,15 @@ class LinkInstance_argument_force extends LinkInstance {
         self.computePosition(d3Node, data);
 	}
 	graphUpdate(d3Node, data) {
-	    console.log("LinkInstance_argument_force> graphUpdate");
+	    //console.log("LinkInstance_argument_force> graphUpdate");
+	    if (this.updatePosition) {
+	        this.updatePosition = false;
+	        this.computePosition(d3Node, data);
+	    }
 	}
 	graphExit(d3Node, data) {
 	    console.log("LinkInstance_argument_force> graphExit");
+	    d3Node.remove();
 	}
 	computePosition(d3Node, data) {
 		var srcData = this.sourceNode.data()[0];

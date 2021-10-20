@@ -84,6 +84,7 @@ class Diagram extends PSubject {
 				}*/
 			})
 			.on("mousemove", function(event) {
+			    //console.log(d3.pointer(event, d3.select("g.container")));
 				var s = self.svg.select("rect.selection");
 				if (!s.empty()) {
 					var p = d3.pointer(event);
@@ -115,8 +116,8 @@ class Diagram extends PSubject {
 					d3.selectAll('g.node').each(function(state_data, i) {
 						if (!_.contains(self.selection, this)) {
 							var d3Node = d3.select(this);
-							var tX = parseInt(state_data.x);
-							var tY = parseInt(state_data.y);
+							var tX = parseInt(state_data.tlCorner.x);
+							var tY = parseInt(state_data.tlCorner.y);
 							if (self.currentTransform) {
 								tX = tX * self.currentTransform.k;
 								tY = tY * self.currentTransform.k;

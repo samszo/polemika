@@ -7,6 +7,12 @@ class DiagramModel {
 			updated: []
 		};
     }
+    /* to be overridden */
+    normalizeData(data) {}
+    /* to be overridden */
+    serializeData(data) {
+        return data;
+    }
 	notifyCreation(element) {
 		console.log("DiagramModel->notifyCreation");
 		if (!_.contains(this.data.created, element))
@@ -27,12 +33,13 @@ class DiagramModel {
 			this.data.updated = _.without(this.data.updated, element);
 	}
 	getChanges() {
-		/*var result = {
-			created: $.map(this.data.created, function(obj) { return obj.data; }),
-			deleted: $.map(this.data.deleted, function(obj) { return obj.data; }),
-			updated: $.map(this.data.updated, function(obj) { return obj.data; })
+		var self = this;
+		var result = {
+			created: $.map(this.data.created, function(obj) { return self.serializeData(obj); }),
+			deleted: $.map(this.data.deleted, function(obj) { return self.serializeData(obj); }),
+			updated: $.map(this.data.updated, function(obj) { return self.serializeData(obj); })
 		};
-		return result;*/
-		return this.data;
+		return result;
+		//return this.data;
 	}
 }

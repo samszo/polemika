@@ -2,22 +2,18 @@
    "nodes":[
       {
          "label":"Clart\u00e9",
-         "id":6283,
-		 "idArchetype":1,
+         "id":6416,
+         "idArchetype":8386,
          "idConcept":6172,
          "x":"816",
          "y":"74",
          "type":"concept",
-         "urlAdmin":"\/polemika\/omk\/admin\/item\/6283\/edit",
-         "style":{
-            "color":"#EDF4F6",
-            "fgTextColor":"#000000"
-         }
+         "urlAdmin":"\/omk\/admin\/item\/6416\/edit"
       },
       {
          "label":"First",
          "id":10001,
-         "idArchetype":3,
+         "idArchetype":8386,
 		 "idConcept":6146,
          "x":"916",
          "y":"74",
@@ -32,7 +28,7 @@
       {
          "label":"Second",
          "id":10002,
-		 "idArchetype":1,
+		 "idArchetype":8386,
          "idConcept":6148,
          "x":"1016",
          "y":"74",
@@ -46,7 +42,7 @@
       {
          "label":"Third",
          "id":10003,
-		 "idArchetype":1,
+		 "idArchetype":8386,
          "idConcept":6148,
          "x":"1026",
          "y":"74",
@@ -62,7 +58,7 @@
       {
          "label":"XXX",
          "id":10101,
-         "idArchetype":5,
+         "idArchetype":8390,
          "src":6283,
          "dst":10001,
          "urlAdmin":"\/polemika\/omk\/admin\/item\/6320\/edit",
@@ -77,7 +73,7 @@
       {
          "label":"YYY",
          "id":10102,
-         "idArchetype":5,
+         "idArchetype":8390,
          "src":10001,
          "dst":10002,
          "urlAdmin":"\/polemika\/omk\/admin\/item\/6297\/edit",
@@ -92,7 +88,7 @@
       {
          "label":"ZZZ",
          "id":10103,
-         "idArchetype":5,
+         "idArchetype":8390,
          "src":6283,
          "dst":10003,
          "urlAdmin":"\/polemika\/omk\/admin\/item\/6297\/edit",

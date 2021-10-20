@@ -24,6 +24,9 @@ class CreationPanel {
 					x : pointer[0],
 					y : pointer[1]
 				};
+				console.log("pointer", pointer);
+				console.log("pointer svg", d3.pointer(e, d3.select("svg")));
+				console.log("event", e.x, e.y);
 
                 var pos = {
 					x : ui.position.left,
@@ -41,9 +44,8 @@ class CreationPanel {
                 }
 				var position = pos;
 				var nodeData = self.diagram.builder.createNode($movedElt.data("archetype"));
-				//var nodeData = diagram.model.createNode($movedElt.data("archetype"));
 				var $node = diagram.addNode(nodeData, position);
-				diagram.setSelection([$node[0]]);
+				//diagram.setSelection([$node[0]]);
             }		  
 		}).disableSelection();				
     }
