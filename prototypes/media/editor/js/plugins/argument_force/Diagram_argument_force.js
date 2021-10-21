@@ -7,15 +7,47 @@ class Diagram_argument_force extends Diagram {
 			source : null,
 			target : null
 		}
-        this.layoutElements
     }
 	createBuilder() {
 		return new DiagramBuilder_argument_force(this);
 	}
-    load(data) {
-		super.load(data);
-		this.initLayout();
-        //this.simulation.restart();
+    import(rootNode, data) {
+        var self = this;
+        this.normalizeData(data);
+        var graphData = self.getData();
+        var newNodeIds = [];
+        $.each(data.nodes, function(index, nodeData) {
+            var existingNode = _.find(graphData.nodes, function(elt) {
+                return elt.id == nodeData.id;
+            });
+            if (existingNode == null) {
+                nodeData.x = rootNode.data.x;
+                nodeData.y = rootNode.data.y;
+                self.addNode(nodeData, rootNode.data);
+                self.model.notifyCreation(nodeData);
+                newNodeIds.push(nodeData.id);
+            }
+        });
+        $.each(data.links, function(index, linkData) {
+            var existingLink = _.find(graphData.links, function(elt) {
+                return elt.id == linkData.id;
+            });
+            if (existingLink == null) {
+                self.addLink(linkData);
+                self.model.notifyCreation(linkData);
+            }
+        });
+        self.updateGraph();
+        var nodes = [];
+        $.each(newNodeIds, function(index, nodeId) {
+            nodes.push(self.getNode(nodeId));
+        });
+        self.startAutoLayout(nodes);
+    }
+    getNode(nodeId) {
+        var d3Node = d3.select("#gNode"+nodeId);
+        var node = this.builder.gotInstance($(d3Node.node()));
+        return node;
     }
 	normalizeData(data) {
 	    var self = this;
@@ -32,7 +64,7 @@ class Diagram_argument_force extends Diagram {
 	updateGraph() {
 	    var self = this;
         var graph = this.getData();
-
+        var graphChanged = false;
 
         self.nodes = self.nodesContainer
             .selectAll("g")
@@ -43,6 +75,7 @@ class Diagram_argument_force extends Diagram {
 				var d3Node = d3.select(this);
 				var node = self.builder.gotInstance($(this), data, self);
 				node.graphEnter(d3Node, data);
+				graphChanged = true;
 			});
         self.nodes
             .each(function(data, index) {
@@ -55,6 +88,7 @@ class Diagram_argument_force extends Diagram {
 				var d3Node = d3.select(this);
 				var node = self.builder.gotInstance($(this), data, self);
 				node.graphExit(d3Node, data);
+				graphChanged = true;
 			});
         self.nodes = self.nodes.merge(nodesEntered);
 
@@ -67,6 +101,7 @@ class Diagram_argument_force extends Diagram {
 				var d3Node = d3.select(this);
 				var link = self.builder.gotInstance($(this), data, self);
 				link.graphEnter(d3Node, data);
+				graphChanged = true;
 			});
         self.links
             .each(function(data, index) {
@@ -79,33 +114,12 @@ class Diagram_argument_force extends Diagram {
 				var d3Node = d3.select(this);
 				var link = self.builder.gotInstance($(this), data, self);
 				link.graphExit(d3Node, data);
+				graphChanged = true;
 			});
         self.links = self.links.merge(linksEntered);
-
-        /*this.layout = new Layout_argument_force(this, graph.nodes, graph.links);
-        this.layout.simulation.restart();*/
-
-
-
-
-        function dragstarted(event, d) {
-            if (!event.active) self.simulation.alphaTarget(0.3).restart();
-            d.fx = d.x;
-            d.fy = d.y;
-        }
-
-        function dragged(event, d) {
-            d.fx = event.x;
-            d.fy = event.y;
-        }
-
-        function dragended(event, d) {
-            if (!event.active) self.simulation.alphaTarget(0);
-            d.fx = null;
-            d.fy = null;
-        }
+        if (graphChanged)
+            this.initLayout();
 	}
-
     initLayout() {
         var self = this;
         var graph = this.getData();
@@ -142,12 +156,11 @@ class Diagram_argument_force extends Diagram {
             });
     }
 
-    startAutoLayout(elements) {
+    startAutoLayout(nodes) {
         console.log("start autoLayout");
-        this.layoutElements = elements;
+        this.layoutElements = nodes;
         var self = this;
-        $.each(this.layoutElements, function(index, domElt) {
-            var node = self.builder.gotInstance($(domElt));
+        $.each(nodes, function(index, node) {
             node.setInLayoutScope(true);
         });
         //this.simulation.restart();
@@ -156,8 +169,7 @@ class Diagram_argument_force extends Diagram {
     stopAutoLayout() {
         console.log("stop autoLayout");
         var self = this;
-        $.each(this.layoutElements, function(index, domElt) {
-            var node = self.builder.gotInstance($(domElt));
+        $.each(this.layoutElements, function(index, node) {
             node.setInLayoutScope(false);
         });
         this.simulation.stop();

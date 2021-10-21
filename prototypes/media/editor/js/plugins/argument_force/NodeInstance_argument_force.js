@@ -29,21 +29,7 @@ class NodeInstance_argument_force extends NodeInstance {
 				multi: false,
 				func: function(selection) {
 				    self.diagram.editor.api.getDiagramFragment(function(data) {
-                        $.each(data.nodes, function(index, nodeData) {
-                            var existingNode = _.find(self.diagram.data.nodes, function(elt) {
-                                return elt.id == nodeData.id;
-                            });
-                            if (existingNode == null)
-                                self.diagram.data.nodes.push(nodeData);
-                        });
-                        $.each(data.links, function(index, linkData) {
-                            var existingLink = _.find(self.diagram.data.links, function(elt) {
-                                return elt.id == linkData.id;
-                            });
-                            if (existingLink == null)
-                                self.diagram.data.links.push(linkData);
-                        });
-                        self.diagram.updateGraph();
+                        self.diagram.import(self, data);
 				    });
 				}
 			}
@@ -113,7 +99,6 @@ class NodeInstance_argument_force extends NodeInstance {
                     selection.push(domElt);
                     self.diagram.setSelection(selection);
                 }
-				//self.diagram.clickOn($(this).parent()[0], event, data, true);
 			}).on("contextmenu", function (event, data) {
 				console.log("rect->contextmenu");
 				event.preventDefault();
@@ -122,7 +107,6 @@ class NodeInstance_argument_force extends NodeInstance {
                 if (!_.contains(this.selection, domElt))
                     self.diagram.setSelection([domElt]);
                 self.diagram.notifyObservers({ name : "openContextualMenu", data: data, event: event });
-				//self.diagram.clickOn($(this).parent()[0], event, data, false);
 			});
 		self.computeNodeStyle(rect);
 		d3Node.append('text')
@@ -349,6 +333,7 @@ class NodeInstance_argument_force extends NodeInstance {
 			self.diagram.linkCreation.target.style("cursor", "default").transition().attr("fill-opacity", "0").duration(300);
 			self.diagram.linkCreation.target = null;
 		}
+		self.diagram.updateGraph();
 	}
 	dragNodeStarted(domElt, event, d) {
 		console.log("event", event.x, event.y);

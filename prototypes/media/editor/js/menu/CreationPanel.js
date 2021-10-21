@@ -45,6 +45,7 @@ class CreationPanel {
 				var position = pos;
 				var nodeData = self.diagram.builder.createNode($movedElt.data("archetype"));
 				var $node = diagram.addNode(nodeData, position);
+				diagram.updateGraph();
 				//diagram.setSelection([$node[0]]);
             }		  
 		}).disableSelection();				

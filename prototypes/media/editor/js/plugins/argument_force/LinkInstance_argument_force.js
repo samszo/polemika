@@ -51,7 +51,6 @@ class LinkInstance_argument_force extends LinkInstance {
                     selection.push(this);
                     self.diagram.setSelection(selection);
                 }
-				//self.diagram.clickOn(this, event, data, true);
 			});
         // define source and target data
         let src = d3.select("#gNode"+data.src);
@@ -94,27 +93,31 @@ class LinkInstance_argument_force extends LinkInstance {
 
             var p1 = this.getIntersection(dx, dy, cx1, cy1, w1, h1);
             var p2 = this.getIntersection(-dx, -dy, cx2, cy2, w2, h2);
-
-            d3Node
-                .attr('x1', p1.x)
-                .attr('y1', p1.y)
-                .attr('x2', p2.x)
-                .attr('y2', p2.y);
+            if (p1 != null && p2 != null)
+                d3Node
+                    .attr('x1', p1.x)
+                    .attr('y1', p1.y)
+                    .attr('x2', p2.x)
+                    .attr('y2', p2.y);
         }
 	}
 	getIntersection(dx, dy, cx, cy, w, h) {
-		if (Math.abs(dy / dx) < h / w) {
-			// Hit vertical edge of box1
-			return {
-				x: cx + (dx > 0 ? w : -w),
-				y: cy + dy * w / Math.abs(dx)
-			};
-		} else {
-			// Hit horizontal edge of box1
-			return {
-				x: cx + dx * h / Math.abs(dy),
-				y: cy + (dy > 0 ? h : -h)
-			};
+		if (dx == 0 && dy == 0)
+		    return null;
+		else {
+            if (Math.abs(dy / dx) < h / w) {
+                // Hit vertical edge of box1
+                return {
+                    x: cx + (dx > 0 ? w : -w),
+                    y: cy + dy * w / Math.abs(dx)
+                };
+            } else {
+                // Hit horizontal edge of box1
+                return {
+                    x: cx + dx * h / Math.abs(dy),
+                    y: cy + (dy > 0 ? h : -h)
+                };
+            }
 		}
 	}
 }

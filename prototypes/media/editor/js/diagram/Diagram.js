@@ -57,7 +57,7 @@ class Diagram extends PSubject {
 				if (!self.finalizeSelection) {
 					event.preventDefault();
 					event.stopPropagation();
-					self.clickOn(this, event, data, true);
+					self.setSelection([]);
 				} else
 					self.finalizeSelection = false;
 			})
@@ -66,7 +66,7 @@ class Diagram extends PSubject {
 				if (!self.ongoingSelection) {
 					event.preventDefault();
 					event.stopPropagation();
-					self.clickOn(this, event, data, false);
+					self.notifyObservers({ name : "openContextualMenu", data: data, event: event });
 				}
 			})
 			.on("mousedown", function(event, data) {
@@ -77,11 +77,6 @@ class Diagram extends PSubject {
 					var svg = self.svg;
 					var rect = svg.append("rect").attr('rx', 6).attr('ry', 6).attr('class', "selection").attr('x', p[0]).attr('y', p[1]).attr('width', 0).attr('height', 0).attr('stroke', 'gray').attr('stroke-dasharray', '4px').attr('stroke-opacity', '0.5').attr('fill', 'transparent');
 				}
-				/*else if (!event.ctrlKey) {
-					if (event.button == 2)
-						event.preventDefault();
-					self.clickOn(this, event, data, event.button != 2);
-				}*/
 			})
 			.on("mousemove", function(event) {
 			    //console.log(d3.pointer(event, d3.select("g.container")));
@@ -190,17 +185,9 @@ class Diagram extends PSubject {
 	updateGraph() {}
 
 	addNode(nodeData, pos) {
-		var self = this;
-		/*if (self.currentTransform) {
-			pos.x = pos.x - self.currentTransform.x;
-			pos.y = pos.y - self.currentTransform.y;
-			pos.x = pos.x / self.currentTransform.k;
-			pos.y = pos.y / self.currentTransform.k;			
-		}*/
 		nodeData.x = pos.x;
 		nodeData.y = pos.y;
-		self.data.nodes.push(nodeData);
-		this.updateGraph();
+		this.data.nodes.push(nodeData);
 		return $("#gNode"+nodeData.id);
 	}
 	deleteNode(node) {
@@ -210,36 +197,11 @@ class Diagram extends PSubject {
 	}
 	addLink(link) {
 		this.data.links.push(link);
-		this.updateGraph();
 	}
 	deleteLink(link) {
 		var index = this.data.links.indexOf(link.data);
 		if (index > -1)
 			this.data.links.splice(index, 1);
-	}
-	clickOn(domElt, event, data, leftClick) {
-		var isSvg = domElt.tagName == "svg";
-		if (!isSvg)
-			event.stopPropagation(); // if a rectNode is clicked, stop progation to not take into account container click event (we don't want to deselect just after)
-		var $elt = $(domElt);
-		if (leftClick && this.linkCreation.source == null) {			
-			if ($elt.hasClass("node") || $elt.hasClass("link")) {
-				var selection = this.selection.slice();
-				if (!event.ctrlKey)
-					selection = [];
-				selection.push(domElt);
-				this.setSelection(selection);
-			} else if ($elt.hasClass("svg")) {
-				this.setSelection([]);
-			}
-		} else if (!leftClick) {			
-			if (!isSvg) {
-				if (!_.contains(this.selection, domElt))
-					this.setSelection([domElt]);
-			}
-			this.notifyObservers({ name : "openContextualMenu", data: data, event: event });
-		}
-		
 	}
 	switchToEditionMode(editionMode) {
 		if (this.editionMode != editionMode) {
@@ -262,56 +224,5 @@ class Diagram extends PSubject {
 			this.selection = selection;
 			this.notifyObservers({ name : "selectionChanged" });
 		}
-	}	
-	dragNodeStarted(domElt, event, d) {
-		var node = this.builder.gotInstance($(domElt), d, this);
-		node.positionChanges = false;
-		//console.log("dragNodeStarted", domElt, event.x, event.y);
-		//d3.event.sourceEvent.stopPropagation();
-		//let n = d3.select(d3.event.currentTarget);
-		//if (!d3.event.active) graphLayout.alphaTarget(0.3).restart();
-		//d.x = 0;
-		//d.y = 0;
-	}
-	draggingNode(domElt, event, d) {
-		//console.log("draggingNode", domElt, event.x, event.y);
-		var self = this;
-		d.x = event.x;
-		d.y = event.y;
-		d3.select(domElt).attr('transform','translate('+d.x + "," + d.y+')');
-		var node = self.builder.gotInstance($(domElt), d, self);
-		node.positionChanges = true;
-		$.each(node.inputs, function(index, link) {
-			var src = link.sourceNode;
-			var dst = link.targetNode;
-			link = d3.select(link.domElt[0]);
-			self.setLinkPosition(link, src, dst);
-		});				
-		/*$.each(d.inputs, function(index, link) {
-			var src = link.data()[0].sourceNode;
-			var dst = link.data()[0].targetNode;
-			self.setLinkPosition(link, src, dst);
-		});*/
-		$.each(node.outputs, function(index, link) {
-			var src = link.sourceNode;
-			var dst = link.targetNode;
-			link = d3.select(link.domElt[0]);
-			self.setLinkPosition(link, src, dst);
-		});
-		/*$.each(d.outputs, function(index, link) {
-			var src = link.data()[0].sourceNode;
-			var dst = link.data()[0].targetNode;
-			self.setLinkPosition(link, src, dst);
-		});*/
-	}
-	dragNodeEnded(domElt, event, data) {
-		//console.log("dragNodeEnded", domElt, event.x, event.y);
-		var node = this.builder.gotInstance($(domElt), data, this);
-		if (node.positionChanges)
-		//var data = d3.select(domElt).data()[0];
-			this.model.notifyChange(data);
-		//if (!d3.event.active) graphLayout.alphaTarget(0);
-		//d.x = null;
-		//d.y = null;
 	}
 }

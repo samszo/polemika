@@ -59,7 +59,7 @@
          "label":"XXX",
          "id":10101,
          "idArchetype":8390,
-         "src":6283,
+         "src":6416,
          "dst":10001,
          "urlAdmin":"\/polemika\/omk\/admin\/item\/6320\/edit",
          "style":{
@@ -89,7 +89,7 @@
          "label":"ZZZ",
          "id":10103,
          "idArchetype":8390,
-         "src":6283,
+         "src":6416,
          "dst":10003,
          "urlAdmin":"\/polemika\/omk\/admin\/item\/6297\/edit",
          "style":{

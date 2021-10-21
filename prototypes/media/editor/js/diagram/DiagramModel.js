@@ -40,6 +40,5 @@ class DiagramModel {
 			updated: $.map(this.data.updated, function(obj) { return self.serializeData(obj); })
 		};
 		return result;
-		//return this.data;
 	}
 }

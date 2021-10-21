@@ -30,7 +30,12 @@ class Editor {
 		var $button = $("button[action=test]");
 		$button.bind("click", function() {
 			console.log("TEST");
-			self.getCurrentDiagram().startAutoLayout(self.getCurrentDiagram().selection);
+            var diagram = self.getCurrentDiagram();
+            var nodes = [];
+            $.each(diagram.selection, function(index, domElt) {
+                nodes.push(diagram.builder.gotInstance($(domElt)));
+            });
+			self.getCurrentDiagram().startAutoLayout(nodes);
 		});
 		var $button = $("button[action=save]");
 		$button.bind("click", function() {
@@ -72,13 +77,18 @@ class Editor {
 				if (selection.length == 1) {
 					//console.log("manageEvent", 1);
 					var $selection = $(selection[0]);
-					if ($selection.hasClass("node"))
-						this.enableTextEditor($selection.find(".labelNode").text().trim());
-					else
-						this.disableTextEditor();
+					if ($selection.hasClass("node")) {
+                        this.editionPanel.setValue($selection.find(".labelNode").text().trim());
+                        this.editionPanel.focus();
+                        this.menu.enable("menu-edition");
+                        this.menu.show("menu-edition");
+					} else {
+                        this.menu.show(this.lastTab);
+                        this.menu.disable("menu-edition");
+					}
 				} else {
-					//console.log("manageEvent", 2);
-					this.disableTextEditor();
+                    this.menu.show(this.lastTab);
+                    this.menu.disable("menu-edition");
 				}
 				this.contextualMenu.close();				
 			} else if (event.name == "openContextualMenu") {
@@ -103,7 +113,13 @@ class Editor {
 		return $elt.data("object");
 	}
 	initMenu() {
-		var self = this;		
+		var self = this;
+		this.menu = new Tabs($("#tab-example"));
+		this.lastTab = this.menu.currentTab;
+		this.menu.addObserver(function(event, subject) {
+			if (self.menu.currentTab != "menu-edition")
+			    self.lastTab = self.menu.currentTab;
+		});
 		this.contextualMenu = new ContextualMenu(this.menuRoot.find(".nodeArchetypes"), this);
 		// bind external actions		
 		this.menuRoot.find(".carte-layout-selector").bind("change", function() {
@@ -147,17 +163,6 @@ class Editor {
 	showPanel($panel) {
 		$panel.closest(".panel-multipanes").children().removeClass("selected");
 		$panel.addClass("selected");
-	}
-	enableTextEditor(text) {
-		this.editionPanel.setValue(text)
-		this.showPanel($(".panel-edition"));
-		this.editionPanel.focus();
-	}
-	disableTextEditor() {
-		this.showPanel($(".panel-adder"));
-		var $input = this.menuRoot.find(".panel-edition input");
-		$input.val("");
-		$input.prop("disabled", true);
 	}
 	loadDiagram(diagramData, layoutPanel) {
 		var self = this;

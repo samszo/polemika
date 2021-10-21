@@ -116,30 +116,38 @@
                         <div class="col-12">
                             <div class="polemika-editor-container">
 								<div class="polemika-editor-menu">
-									<!-- menu -->
-									<div class="carte-selector form-group form-group-flex">
-										<label for="carte-selector-input1">Carte :</label>
-										<input type="text" class="form-control" id="carte-selector-input1" placeholder="http(s)://...">
-									    <label for="carte-selector-select1">Layout :</label>
-										<select class="carte-layout-selector form-control" id="carte-selector-select1">
-										    <option selected>full</option>
-										    <option>split-v</option>
-											<option>split-h</option>
-									    </select>
-										<button action="save">SAVE</button>
-										<button action="test">XXX</button>
-									</div>
-									<div class="panel-multipanes">
-										<div class="panel panel-adder hide selected">
-											<!-- dynamic content -->
+									<div id="tab-example">
+										<div id="tabs" style="width: 100%;"></div>
+										<div id="menu-general" class="tab hidden" tab-name="General">
+											<div class="carte-selector form-group form-group-flex">
+												<label for="carte-selector-input1">Carte :</label>
+												<input type="text" class="form-control" id="carte-selector-input1" placeholder="http(s)://...">
+												<label for="carte-selector-select1">Layout :</label>
+												<select class="carte-layout-selector form-control" id="carte-selector-select1">
+													<option selected>full</option>
+													<option>split-v</option>
+													<option>split-h</option>
+												</select>
+												<button action="save">SAVE</button>
+												<button action="test">XXX</button>
+											</div>										</div>
+										<div id="menu-creation" class="tab hidden" tab-name="Creation">
+											<div class="panel-multipanes">
+												<div class="panel panel-adder hide selected">
+													<!-- dynamic content -->
+												</div>
+											</div>
 										</div>
-										<div class="panel panel-edition hide">
-											<div class="form-group form-group-flex">
-												<label for="text-editor-input1">Valeur :</label>
-												<div class="text-container form-control" style="display: flex; height: auto;"></div>
+										<div id="menu-edition" class="tab hidden" tab-name="Edition" tab-disabled>
+											<div class="panel panel-edition">
+												<div class="form-group form-group-flex">
+													<label>Valeur :</label>
+													<div class="text-container form-control" style="display: flex; height: auto;"></div>
+												</div>
 											</div>
 										</div>
 									</div>
+									<!-- menu -->
 								</div>
 								<div class="polemika-editor-instance-container" tabindex=0>
 									<!-- editor -->
@@ -310,7 +318,6 @@
 		<script src='media/editor/js/plugins/argument_force/NodeInstance_argument_force.js'></script>
 		<script src='media/editor/js/plugins/argument_force/LinkArchetype_argument_force.js'></script>
 		<script src='media/editor/js/plugins/argument_force/LinkInstance_argument_force.js'></script>
-		<script src='media/editor/js/plugins/argument_force/Layout_argument_force.js'></script>
 
 		<script src='media/common/js/Proto.js'></script>
 		<script src='media/common/js/ProtoAPI.js'></script>
@@ -322,6 +329,7 @@
 		<script src='media/common/underscore/underscore.js'></script>
 		<script src='media/common/jquery-ui/js/jquery-ui.js'></script>
 		<script src='media/common/w2ui/w2ui-1.5.min.js'></script>
+		<script src='media/common/w2ui/Tabs.js'></script>
 		<script src="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2/dist/spectrum.min.js"></script>
 
 		<script>
