@@ -63,12 +63,16 @@ class PInputField extends PObject {
     setAsInvalid(message) {
         if (message)
             this.node.find(".invalid-feedback").text(message);
-        if (this.fieldNode)
+        if (this.fieldNode) {
             this.fieldNode.addClass("is-invalid");
+            this.node.addClass("is-invalid");
+        }
     }
     setAsValid() {
-        if (this.fieldNode)
+        if (this.fieldNode) {
             this.fieldNode.removeClass("is-invalid");
+            this.node.removeClass("is-invalid");
+        }
     }
     getValue() {
         return this.fieldNode.val();

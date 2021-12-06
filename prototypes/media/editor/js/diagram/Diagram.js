@@ -4,6 +4,7 @@ class Diagram extends PSubject {
 		super();
 		var self = this;
         self.editor = params.editor;
+        self.diagramData = params.diagramData;
 		self.builder = this.createBuilder();
 		self.creationPanel = self.editor.creationPanelContainer.createCreationPanel(self, params.archetypes);
 		self.node = params.container;
@@ -18,6 +19,29 @@ class Diagram extends PSubject {
 		self.textMargin = 4; //parseInt(self.styles[0]["concept-style"]["text-margin"]);
 		self.selection = [];
     }
+	getName() {
+	    return this.diagramData.name;
+	}
+	setName(newName, callback) {
+	    var self = this;
+	    this.editor.api.changeDiagramName(this.diagramData, newName, function(result) {
+	        if (result == true) {
+                self.diagramData.name = newName;
+                self.editor.menuRoot.find(".carte-selector input").val(newName);
+                self.editor.initDiagramChooser();
+	        }
+	        callback(result);
+	    })
+	}
+	delete(callback) {
+	    var self = this;
+	    this.editor.api.deleteDiagram(this.diagramData, function() {
+	        self.editor.diagrams = _.reject(self.editor.diagrams, self.diagramData);
+	        self.editor.initDiagramChooser();
+	        self.editor.unloadDiagram(this);
+	        callback();
+	    })
+	}
     load(data) {
 		this.data = data;
 		this.normalizeData(data);

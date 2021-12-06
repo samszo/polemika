@@ -9,6 +9,7 @@ class Editor {
 		this.creationPanelContainer = new CreationPanelContainer($(".panel-adder", $node));
 		this.carte = null;
 		this.options = options
+		this.diagrams = this.options.diagrams;
 		var defaultOptions = {
 			layout: "full"
 		};
@@ -25,6 +26,8 @@ class Editor {
 		//var style = "background-color: rgb(237, 244, 246); color: black; border-width: 1px; border-color: rgb(255, 150, 0); font-weight: bolder; font-style: italic;";
 		this.nodeStyleModal = new NodeStyleModal("nodeStyleModal");
 		this.reificationModal = new ReificationModal("reificationModal");
+		this.renameDiagramModal = new RenameDiagramModal("renameDiagramModal");
+		this.deleteDiagramModal = new DeleteDiagramModal("deleteDiagramModal");
 		//this.nodeStyleModal.open();
 
 		this.node.find("button[action=test]").bind("click", function() {
@@ -39,6 +42,12 @@ class Editor {
 		this.node.find("button[action=save]").bind("click", function() {
 			var changes = self.getCurrentDiagram().model.getChanges();
 			console.log(JSON.stringify(changes, null, 2));
+		});
+		this.node.find("button[action=renameDiagram]").bind("click", function() {
+            self.renameDiagramModal.open(self.getCurrentDiagram());
+		});
+		this.node.find("button[action=deleteDiagram]").bind("click", function() {
+            self.deleteDiagramModal.open(self.getCurrentDiagram());
 		});
     }
 	bindSelectionMode() {
@@ -110,6 +119,27 @@ class Editor {
 	getObject($elt) {
 		return $elt.data("object");
 	}
+	initDiagramChooser() {
+		var self = this;
+		if (this.diagrams) {
+			var diagramNames = _.map(this.diagrams, function(obj){ return obj.name; });
+			this.menuRoot.find(".carte-selector input").autocomplete({
+				source: diagramNames,
+				select: function(event, ui) {
+					var diagramName = ui.item.label;
+					var diagram = _.find(self.diagrams, function(obj){ return obj.name == diagramName; });
+					self.loadDiagram(diagram);
+				}
+			});
+		}
+		this.menuRoot.find(".carte-selector input").bind("keyup", function(event) {
+			if (event.keyCode == 13) {
+			    var diagramName = $(this).val().trim();
+			    var diagram = _.find(self.diagrams, function(obj){ return obj.name == diagramName; });
+			    self.loadDiagram(diagram);
+			}
+		});
+	}
 	initMenu() {
 		var self = this;
 		this.menu = new Tabs($("#tab-example"));
@@ -118,6 +148,7 @@ class Editor {
 			if (self.menu.currentTab != "menu-edition")
 			    self.lastTab = self.menu.currentTab;
 		});
+		this.menu.disable("menu-creation");
 		this.contextualMenu = new ContextualMenu(this.menuRoot.find(".nodeArchetypes"), this);
 		// bind external actions		
 		this.menuRoot.find(".carte-layout-selector").bind("change", function() {
@@ -127,24 +158,7 @@ class Editor {
 		});
 		this.menuRoot.find(".carte-layout-selector").val(self.options.layout);
 		// init carte selector
-		if (this.options.diagrams) {
-			var diagramNames = _.map(this.options.diagrams, function(obj){ return obj.name; });
-			this.menuRoot.find(".carte-selector input").autocomplete({
-				source: diagramNames,
-				select: function(event, ui) {					
-					var diagramName = ui.item.label;
-					var diagram = _.find(self.options.diagrams, function(obj){ return obj.name == diagramName; });
-					self.loadDiagram(diagram);
-				}
-			});
-		}
-		this.menuRoot.find(".carte-selector input").bind("keyup", function(event) {
-			if (event.keyCode == 13) {
-			    var diagramName = $(this).val().trim();
-			    var diagram = _.find(self.options.diagrams, function(obj){ return obj.name == diagramName; });
-			    self.loadDiagram(diagram);
-			}
-		});
+		this.initDiagramChooser();
 		// init multi-panes
 		var $multiPanes = this.menuRoot.find(".panel-multipanes");	
 		var maxHeight = Math.max.apply(null, $multiPanes.map(function ()
@@ -162,6 +176,14 @@ class Editor {
 		$panel.closest(".panel-multipanes").children().removeClass("selected");
 		$panel.addClass("selected");
 	}
+	unloadDiagram(diagram) {
+        console.log("unload diagram");
+        this.menuRoot.find(".carte-selector input").val("");
+        this.menu.disable("menu-creation");
+        var $carteContainer = this.layout.getSelectedPanel();
+        $carteContainer.empty();
+        this.currentDiagram = null;
+	}
 	loadDiagram(diagramData, layoutPanel) {
 		var self = this;
 		var $carteContainer = layoutPanel == null ? this.layout.getSelectedPanel() : this.layout.getPanel(layoutPanel);
@@ -174,7 +196,9 @@ class Editor {
 			var params = {
 				editor : self,
 				archetypes: lock2.result,
-				container: $carteContainer
+				container: $carteContainer,
+				diagramData: diagramData,
+				layoutPanel: layoutPanel
 			};
 			var diagramClass = eval(diagramData.type);
 			self.currentDiagram = new diagramClass(params);
@@ -184,6 +208,7 @@ class Editor {
 			});
 			self.menuRoot.find(".carte-selector input").val(diagramData.name);
 			self.currentDiagram.load(lock1.result);
+			self.menu.enable("menu-creation");
         });		
 		
 		/*$.ajax({

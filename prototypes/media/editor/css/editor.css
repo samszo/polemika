@@ -148,4 +148,30 @@ svg.svg .actionsPopup .action:hover {
 	color: white;	
 	background-color: blue;
 }
-
+.actionsPanel {
+    margin-left: 10px;
+    display: flex;
+}
+.actionsPanel button {
+    position: relative;
+    padding: 0px 10px;
+    text-align: center;
+    color: #000;
+    background-color: transparent;
+    border: 1px solid silver;
+    white-space: nowrap;
+    margin: 0px 2px;
+    border-radius: 4px 4px 0 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease-out, color 0.3s ease-out;
+}
+.actionsPanel button:hover {
+    background-color: #1894d9;
+    color: white;
+}
+.ui-menu.ui-autocomplete {
+    z-index: 1000;
+}
+.is-invalid .invalid-feedback {
+    display: block;
+}

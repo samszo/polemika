@@ -15,6 +15,23 @@ class EditorAPI extends ProtoAPI {
             }
         );
 	}
+	changeDiagramName(diagramData, newName, callback) {
+	    console.log("TODO EditorAPI.changeDiagramName", diagramData, newName);
+	    // TODO enable waiter ...
+	    // TODO	 call sevrer
+	    // when done ...
+	        // TODO disable waiter
+	        // callback(true);
+	        callback("a diagram exists with this name"); // if the diagram can not be renamed, give a feedback
+	}
+	deleteDiagram(diagramData, callback) {
+	    console.log("TODO EditorAPI.deleteDiagram", diagramData);
+	    // TODO enable waiter ...
+	    // TODO	 call sevrer
+	    // when done ...
+	        // TODO disable waiter
+	        callback();
+	}
 	getConceptsDansCrible(callback) {
         var self = this;
         if (this.conceptsDansCrible != null)
