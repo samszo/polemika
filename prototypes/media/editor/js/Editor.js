@@ -26,9 +26,8 @@ class Editor {
 		this.nodeStyleModal = new NodeStyleModal("nodeStyleModal");
 		this.reificationModal = new ReificationModal("reificationModal");
 		//this.nodeStyleModal.open();
-		
-		var $button = $("button[action=test]");
-		$button.bind("click", function() {
+
+		this.node.find("button[action=test]").bind("click", function() {
 			console.log("TEST");
             var diagram = self.getCurrentDiagram();
             var nodes = [];
@@ -37,8 +36,7 @@ class Editor {
             });
 			self.getCurrentDiagram().startAutoLayout(nodes);
 		});
-		var $button = $("button[action=save]");
-		$button.bind("click", function() {
+		this.node.find("button[action=save]").bind("click", function() {
 			var changes = self.getCurrentDiagram().model.getChanges();
 			console.log(JSON.stringify(changes, null, 2));
 		});

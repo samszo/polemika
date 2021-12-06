@@ -21,6 +21,8 @@ class Archetype extends StyledObject {
 	}
 	setName(name) {
 		this.data.name = name;
+		this.node.text(name);
+		this.diagram.model.notifyChange(this.data);
 	}
 	instanciate(domElt, data, diagram) {
 		var instance = new Instance(domElt, data, this, diagram);

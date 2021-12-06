@@ -6,6 +6,7 @@ class CreationPanelContainer {
     }
 	createCreationPanel(diagram, archetypesData) {
         var creationPanel = diagram.builder.createCreationPanel(diagram, archetypesData);
+        this.node.empty();
         this.node.append(creationPanel.node);
         return creationPanel;
 	}
